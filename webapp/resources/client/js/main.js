@@ -431,106 +431,231 @@
 
 
 
-// // Kiểm tra trạng thái đăng nhập từ localStorage
-// let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-
-// // Nội dung khi chưa đăng nhập
-// const loginContent = `
-//     <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#login" id="loginBtn">
-//         Đăng nhập
-//     </button>
-// `;
-
-// // Nội dung khi đã đăng nhập (tạm thời để đơn giản, bạn có thể thay bằng nội dung khác)
-// const loggedInContent = `
-           
-
-//                 <a href="http://localhost:8080/" class="navbar-brand" style="margin-top: 10px !important;">
-//                     <h4 class="text-primary display-10"> HotLine: 0385382597</h4>
-
-//                 </a>
-//                 <a href="" class="position-relative me-4 my-auto">
-//                     <i class="fa fa-phone fa-2x"></i>
-
-//                 </a>
+document.querySelector(".back-to-top").addEventListener("click", function (event) {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
 
-//                 <a href="http://localhost:8080/cart" class="position-relative me-4 my-auto">
-//                     <i class="fa fa-shopping-bag fa-2x"></i>
-//                     <span
-//                         class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
-//                         style="top: -5px; left: 15px; height: 20px; min-width: 20px;" id="sunCart">
-//                         2
-//                     </span>
-//                 </a>
-//                 <div class="dropdown my-auto">
-//                     <a href="http://localhost:8080/#" class="dropdown" role="button" id="dropdownMenuLink"
-//                         data-bs-toggle="dropdown" aria-expanded="false">
-//                         <i class="fas fa-user fa-2x"></i>
-//                     </a>
+// Kiểm tra trạng thái đăng nhập từ localStorage
+let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
-//                     <ul class="dropdown-menu dropdown-menu-end p-4" aria-labelledby="dropdownMenuLink">
-//                         <li class="d-flex align-items-center flex-column" style="min-width: 300px;">
-//                             <img style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden;">
-//                             <div class="text-center my-3">
-//                                 SOS Nu
-//                             </div>
-//                         </li>
+// Nội dung khi chưa đăng nhập
+const loginContent = `
+        <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
+                    data-bs-toggle="modal" data-bs-target="#searchModal">
+                <i class="fas fa-search text-primary"></i>
+        </button>
+      <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#login" id="loginBtn">
+          Đăng nhập
+      </button>
+  `;
 
-//                         <li><a class="dropdown-item" href="http://localhost:8080/#">Quản lý tài khoản</a></li>
+// Nội dung khi đã đăng nhập (tạm thời để đơn giản, bạn có thể thay bằng nội dung khác)
+const loggedInContent = `
+                 
 
-//                         <li><a class="dropdown-item" href="http://localhost:8080/order-history">Lịch sử mua
-//                                 hàng</a></li>
-//                         <li>
-//                             <hr class="dropdown-divider">
-//                         </li>
-//                         <li>
-//                             <form method="post" action="http://localhost:8080/logout">
-//                                 <input type="hidden" name="_csrf"
-//                                     value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp">
-//                                 <button class="dropdown-item">Đăng xuất</button>
+                    <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
+                        data-bs-toggle="modal" data-bs-target="#searchModal">
+                        <i class="fas fa-search text-primary"></i>
+                    </button>
+                  <a href="http://localhost:8080/cart" class="position-relative me-4 my-auto">
+                      <i class="fa fa-shopping-bag fa-2x"></i>
+                      <span
+                          class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+                          style="top: -5px; left: 15px; height: 20px; min-width: 20px;" id="sunCart">
+                          2
+                      </span>
+                  </a>
+                  <div class="dropdown my-auto">
+                      <a href="http://localhost:8080/#" class="dropdown" role="button" id="dropdownMenuLink"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fas fa-user fa-2x"></i>
+                      </a>
 
-//                             </form>
-//                         </li>
-//                     </ul>
+                      <ul class="dropdown-menu dropdown-menu-end p-4" aria-labelledby="dropdownMenuLink">
+                          <li class="d-flex align-items-center flex-column" style="min-width: 300px;">
+                              <img style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden;">
+                              <div class="text-center my-3">
+                                  SOS Nu
+                              </div>
+                          </li>
+
+                          <li><a class="dropdown-item" href="http://localhost:8080/#">Quản lý tài khoản</a></li>
+
+                          <li><a class="dropdown-item" href="http://localhost:8080/order-history">Lịch sử mua
+                                  hàng</a></li>
+                          <li>
+                              <hr class="dropdown-divider">
+                          </li>
+                          <li>
+                              <form method="post" action="">
+                                  <input method="post" type="hidden" >
+                                  <button class="btn btn-danger" onclick="logout()">Đăng xuất</button>
+                              </form>
+                          </li>
+                      </ul>
+                  </div>
+  `;
+
+function renderContent() {
+    document.getElementById('authSection').innerHTML = isLoggedIn ? loggedInContent : loginContent;
+}
+
+// Xử lý sự kiện submit form đăng nhập
+document.getElementById('loginForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Ngăn form gửi thật (vì không có server)
+
+    // Giả lập kiểm tra đăng nhập thành công (thay bằng logic thực nếu có)
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (username && password) { // Kiểm tra đơn giản
+        isLoggedIn = true;
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('username', username); // Lưu username nếu cần
+        renderContent(); // Cập nhật giao diện
+        bootstrap.Modal.getInstance(document.getElementById('login')).hide(); // Đóng modal
+    } else {
+        alert('Vui lòng nhập email và mật khẩu!');
+    }
+});
+
+// Hàm đăng xuất
+function logout() {
+    isLoggedIn = false;
+    localStorage.setItem('isLoggedIn', 'false');
+    localStorage.removeItem('username');
+    renderContent();
+}
+
+// Hiển thị nội dung ban đầu khi tải trang
+renderContent();
 
 
-//                 </div>
+//search
+document.getElementById('searchButton').addEventListener('click', function () {
+    const searchValue = document.getElementById('searchInput').value.toLowerCase();
+    const activeTab = document.querySelector('.tab-pane.active');
+    const products = Array.from(activeTab.querySelectorAll('.fruite-item')); // Chuyển thành mảng
+    const productContainer = activeTab.querySelector('.row'); // Container chứa các sản phẩm
 
-          
-// `;
+    // Khôi phục trạng thái hiển thị
+    products.forEach(function (product) {
+        product.style.display = '';
+    });
 
-// // Hàm hiển thị nội dung dựa trên trạng thái
-// function renderContent() {
-//     document.getElementById('authSection').innerHTML = isLoggedIn ? loggedInContent : loginContent;
-// }
+    if (searchValue.trim() === '') {
+        // Sắp xếp lại theo thứ tự ban đầu nếu ô tìm kiếm rỗng
+        products.sort((a, b) => {
+            return parseInt(a.querySelector('button').getAttribute('data-product-id')) -
+                parseInt(b.querySelector('button').getAttribute('data-product-id'));
+        });
+    } else {
+        // Lọc và sắp xếp sản phẩm khớp lên đầu
+        const matchedProducts = products.filter(function (product) {
+            const productName = product.querySelector('h4').textContent.toLowerCase();
+            const productSpecs = product.querySelector('p').textContent.toLowerCase();
+            return productName.includes(searchValue) || productSpecs.includes(searchValue);
+        });
 
-// // Xử lý sự kiện submit form đăng nhập
-// document.getElementById('loginForm').addEventListener('submit', function (event) {
-//     event.preventDefault(); // Ngăn form gửi thật (vì không có server)
+        const unmatchedProducts = products.filter(function (product) {
+            const productName = product.querySelector('h4').textContent.toLowerCase();
+            const productSpecs = product.querySelector('p').textContent.toLowerCase();
+            return !(productName.includes(searchValue) || productSpecs.includes(searchValue));
+        });
 
-//     // Giả lập kiểm tra đăng nhập thành công (thay bằng logic thực nếu có)
-//     const username = document.getElementById('username').value;
-//     const password = document.getElementById('password').value;
+        // Xóa tất cả sản phẩm khỏi container
+        productContainer.innerHTML = '';
 
-//     if (username && password) { // Kiểm tra đơn giản
-//         isLoggedIn = true;
-//         localStorage.setItem('isLoggedIn', 'true');
-//         localStorage.setItem('username', username); // Lưu username nếu cần
-//         renderContent(); // Cập nhật giao diện
-//         bootstrap.Modal.getInstance(document.getElementById('login')).hide(); // Đóng modal
-//     } else {
-//         alert('Vui lòng nhập email và mật khẩu!');
-//     }
-// });
+        // Thêm lại sản phẩm khớp lên đầu
+        matchedProducts.forEach(function (product) {
+            productContainer.appendChild(product.parentElement); // Thêm lại vào container
+        });
 
-// // Hàm đăng xuất
-// function logout() {
-//     isLoggedIn = false;
-//     localStorage.setItem('isLoggedIn', 'false');
-//     localStorage.removeItem('username');
-//     renderContent();
-// }
+        // Thêm lại sản phẩm không khớp (ẩn đi)
+        unmatchedProducts.forEach(function (product) {
+            product.style.display = 'none';
+            productContainer.appendChild(product.parentElement);
+        });
+    }
+});
 
-// // Hiển thị nội dung ban đầu khi tải trang
-// renderContent();
+document.getElementById('searchInput').addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        document.getElementById('searchButton').click();
+    }
+});
+
+
+//dieu chinh trong tab dang tuy chon
+document.getElementById('searchButton').addEventListener('click', function () {
+    const searchValue = document.getElementById('searchInput').value.toLowerCase();
+
+    // Lấy tab hiện tại (có lớp 'active')
+    const activeTab = document.querySelector('.tab-pane.active');
+    // Lấy các sản phẩm trong tab hiện tại
+    const products = activeTab.querySelectorAll('.fruite-item');
+
+    products.forEach(function (product) {
+        const productName = product.querySelector('h4').textContent.toLowerCase();
+        const productSpecs = product.querySelector('p').textContent.toLowerCase();
+
+        if (productName.includes(searchValue) || productSpecs.includes(searchValue)) {
+            product.style.display = '';
+        } else {
+            product.style.display = 'none';
+        }
+    });
+});
+
+document.getElementById('searchInput').addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        document.getElementById('searchButton').click();
+    }
+});
+
+
+
+// search vs model
+$(document).ready(function () {
+    // Tìm kiếm thời gian thực trong modal
+    $('#modalSearchInput').on('input', function () {
+        const searchValue = $(this).val().toLowerCase();
+        const searchResultsContainer = $('#searchResults');
+        const noResultsMessage = $('#no-results-message');
+        const activeTab = $('.tab-pane.active');
+        const products = activeTab.find('.fruite-item').clone(); // Sao chép sản phẩm từ tab hiện tại
+
+        // Xóa kết quả cũ
+        searchResultsContainer.empty();
+
+        if (searchValue.trim() === '') {
+            noResultsMessage.hide();
+            return;
+        }
+
+        // Lọc sản phẩm
+        const matchedProducts = products.filter(function () {
+            const productName = $(this).find('h4').text().toLowerCase();
+            const productSpecs = $(this).find('p').text().toLowerCase();
+            return productName.includes(searchValue) || productSpecs.includes(searchValue);
+        });
+
+        // Hiển thị kết quả
+        matchedProducts.each(function () {
+            const productClone = $(this).clone().removeClass('hidden visible').addClass('visible');
+            const col = $('<div class="col-md-6 col-lg-4 col-xl-3"></div>').append(productClone);
+            searchResultsContainer.append(col);
+        });
+
+        // Hiển thị thông báo nếu không có kết quả
+        noResultsMessage.css('display', matchedProducts.length === 0 ? 'block' : 'none');
+    });
+
+    // Xóa ô tìm kiếm khi đóng modal
+    $('#searchModal').on('hidden.bs.modal', function () {
+        $('#modalSearchInput').val('');
+        $('#searchResults').empty();
+        $('#no-results-message').hide();
+    });
+});

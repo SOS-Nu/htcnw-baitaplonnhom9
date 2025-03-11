@@ -55,6 +55,13 @@
                             class="text-white">IUH Nguyễn Văn Bảo,TP.Hồ Chí Minh</a></small>
                     <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#"
                             class="text-white">nhokanhanh@gmail.com</a></small>
+                    <small class="me-3">
+                        <i class="fa fa-phone me-2 text-secondary"></i>
+                        <a href="" class="text-white">
+                            0385382597
+                        </a>
+                    </small>
+
                 </div>
                 <div class="top-link pe-2">
                     <a href="#" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
@@ -132,7 +139,14 @@
 
                     </div> -->
 
+
+
                     <div class="d-flex m-3 me-0" id="authSection">
+                        <button
+                            class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
+                            data-bs-toggle="modal" data-bs-target="#searchModal">
+                            <i class="fas fa-search text-primary"></i>
+                        </button>
                         <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal"
                             data-bs-target="#login" id="loginBtn">
                             Đăng nhập
@@ -292,12 +306,19 @@
                 <div class="col-md-12 col-lg-7">
                     <h4 class="mb-3 text-secondary">100% Sản Phẩm Chính Hãng</h4>
                     <h1 class="mb-5 display-3 text-primary">Hàng cao cấp<br> Rẻ vô địch</h1>
+                    <div class="position-relative mx-auto">
+                        <input class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill" type="text"
+                            placeholder="Search Products" id="searchInput">
+                        <button type="submit"
+                            class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100"
+                            style="top: 0; right: 25%;" id="searchButton">Submit Now</button>
+                    </div>
                 </div>
                 <div class="col-md-12 col-lg-5 ">
                     <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
                         <div class="carousel-inner" role="listbox">
                             <div class="carousel-item rounded active">
-                                <img src="../../../../resources/client/img/hero-img-1.png"
+                                <img src="../../../../resources/client/img/hero-img-4.png"
                                     class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
                                 <a href="http://localhost:8080/#" class="btn px-4 py-2 text-white rounded">Gaming</a>
                             </div>
@@ -329,7 +350,42 @@
     </div>
     <!-- Hero End -->
 
-    <!-- Fruits Shop Start-->
+
+
+    <!-- model search  start-->
+    <div class="modal fade " id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="text-primary" id="searchModalLabel">Tìm
+                        kiếm
+                        sản phẩm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="modalSearchInput"
+                            placeholder="Nhập tên sản phẩm hoặc thông số...">
+                    </div>
+                    <div class="modal-search-results">
+                        <div class="row" id="searchResults">
+                            <!-- Kết quả tìm kiếm sẽ được thêm vào đây -->
+                        </div>
+                        <div id="no-results-message" class="text-center text-muted mt-4" style="display: none;">
+                            Không tìm thấy sản phẩm nào khớp với từ khóa.
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn  bg-primary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- model search end-->
+
+
+    <!-- laptop Shop Start-->
     <div class="container-fluid fruite py-5">
         <div class="container py-5">
             <div class="tab-class text-center">
@@ -340,56 +396,61 @@
                     <div class="col-lg-8 text-end">
                         <ul class="nav nav-pills d-inline-flex text-center mb-5">
                             <li class="nav-item">
-                                <a class="d-flex m-2 py-2 bg-light rounded-pill active"
-                                    href="http://localhost:8080/products">
+                                <a class="d-flex m-2 py-2 bg-light rounded-pill active" data-bs-toggle="pill"
+                                    href="#tab-1">
                                     <span class="text-dark" style="width: 130px;">All Products</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-2">
+                                    <span class="text-dark" style="width: 130px;">Laptop Asus</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-3">
+                                    <span class="text-dark" style="width: 130px;">MacBook</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-4">
+                                    <span class="text-dark" style="width: 130px;">Acer</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="tab-content">
+                    <!-- Tab All Products -->
                     <div id="tab-1" class="tab-pane fade show p-0 active">
                         <div class="row g-4">
                             <div class="col-lg-12">
                                 <div class="row g-4">
-
+                                    <!-- 1. Asus TUF Gaming -->
                                     <div class="col-md-6 col-lg-4 col-xl-3">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
-                                                <img src="../../../../resources/images/product//1711078092373-asus-01.png"
+                                                <img src="../../../../resources/images/product/1711078092373-asus-01.png"
                                                     class="img-fluid w-100 rounded-top" alt="">
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                                                 style="top: 10px; left: 10px;">Laptop</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4 style="font-size: 15px;">
-                                                    <a href="http://localhost:8080/product/1">
-                                                        Laptop Asus TUF Gaming
-                                                    </a>
-
+                                                    <a href="http://localhost:8080/product/1">Laptop Asus TUF Gaming</a>
                                                 </h4>
-                                                <p style="font-size: 13px;"> Intel, Core i5, 11400H</p>
-                                                <div class="d-flex  flex-lg-wrap justify-content-center flex-columns">
+                                                <p style="font-size: 13px;">Intel Core i5-11400H</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
                                                     <p style="font-size: 15px; text-align: center; width: 100%;"
-                                                        class="text-dark  fw-bold mb-3">
-                                                        17,490,000 đ
-                                                    </p>
-                                                    <!-- <form action="/add-product-to-cart/1"
-                                                                        method="post">
-                                                                        <input type="hidden"
-                                                                            name="_csrf"
-                                                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp" /> -->
+                                                        class="text-dark fw-bold mb-3">17,490,000 đ</p>
                                                     <button data-product-id="1"
-                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                        Add to cart</button>
-                                                    <!-- </form> -->
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <!-- 2. Dell Inspiron 15 -->
                                     <div class="col-md-6 col-lg-4 col-xl-3">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
@@ -400,320 +461,394 @@
                                                 style="top: 10px; left: 10px;">Laptop</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4 style="font-size: 15px;">
-                                                    <a href="http://localhost:8080/product/2">
-                                                        Laptop Dell Inspiron 15
-                                                    </a>
-
+                                                    <a href="http://localhost:8080/product/2">Laptop Dell Inspiron
+                                                        15</a>
                                                 </h4>
-                                                <p style="font-size: 13px;">i5 1235U/16GB/512GB/15.6"FHD</p>
-                                                <div class="d-flex  flex-lg-wrap justify-content-center flex-columns">
+                                                <p style="font-size: 13px;">Intel Core i5-1235U, 16GB RAM, 512GB SSD</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
                                                     <p style="font-size: 15px; text-align: center; width: 100%;"
-                                                        class="text-dark  fw-bold mb-3">
-                                                        15,490,000 đ
-                                                    </p>
-                                                    <!-- <form action="/add-product-to-cart/2"
-                                                                        method="post">
-                                                                        <input type="hidden"
-                                                                            name="_csrf"
-                                                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp" /> -->
+                                                        class="text-dark fw-bold mb-3">15,490,000 đ</p>
                                                     <button data-product-id="2"
-                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                        Add to cart</button>
-                                                    <!-- </form> -->
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <!-- 3. Lenovo IdeaPad Gaming 3 -->
                                     <div class="col-md-6 col-lg-4 col-xl-3">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
-                                                <img src="../../../../resources/images/product//1711079073759-lenovo-01.png"
+                                                <img src="../../../../resources/images/product/1711079073759-lenovo-01.png"
                                                     class="img-fluid w-100 rounded-top" alt="">
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                                                 style="top: 10px; left: 10px;">Laptop</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4 style="font-size: 15px;">
-                                                    <a href="http://localhost:8080/product/3">
-                                                        Lenovo IdeaPad Gaming 3
-                                                    </a>
-
+                                                    <a href="http://localhost:8080/product/3">Lenovo IdeaPad Gaming
+                                                        3</a>
                                                 </h4>
-                                                <p style="font-size: 13px;"> i5-10300H, RAM 8G</p>
-                                                <div class="d-flex  flex-lg-wrap justify-content-center flex-columns">
+                                                <p style="font-size: 13px;">Intel Core i5-10300H, 8GB RAM</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
                                                     <p style="font-size: 15px; text-align: center; width: 100%;"
-                                                        class="text-dark  fw-bold mb-3">
-                                                        19,500,000 đ
-                                                    </p>
-                                                    <!-- <form action="/add-product-to-cart/3"
-                                                                        method="post">
-                                                                        <input type="hidden"
-                                                                            name="_csrf"
-                                                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp" /> -->
+                                                        class="text-dark fw-bold mb-3">19,500,000 đ</p>
                                                     <button data-product-id="3"
-                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                        Add to cart</button>
-                                                    <!-- </form> -->
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <!-- 4. Asus K501UX -->
                                     <div class="col-md-6 col-lg-4 col-xl-3">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
-                                                <img src="../../../../resources/images/product//1711079496409-asus-02.png"
+                                                <img src="../../../../resources/images/product/1711079496409-asus-02.png"
                                                     class="img-fluid w-100 rounded-top" alt="">
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                                                 style="top: 10px; left: 10px;">Laptop</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4 style="font-size: 15px;">
-                                                    <a href="http://localhost:8080/product/4">
-                                                        Asus K501UX
-                                                    </a>
-
+                                                    <a href="http://localhost:8080/product/4">Asus K501UX</a>
                                                 </h4>
-                                                <p style="font-size: 13px;">VGA NVIDIA GTX 950M- 4G</p>
-                                                <div class="d-flex  flex-lg-wrap justify-content-center flex-columns">
+                                                <p style="font-size: 13px;">NVIDIA GTX 950M 4GB</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
                                                     <p style="font-size: 15px; text-align: center; width: 100%;"
-                                                        class="text-dark  fw-bold mb-3">
-                                                        11,900,000 đ
-                                                    </p>
-                                                    <!-- <form action="/add-product-to-cart/4"
-                                                                        method="post">
-                                                                        <input type="hidden"
-                                                                            name="_csrf"
-                                                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp" /> -->
+                                                        class="text-dark fw-bold mb-3">11,900,000 đ</p>
                                                     <button data-product-id="4"
-                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                        Add to cart</button>
-                                                    <!-- </form> -->
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <!-- 5. MacBook Air 13 (M1) -->
                                     <div class="col-md-6 col-lg-4 col-xl-3">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
-                                                <img src="../../../../resources/images/product//1711079954090-apple-01.png"
+                                                <img src="../../../../resources/images/product/1711079954090-apple-01.png"
                                                     class="img-fluid w-100 rounded-top" alt="">
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                                                 style="top: 10px; left: 10px;">Laptop</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4 style="font-size: 15px;">
-                                                    <a href="http://localhost:8080/product/5">
-                                                        MacBook Air 13
-                                                    </a>
-
+                                                    <a href="http://localhost:8080/product/5">MacBook Air 13 (M1)</a>
                                                 </h4>
-                                                <p style="font-size: 13px;">Apple M1 GPU 7 nhân</p>
-                                                <div class="d-flex  flex-lg-wrap justify-content-center flex-columns">
+                                                <p style="font-size: 13px;">Apple M1 GPU 7-core</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
                                                     <p style="font-size: 15px; text-align: center; width: 100%;"
-                                                        class="text-dark  fw-bold mb-3">
-                                                        17,690,000 đ
-                                                    </p>
-                                                    <!-- <form action="/add-product-to-cart/5"
-                                                                        method="post">
-                                                                        <input type="hidden"
-                                                                            name="_csrf"
-                                                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp" /> -->
+                                                        class="text-dark fw-bold mb-3">17,690,000 đ</p>
                                                     <button data-product-id="5"
-                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                        Add to cart</button>
-                                                    <!-- </form> -->
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <!-- 6. LG Gram Style -->
                                     <div class="col-md-6 col-lg-4 col-xl-3">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
-                                                <img src="../../../../resources/images/product//1711080386941-lg-01.png"
+                                                <img src="../../../../resources/images/product/1711080386941-lg-01.png"
                                                     class="img-fluid w-100 rounded-top" alt="">
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                                                 style="top: 10px; left: 10px;">Laptop</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4 style="font-size: 15px;">
-                                                    <a href="http://localhost:8080/product/6">
-                                                        Laptop LG Gram Style
-                                                    </a>
-
+                                                    <a href="http://localhost:8080/product/6">Laptop LG Gram Style</a>
                                                 </h4>
                                                 <p style="font-size: 13px;">Intel Iris Plus Graphics</p>
-                                                <div class="d-flex  flex-lg-wrap justify-content-center flex-columns">
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
                                                     <p style="font-size: 15px; text-align: center; width: 100%;"
-                                                        class="text-dark  fw-bold mb-3">
-                                                        31,490,000 đ
-                                                    </p>
-                                                    <!-- <form action="/add-product-to-cart/6"
-                                                                        method="post">
-                                                                        <input type="hidden"
-                                                                            name="_csrf"
-                                                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp" /> -->
+                                                        class="text-dark fw-bold mb-3">31,490,000 đ</p>
                                                     <button data-product-id="6"
-                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                        Add to cart</button>
-                                                    <!-- </form> -->
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <!-- 7. MacBook Air 13 (M2) -->
                                     <div class="col-md-6 col-lg-4 col-xl-3">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
-                                                <img src="../../../../resources/images/product//1711080787179-apple-02.png"
+                                                <img src="../../../../resources/images/product/1711080787179-apple-02.png"
                                                     class="img-fluid w-100 rounded-top" alt="">
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                                                 style="top: 10px; left: 10px;">Laptop</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4 style="font-size: 15px;">
-                                                    <a href="http://localhost:8080/product/7">
-                                                        MacBook Air 13
-                                                    </a>
-
+                                                    <a href="http://localhost:8080/product/7">MacBook Air 13 (M2)</a>
                                                 </h4>
-                                                <p style="font-size: 13px;"> Apple M2 GPU 8 nhân</p>
-                                                <div class="d-flex  flex-lg-wrap justify-content-center flex-columns">
+                                                <p style="font-size: 13px;">Apple M2 GPU 8-core</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
                                                     <p style="font-size: 15px; text-align: center; width: 100%;"
-                                                        class="text-dark  fw-bold mb-3">
-                                                        24,990,000 đ
-                                                    </p>
-                                                    <!-- <form action="/add-product-to-cart/7"
-                                                                        method="post">
-                                                                        <input type="hidden"
-                                                                            name="_csrf"
-                                                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp" /> -->
+                                                        class="text-dark fw-bold mb-3">24,990,000 đ</p>
                                                     <button data-product-id="7"
-                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                        Add to cart</button>
-                                                    <!-- </form> -->
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <!-- 8. Acer Nitro 5 -->
                                     <div class="col-md-6 col-lg-4 col-xl-3">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
-                                                <img src="../../../../resources/images/product//1711080948771-acer-01.png"
+                                                <img src="../../../../resources/images/product/1711080948771-acer-01.png"
                                                     class="img-fluid w-100 rounded-top" alt="">
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                                                 style="top: 10px; left: 10px;">Laptop</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4 style="font-size: 15px;">
-                                                    <a href="http://localhost:8080/product/8">
-                                                        Laptop Acer Nitro
-                                                    </a>
-
+                                                    <a href="http://localhost:8080/product/8">Acer Nitro 5</a>
                                                 </h4>
-                                                <p style="font-size: 13px;">AN515-58-769J i7 12700H</p>
-                                                <div class="d-flex  flex-lg-wrap justify-content-center flex-columns">
+                                                <p style="font-size: 13px;">Intel Core i7-12700H</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
                                                     <p style="font-size: 15px; text-align: center; width: 100%;"
-                                                        class="text-dark  fw-bold mb-3">
-                                                        23,490,000 đ
-                                                    </p>
-                                                    <!-- <form action="/add-product-to-cart/8"
-                                                                        method="post">
-                                                                        <input type="hidden"
-                                                                            name="_csrf"
-                                                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp" /> -->
+                                                        class="text-dark fw-bold mb-3">23,490,000 đ</p>
                                                     <button data-product-id="8"
-                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                        Add to cart</button>
-                                                    <!-- </form> -->
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <!-- 9. Acer Nitro V -->
                                     <div class="col-md-6 col-lg-4 col-xl-3">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
-                                                <img src="../../../../resources/images/product//1711081080930-asus-03.png"
+                                                <img src="../../../../resources/images/product/1711081080930-asus-03.png"
                                                     class="img-fluid w-100 rounded-top" alt="">
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                                                 style="top: 10px; left: 10px;">Laptop</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4 style="font-size: 15px;">
-                                                    <a href="http://localhost:8080/product/9">
-                                                        Laptop Acer Nitro V
-                                                    </a>
-
+                                                    <a href="http://localhost:8080/product/9">Acer Nitro V</a>
                                                 </h4>
-                                                <p style="font-size: 13px;"> NVIDIA GeForce RTX 4050</p>
-                                                <div class="d-flex  flex-lg-wrap justify-content-center flex-columns">
+                                                <p style="font-size: 13px;">NVIDIA GeForce RTX 4050</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
                                                     <p style="font-size: 15px; text-align: center; width: 100%;"
-                                                        class="text-dark  fw-bold mb-3">
-                                                        26,999,000 đ
-                                                    </p>
-                                                    <!-- <form action="/add-product-to-cart/9"
-                                                                        method="post">
-                                                                        <input type="hidden"
-                                                                            name="_csrf"
-                                                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp" /> -->
+                                                        class="text-dark fw-bold mb-3">26,999,000 đ</p>
                                                     <button data-product-id="9"
-                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                        Add to cart</button>
-                                                    <!-- </form> -->
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <!-- 10. Dell Latitude 3420 -->
                                     <div class="col-md-6 col-lg-4 col-xl-3">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
-                                                <img src="../../../../resources/images/product//1711081278418-dell-02.png"
+                                                <img src="../../../../resources/images/product/1711081278418-dell-02.png"
                                                     class="img-fluid w-100 rounded-top" alt="">
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                                                 style="top: 10px; left: 10px;">Laptop</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4 style="font-size: 15px;">
-                                                    <a href="http://localhost:8080/product/10">
-                                                        Laptop Dell Latitude 3420
-                                                    </a>
-
+                                                    <a href="http://localhost:8080/product/10">Laptop Dell Latitude
+                                                        3420</a>
                                                 </h4>
-                                                <p style="font-size: 13px;"> Intel Iris Xe Graphics</p>
-                                                <div class="d-flex  flex-lg-wrap justify-content-center flex-columns">
+                                                <p style="font-size: 13px;">Intel Iris Xe Graphics</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
                                                     <p style="font-size: 15px; text-align: center; width: 100%;"
-                                                        class="text-dark  fw-bold mb-3">
-                                                        21,399,000 đ
-                                                    </p>
-                                                    <!-- <form action="/add-product-to-cart/10"
-                                                                        method="post">
-                                                                        <input type="hidden"
-                                                                            name="_csrf"
-                                                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp" /> -->
+                                                        class="text-dark fw-bold mb-3">21,399,000 đ</p>
                                                     <button data-product-id="10"
-                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                        Add to cart</button>
-                                                    <!-- </form> -->
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tab Laptop Asus -->
+                    <div id="tab-2" class="tab-pane fade p-0">
+                        <div class="row g-4">
+                            <div class="col-lg-12">
+                                <div class="row g-4">
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/1711078092373-asus-01.png"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/1">Laptop Asus TUF Gaming</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">Intel Core i5-11400H</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">17,490,000 đ</p>
+                                                    <button data-product-id="1"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/1711079496409-asus-02.png"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/4">Asus K501UX</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">NVIDIA GTX 950M 4GB</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">11,900,000 đ</p>
+                                                    <button data-product-id="4"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tab MacBook -->
+                    <div id="tab-3" class="tab-pane fade p-0">
+                        <div class="row g-4">
+                            <div class="col-lg-12">
+                                <div class="row g-4">
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/1711079954090-apple-01.png"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/5">MacBook Air 13 (M1)</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">Apple M1 GPU 7-core</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">17,690,000 đ</p>
+                                                    <button data-product-id="5"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/1711080787179-apple-02.png"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/7">MacBook Air 13 (M2)</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">Apple M2 GPU 8-core</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">24,990,000 đ</p>
+                                                    <button data-product-id="7"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tab Acer -->
+                    <div id="tab-4" class="tab-pane fade p-0">
+                        <div class="row g-4">
+                            <div class="col-lg-12">
+                                <div class="row g-4">
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/1711080948771-acer-01.png"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/8">Acer Nitro 5</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">Intel Core i7-12700H</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">23,490,000 đ</p>
+                                                    <button data-product-id="8"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/1711081080930-asus-03.png"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/9">Acer Nitro V</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">NVIDIA GeForce RTX 4050</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">26,999,000 đ</p>
+                                                    <button data-product-id="9"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -722,7 +857,7 @@
             </div>
         </div>
     </div>
-    <!-- Fruits Shop End-->
+    <!-- laptop Shop End-->
 
 
     <!-- Featurs Section Start -->
@@ -849,12 +984,8 @@
     </div>
     <!-- Copyright End -->
 
-
-
-
-    <!-- <jsp:include page="../layout/feature.jsp" />
-
-    <jsp:include page="../layout/footer.jsp" /> -->
+    <!-- 
+jsp -->
 
 
     <!-- Back to Top -->
@@ -863,7 +994,7 @@
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../../../resources/client/lib/easing/easing.min.js"></script>
     <script src="../../../../resources/client/lib/waypoints/waypoints.min.js"></script>
     <script src="../../../../resources/client/lib/lightbox/js/lightbox.min.js"></script>
@@ -874,109 +1005,6 @@
     <script src="../../../../resources/client/js/main.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js">
-    </script>
-    <script>
-
-        document.querySelector(".back-to-top").addEventListener("click", function (event) {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-    </script>
-    <script>
-        // Kiểm tra trạng thái đăng nhập từ localStorage
-        let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-
-        // Nội dung khi chưa đăng nhập
-        const loginContent = `
-            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#login" id="loginBtn">
-                Đăng nhập
-            </button>
-        `;
-
-        // Nội dung khi đã đăng nhập (tạm thời để đơn giản, bạn có thể thay bằng nội dung khác)
-        const loggedInContent = `
-                       <a href="http://localhost:8080/" class="navbar-brand" style="margin-top: 10px !important;">
-                            <h4 class="text-primary display-10">0385382597</h4>
-
-                        </a>
-                        <a href="" class="position-relative me-4 my-auto">
-                            <i class="fa fa-phone fa-2x"></i>
-
-                        </a>
-
-
-                        <a href="http://localhost:8080/cart" class="position-relative me-4 my-auto">
-                            <i class="fa fa-shopping-bag fa-2x"></i>
-                            <span
-                                class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
-                                style="top: -5px; left: 15px; height: 20px; min-width: 20px;" id="sunCart">
-                                2
-                            </span>
-                        </a>
-                        <div class="dropdown my-auto">
-                            <a href="http://localhost:8080/#" class="dropdown" role="button" id="dropdownMenuLink"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user fa-2x"></i>
-                            </a>
-
-                            <ul class="dropdown-menu dropdown-menu-end p-4" aria-labelledby="dropdownMenuLink">
-                                <li class="d-flex align-items-center flex-column" style="min-width: 300px;">
-                                    <img style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden;">
-                                    <div class="text-center my-3">
-                                        SOS Nu
-                                    </div>
-                                </li>
-
-                                <li><a class="dropdown-item" href="http://localhost:8080/#">Quản lý tài khoản</a></li>
-
-                                <li><a class="dropdown-item" href="http://localhost:8080/order-history">Lịch sử mua
-                                        hàng</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <form method="post" action="">
-                                        <input method="post" type="hidden" >
-                                        <button class="btn btn-danger" onclick="logout()">Đăng xuất</button>
-                                    </form>
-                                </li>
-                            </ul>
-                        </div>
-        `;
-
-        // Hàm hiển thị nội dung dựa trên trạng thái
-        function renderContent() {
-            document.getElementById('authSection').innerHTML = isLoggedIn ? loggedInContent : loginContent;
-        }
-
-        // Xử lý sự kiện submit form đăng nhập
-        document.getElementById('loginForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // Ngăn form gửi thật (vì không có server)
-
-            // Giả lập kiểm tra đăng nhập thành công (thay bằng logic thực nếu có)
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            if (username && password) { // Kiểm tra đơn giản
-                isLoggedIn = true;
-                localStorage.setItem('isLoggedIn', 'true');
-                localStorage.setItem('username', username); // Lưu username nếu cần
-                renderContent(); // Cập nhật giao diện
-                bootstrap.Modal.getInstance(document.getElementById('login')).hide(); // Đóng modal
-            } else {
-                alert('Vui lòng nhập email và mật khẩu!');
-            }
-        });
-
-        // Hàm đăng xuất
-        function logout() {
-            isLoggedIn = false;
-            localStorage.setItem('isLoggedIn', 'false');
-            localStorage.removeItem('username');
-            renderContent();
-        }
-
-        // Hiển thị nội dung ban đầu khi tải trang
-        renderContent();
     </script>
 
 
