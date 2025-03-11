@@ -1,0 +1,842 @@
+<!-- saved from url=(0022)http://localhost:8080/ -->
+<html lang="en" class="mdl-js">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang chủ - Laptopshop</title>
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="./Trang chủ - Laptopshop_files/css2" rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link rel="stylesheet" href="./Trang chủ - Laptopshop_files/all.css">
+  <link href="./Trang chủ - Laptopshop_files/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="./Trang chủ - Laptopshop_files/lightbox.min.css" rel="stylesheet">
+  <link href="./Trang chủ - Laptopshop_files/owl.carousel.min.css" rel="stylesheet">
+
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="./Trang chủ - Laptopshop_files/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="./Trang chủ - Laptopshop_files/style.css" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="./Trang chủ - Laptopshop_files/style.css" rel="stylesheet">
+
+  <meta name="_csrf"
+    content="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp">
+  <!-- default header name is X-CSRF-TOKEN -->
+  <meta name="_csrf_header" content="X-CSRF-TOKEN">
+
+  <link href="./Trang chủ - Laptopshop_files/jquery.toast.min.css" rel="stylesheet">
+
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Spinner Start -->
+  <div id="spinner"
+    class="w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-primary" role="status"></div>
+  </div>
+  <!-- Spinner End -->
+
+
+
+  <!-- Navbar start -->
+  <div class="container-fluid fixed-top shadow" style="top: 0px;">
+    <div class="container px-0">
+      <nav class="navbar navbar-light bg-white navbar-expand-xl">
+        <a href="http://localhost:8080/" class="navbar-brand">
+          <h1 class="text-primary display-6">Laptopshop</h1>
+        </a>
+        <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse">
+          <span class="fa fa-bars text-primary"></span>
+        </button>
+        <div class="collapse navbar-collapse bg-white justify-content-between mx-5" id="navbarCollapse">
+          <div class="navbar-nav">
+            <a href="http://localhost:8080/" class="nav-item nav-link active">Trang Chủ</a>
+            <a href="http://localhost:8080/products" class="nav-item nav-link">Sản Phẩm</a>
+
+          </div>
+          <div class="d-flex m-3 me-0">
+
+            <a href="http://localhost:8080/cart" class="position-relative me-4 my-auto">
+              <i class="fa fa-shopping-bag fa-2x"></i>
+              <span
+                class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+                style="top: -5px; left: 15px; height: 20px; min-width: 20px;" id="sunCart">
+                2
+              </span>
+            </a>
+            <div class="dropdown my-auto">
+              <a href="http://localhost:8080/#" class="dropdown" role="button" id="dropdownMenuLink"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-user fa-2x"></i>
+              </a>
+
+              <ul class="dropdown-menu dropdown-menu-end p-4" aria-labelledby="dropdownMenuLink">
+                <li class="d-flex align-items-center flex-column" style="min-width: 300px;">
+                  <img style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden;"
+                    src="./Trang chủ - Laptopshop_files/saved_resource">
+                  <div class="text-center my-3">
+                    SOS Nu
+                  </div>
+                </li>
+
+                <li><a class="dropdown-item" href="http://localhost:8080/#">Quản lý tài khoản</a></li>
+
+                <li><a class="dropdown-item" href="http://localhost:8080/order-history">Lịch sử mua hàng</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <form method="post" action="http://localhost:8080/logout">
+                    <input type="hidden" name="_csrf"
+                      value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp">
+                    <button class="dropdown-item">Đăng xuất</button>
+
+                  </form>
+                </li>
+              </ul>
+
+
+            </div>
+
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <!-- Navbar End -->
+
+
+
+
+
+
+
+  <!-- Hero Start -->
+  <div class="container-fluid py-5 mb-5 hero-header">
+    <div class="container py-5">
+      <div class="row g-5 align-items-center">
+        <div class="col-md-12 col-lg-7">
+          <h4 class="mb-3 text-secondary">100% Sản Phẩm Chính Hãng</h4>
+          <h1 class="mb-5 display-3 text-primary">Hàng cao cấp<br> Rẻ vô địch</h1>
+        </div>
+        <div class="col-md-12 col-lg-5">
+          <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+              <div class="carousel-item rounded active">
+                <img src="./Trang chủ - Laptopshop_files/hero-img-1.png"
+                  class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
+                <a href="http://localhost:8080/#" class="btn px-4 py-2 text-white rounded">Gaming</a>
+              </div>
+              <div class="carousel-item rounded">
+                <img src="./Trang chủ - Laptopshop_files/hero-img-3.png" class="img-fluid w-100 h-100 rounded"
+                  alt="Second slide">
+                <a href="http://localhost:8080/#" class="btn px-4 py-2 text-white rounded">Laptop</a>
+              </div>
+              <div class="carousel-item rounded">
+                <img src="./Trang chủ - Laptopshop_files/hero-img-2.png" class="img-fluid w-100 h-100 rounded"
+                  alt="Second slide">
+                <a href="http://localhost:8080/#" class="btn px-4 py-2 text-white rounded">Phụ kiện</a>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Hero End -->
+
+
+  <!-- Fruits Shop Start-->
+  <div class="container-fluid fruite py-5">
+    <div class="container py-5">
+      <div class="tab-class text-center">
+        <div class="row g-4">
+          <div class="col-lg-4 text-start">
+            <h1>Sản phẩm nổi bật</h1>
+          </div>
+          <div class="col-lg-8 text-end">
+            <ul class="nav nav-pills d-inline-flex text-center mb-5">
+              <li class="nav-item">
+                <a class="d-flex m-2 py-2 bg-light rounded-pill active" href="http://localhost:8080/products">
+                  <span class="text-dark" style="width: 130px;">All Products</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="tab-content">
+          <div id="tab-1" class="tab-pane fade show p-0 active">
+            <div class="row g-4">
+              <div class="col-lg-12">
+                <div class="row g-4">
+
+                  <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="rounded position-relative fruite-item">
+                      <div class="fruite-img">
+                        <img src="./Trang chủ - Laptopshop_files/1711078092373-asus-01.png"
+                          class="img-fluid w-100 rounded-top" alt="">
+                      </div>
+                      <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                        style="top: 10px; left: 10px;">Laptop</div>
+                      <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                        <h4 style="font-size: 15px;">
+                          <a href="http://localhost:8080/product/1">
+                            Laptop Asus TUF Gaming
+                          </a>
+
+                        </h4>
+                        <p style="font-size: 13px;"> Intel, Core i5, 11400H</p>
+                        <div class="d-flex  flex-lg-wrap justify-content-center flex-columns">
+                          <p style="font-size: 15px; text-align: center; width: 100%;" class="text-dark  fw-bold mb-3">
+                            17,490,000 đ
+                          </p>
+                          <!-- <form action="/add-product-to-cart/1"
+                                                                        method="post">
+                                                                        <input type="hidden"
+                                                                            name="_csrf"
+                                                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp" /> -->
+                          <button data-product-id="1"
+                            class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
+                              class="fa fa-shopping-bag me-2 text-primary"></i>
+                            Add to cart</button>
+                          <!-- </form> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="rounded position-relative fruite-item">
+                      <div class="fruite-img">
+                        <img src="./Trang chủ - Laptopshop_files/1711078452562-dell-01.png"
+                          class="img-fluid w-100 rounded-top" alt="">
+                      </div>
+                      <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                        style="top: 10px; left: 10px;">Laptop</div>
+                      <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                        <h4 style="font-size: 15px;">
+                          <a href="http://localhost:8080/product/2">
+                            Laptop Dell Inspiron 15
+                          </a>
+
+                        </h4>
+                        <p style="font-size: 13px;">i5 1235U/16GB/512GB/15.6"FHD</p>
+                        <div class="d-flex  flex-lg-wrap justify-content-center flex-columns">
+                          <p style="font-size: 15px; text-align: center; width: 100%;" class="text-dark  fw-bold mb-3">
+                            15,490,000 đ
+                          </p>
+                          <!-- <form action="/add-product-to-cart/2"
+                                                                        method="post">
+                                                                        <input type="hidden"
+                                                                            name="_csrf"
+                                                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp" /> -->
+                          <button data-product-id="2"
+                            class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
+                              class="fa fa-shopping-bag me-2 text-primary"></i>
+                            Add to cart</button>
+                          <!-- </form> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="rounded position-relative fruite-item">
+                      <div class="fruite-img">
+                        <img src="./Trang chủ - Laptopshop_files/1711079073759-lenovo-01.png"
+                          class="img-fluid w-100 rounded-top" alt="">
+                      </div>
+                      <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                        style="top: 10px; left: 10px;">Laptop</div>
+                      <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                        <h4 style="font-size: 15px;">
+                          <a href="http://localhost:8080/product/3">
+                            Lenovo IdeaPad Gaming 3
+                          </a>
+
+                        </h4>
+                        <p style="font-size: 13px;"> i5-10300H, RAM 8G</p>
+                        <div class="d-flex  flex-lg-wrap justify-content-center flex-columns">
+                          <p style="font-size: 15px; text-align: center; width: 100%;" class="text-dark  fw-bold mb-3">
+                            19,500,000 đ
+                          </p>
+                          <!-- <form action="/add-product-to-cart/3"
+                                                                        method="post">
+                                                                        <input type="hidden"
+                                                                            name="_csrf"
+                                                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp" /> -->
+                          <button data-product-id="3"
+                            class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
+                              class="fa fa-shopping-bag me-2 text-primary"></i>
+                            Add to cart</button>
+                          <!-- </form> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="rounded position-relative fruite-item">
+                      <div class="fruite-img">
+                        <img src="./Trang chủ - Laptopshop_files/1711079496409-asus-02.png"
+                          class="img-fluid w-100 rounded-top" alt="">
+                      </div>
+                      <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                        style="top: 10px; left: 10px;">Laptop</div>
+                      <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                        <h4 style="font-size: 15px;">
+                          <a href="http://localhost:8080/product/4">
+                            Asus K501UX
+                          </a>
+
+                        </h4>
+                        <p style="font-size: 13px;">VGA NVIDIA GTX 950M- 4G</p>
+                        <div class="d-flex  flex-lg-wrap justify-content-center flex-columns">
+                          <p style="font-size: 15px; text-align: center; width: 100%;" class="text-dark  fw-bold mb-3">
+                            11,900,000 đ
+                          </p>
+                          <!-- <form action="/add-product-to-cart/4"
+                                                                        method="post">
+                                                                        <input type="hidden"
+                                                                            name="_csrf"
+                                                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp" /> -->
+                          <button data-product-id="4"
+                            class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
+                              class="fa fa-shopping-bag me-2 text-primary"></i>
+                            Add to cart</button>
+                          <!-- </form> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="rounded position-relative fruite-item">
+                      <div class="fruite-img">
+                        <img src="./Trang chủ - Laptopshop_files/1711079954090-apple-01.png"
+                          class="img-fluid w-100 rounded-top" alt="">
+                      </div>
+                      <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                        style="top: 10px; left: 10px;">Laptop</div>
+                      <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                        <h4 style="font-size: 15px;">
+                          <a href="http://localhost:8080/product/5">
+                            MacBook Air 13
+                          </a>
+
+                        </h4>
+                        <p style="font-size: 13px;">Apple M1 GPU 7 nhân</p>
+                        <div class="d-flex  flex-lg-wrap justify-content-center flex-columns">
+                          <p style="font-size: 15px; text-align: center; width: 100%;" class="text-dark  fw-bold mb-3">
+                            17,690,000 đ
+                          </p>
+                          <!-- <form action="/add-product-to-cart/5"
+                                                                        method="post">
+                                                                        <input type="hidden"
+                                                                            name="_csrf"
+                                                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp" /> -->
+                          <button data-product-id="5"
+                            class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
+                              class="fa fa-shopping-bag me-2 text-primary"></i>
+                            Add to cart</button>
+                          <!-- </form> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="rounded position-relative fruite-item">
+                      <div class="fruite-img">
+                        <img src="./Trang chủ - Laptopshop_files/1711080386941-lg-01.png"
+                          class="img-fluid w-100 rounded-top" alt="">
+                      </div>
+                      <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                        style="top: 10px; left: 10px;">Laptop</div>
+                      <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                        <h4 style="font-size: 15px;">
+                          <a href="http://localhost:8080/product/6">
+                            Laptop LG Gram Style
+                          </a>
+
+                        </h4>
+                        <p style="font-size: 13px;">Intel Iris Plus Graphics</p>
+                        <div class="d-flex  flex-lg-wrap justify-content-center flex-columns">
+                          <p style="font-size: 15px; text-align: center; width: 100%;" class="text-dark  fw-bold mb-3">
+                            31,490,000 đ
+                          </p>
+                          <!-- <form action="/add-product-to-cart/6"
+                                                                        method="post">
+                                                                        <input type="hidden"
+                                                                            name="_csrf"
+                                                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp" /> -->
+                          <button data-product-id="6"
+                            class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
+                              class="fa fa-shopping-bag me-2 text-primary"></i>
+                            Add to cart</button>
+                          <!-- </form> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="rounded position-relative fruite-item">
+                      <div class="fruite-img">
+                        <img src="./Trang chủ - Laptopshop_files/1711080787179-apple-02.png"
+                          class="img-fluid w-100 rounded-top" alt="">
+                      </div>
+                      <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                        style="top: 10px; left: 10px;">Laptop</div>
+                      <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                        <h4 style="font-size: 15px;">
+                          <a href="http://localhost:8080/product/7">
+                            MacBook Air 13
+                          </a>
+
+                        </h4>
+                        <p style="font-size: 13px;"> Apple M2 GPU 8 nhân</p>
+                        <div class="d-flex  flex-lg-wrap justify-content-center flex-columns">
+                          <p style="font-size: 15px; text-align: center; width: 100%;" class="text-dark  fw-bold mb-3">
+                            24,990,000 đ
+                          </p>
+                          <!-- <form action="/add-product-to-cart/7"
+                                                                        method="post">
+                                                                        <input type="hidden"
+                                                                            name="_csrf"
+                                                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp" /> -->
+                          <button data-product-id="7"
+                            class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
+                              class="fa fa-shopping-bag me-2 text-primary"></i>
+                            Add to cart</button>
+                          <!-- </form> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="rounded position-relative fruite-item">
+                      <div class="fruite-img">
+                        <img src="./Trang chủ - Laptopshop_files/1711080948771-acer-01.png"
+                          class="img-fluid w-100 rounded-top" alt="">
+                      </div>
+                      <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                        style="top: 10px; left: 10px;">Laptop</div>
+                      <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                        <h4 style="font-size: 15px;">
+                          <a href="http://localhost:8080/product/8">
+                            Laptop Acer Nitro
+                          </a>
+
+                        </h4>
+                        <p style="font-size: 13px;">AN515-58-769J i7 12700H</p>
+                        <div class="d-flex  flex-lg-wrap justify-content-center flex-columns">
+                          <p style="font-size: 15px; text-align: center; width: 100%;" class="text-dark  fw-bold mb-3">
+                            23,490,000 đ
+                          </p>
+                          <!-- <form action="/add-product-to-cart/8"
+                                                                        method="post">
+                                                                        <input type="hidden"
+                                                                            name="_csrf"
+                                                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp" /> -->
+                          <button data-product-id="8"
+                            class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
+                              class="fa fa-shopping-bag me-2 text-primary"></i>
+                            Add to cart</button>
+                          <!-- </form> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="rounded position-relative fruite-item">
+                      <div class="fruite-img">
+                        <img src="./Trang chủ - Laptopshop_files/1711081080930-asus-03.png"
+                          class="img-fluid w-100 rounded-top" alt="">
+                      </div>
+                      <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                        style="top: 10px; left: 10px;">Laptop</div>
+                      <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                        <h4 style="font-size: 15px;">
+                          <a href="http://localhost:8080/product/9">
+                            Laptop Acer Nitro V
+                          </a>
+
+                        </h4>
+                        <p style="font-size: 13px;"> NVIDIA GeForce RTX 4050</p>
+                        <div class="d-flex  flex-lg-wrap justify-content-center flex-columns">
+                          <p style="font-size: 15px; text-align: center; width: 100%;" class="text-dark  fw-bold mb-3">
+                            26,999,000 đ
+                          </p>
+                          <!-- <form action="/add-product-to-cart/9"
+                                                                        method="post">
+                                                                        <input type="hidden"
+                                                                            name="_csrf"
+                                                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp" /> -->
+                          <button data-product-id="9"
+                            class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
+                              class="fa fa-shopping-bag me-2 text-primary"></i>
+                            Add to cart</button>
+                          <!-- </form> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="rounded position-relative fruite-item">
+                      <div class="fruite-img">
+                        <img src="./Trang chủ - Laptopshop_files/1711081278418-dell-02.png"
+                          class="img-fluid w-100 rounded-top" alt="">
+                      </div>
+                      <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                        style="top: 10px; left: 10px;">Laptop</div>
+                      <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                        <h4 style="font-size: 15px;">
+                          <a href="http://localhost:8080/product/10">
+                            Laptop Dell Latitude 3420
+                          </a>
+
+                        </h4>
+                        <p style="font-size: 13px;"> Intel Iris Xe Graphics</p>
+                        <div class="d-flex  flex-lg-wrap justify-content-center flex-columns">
+                          <p style="font-size: 15px; text-align: center; width: 100%;" class="text-dark  fw-bold mb-3">
+                            21,399,000 đ
+                          </p>
+                          <!-- <form action="/add-product-to-cart/10"
+                                                                        method="post">
+                                                                        <input type="hidden"
+                                                                            name="_csrf"
+                                                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp" /> -->
+                          <button data-product-id="10"
+                            class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
+                              class="fa fa-shopping-bag me-2 text-primary"></i>
+                            Add to cart</button>
+                          <!-- </form> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fruits Shop End-->
+
+
+  <!-- Featurs Section Start -->
+  <div class="container-fluid featurs py-5">
+    <div class="container py-5">
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="featurs-item text-center rounded bg-light p-4">
+            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+              <i class="fas fa-car-side fa-3x text-white"></i>
+            </div>
+            <div class="featurs-content text-center">
+              <h5>Free Shipping</h5>
+              <p class="mb-0">Hỏa tốc trong 2h</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="featurs-item text-center rounded bg-light p-4">
+            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+              <i class="fas fa-user-shield fa-3x text-white"></i>
+            </div>
+            <div class="featurs-content text-center">
+              <h5>Security Payment</h5>
+              <p class="mb-0">Giao dịch an toàn</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="featurs-item text-center rounded bg-light p-4">
+            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+              <i class="fas fa-exchange-alt fa-3x text-white"></i>
+            </div>
+            <div class="featurs-content text-center">
+              <h5>30 Day Return</h5>
+              <p class="mb-0">Đổi trả miễn phí</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="featurs-item text-center rounded bg-light p-4">
+            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+              <i class="fa fa-phone-alt fa-3x text-white"></i>
+            </div>
+            <div class="featurs-content text-center">
+              <h5>24/7 Support</h5>
+              <p class="mb-0">Hỗ trợ nhiệt tình</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Featurs Section End -->
+
+
+
+  <!-- Footer Start -->
+  <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+    <div class="container py-5">
+      <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
+        <div class="row g-4">
+          <div class="col-lg-3">
+            <a href="https://hoidanit.vn/" target="_blank">
+              <h1 class="text-primary mb-0">Laptopshop</h1>
+              <p class="text-secondary mb-0">@hoidanit</p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row g-5">
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-item">
+            <h4 class="text-light mb-3">Chất lượng là ưu tiên hàng đầu</h4>
+
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="d-flex flex-column text-start footer-item">
+            <h4 class="text-light mb-3">Shop Info</h4>
+            <a class="btn-link" href="http://localhost:8080/#">About Us</a>
+
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="d-flex flex-column text-start footer-item">
+            <h4 class="text-light mb-3">Account</h4>
+            <a class="btn-link" href="http://localhost:8080/#">My Account</a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-item">
+            <h4 class="text-light mb-3">Contact</h4>
+            <p>Author:Hỏi Dân IT</p>
+            <p>Website: <a href="https://hoidanit.vn/" target="_blank"> hoidanit.vn</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer End -->
+
+  <!-- Copyright Start -->
+  <div class="container-fluid copyright bg-dark py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          <span class="text-light"><a href="https://hoidanit.vn/" target="_blank"><i
+                class="fas fa-copyright text-light me-2"></i>Hỏi Dân IT</a>, All right
+            reserved.</span>
+        </div>
+        <div class="col-md-6 my-auto text-center text-md-end text-white">
+          <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+          <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+          <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+          Designed By <a class="border-bottom" href="https://htmlcodex.com/">HTML Codex</a> Distributed
+          By <a class="border-bottom" href="https://themewagon.com/">ThemeWagon</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Copyright End -->
+
+
+  <!-- Back to Top -->
+  <a href="http://localhost:8080/#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"
+    style=""><i class="fa fa-arrow-up"></i></a>
+
+
+  <!-- JavaScript Libraries -->
+  <script src="./Trang chủ - Laptopshop_files/jquery.min.js.download"></script>
+  <script src="./Trang chủ - Laptopshop_files/bootstrap.bundle.min.js.download"></script>
+  <script src="./Trang chủ - Laptopshop_files/easing.min.js.download"></script>
+  <script src="./Trang chủ - Laptopshop_files/waypoints.min.js.download"></script>
+  <script src="./Trang chủ - Laptopshop_files/lightbox.min.js.download"></script>
+  <script src="./Trang chủ - Laptopshop_files/owl.carousel.min.js.download"></script>
+
+  <!-- Template Javascript -->
+  <script src="./Trang chủ - Laptopshop_files/main.js.download"></script>
+  <script src="./Trang chủ - Laptopshop_files/jquery.toast.min.js.download">
+  </script>
+
+
+  <div id="lightboxOverlay" tabindex="-1" class="lightboxOverlay" style="display: none;"></div>
+  <div id="lightbox" tabindex="-1" class="lightbox" style="display: none;">
+    <div class="lb-outerContainer">
+      <div class="lb-container"><img class="lb-image"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="">
+        <div class="lb-nav"><a class="lb-prev" role="button" tabindex="0" aria-label="Previous image"
+            href="http://localhost:8080/"></a><a class="lb-next" role="button" tabindex="0" aria-label="Next image"
+            href="http://localhost:8080/"></a></div>
+        <div class="lb-loader"><a class="lb-cancel" role="button" tabindex="0"></a></div>
+      </div>
+    </div>
+    <div class="lb-dataContainer">
+      <div class="lb-data">
+        <div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div>
+        <div class="lb-closeContainer"><a class="lb-close" role="button" tabindex="0"></a></div>
+      </div>
+    </div>
+  </div>
+</body>
+<div id="eJOY__extension_ai_adv_root" class="eJOY__extension_ai_adv_root_class">
+  <div class="wrapperAiAssEjoy ">
+    <div class="containerSumEjoyIcon containerSumEjoyIconShow">
+      <div class="viewIconEjoy gl-tooltip-ejoy gl-tooltip-ejoy-left" tooltip-data="eJOY AI Assistant">
+        <div class="viewIconEjoyItem"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="26" viewBox="0 0 24 26"
+            fill="none">
+            <mask id="mask0_427_34" maskUnits="userSpaceOnUse" x="16" y="3" width="8" height="8"
+              style="mask-type: luminance;">
+              <path d="M24 3H16V11H24V3Z" fill="white"></path>
+            </mask>
+            <g mask="url(#mask0_427_34)">
+              <path
+                d="M23.8012 7.00309L21.0136 8.01539L20.0012 10.8031L18.9889 8.01539L16.2012 7.00309L18.9889 5.9908L20.0012 3.20309L21.0136 5.9908L23.8012 7.00309Z"
+                fill="url(#paint0_linear_427_34)"></path>
+            </g>
+            <mask id="mask1_427_34" maskUnits="userSpaceOnUse" x="0" y="10" width="6" height="6"
+              style="mask-type: luminance;">
+              <path d="M6 10H0V16H6V10Z" fill="white"></path>
+            </mask>
+            <g mask="url(#mask1_427_34)">
+              <path
+                d="M5.8494 13.0023L3.7587 13.7616L2.9994 15.8523L2.2402 13.7616L0.149399 13.0023L2.2402 12.2431L2.9994 10.1523L3.7587 12.2431L5.8494 13.0023Z"
+                fill="url(#paint1_linear_427_34)"></path>
+            </g>
+            <mask id="mask2_427_34" maskUnits="userSpaceOnUse" x="16" y="20" width="4" height="4"
+              style="mask-type: luminance;">
+              <path d="M20 20H16V24H20V20Z" fill="white"></path>
+            </mask>
+            <g mask="url(#mask2_427_34)">
+              <path
+                d="M19.8996 22.0016L18.5058 22.5077L17.9996 23.9016L17.4934 22.5077L16.0996 22.0016L17.4934 21.4954L17.9996 20.1016L18.5058 21.4954L19.8996 22.0016Z"
+                fill="url(#paint2_linear_427_34)"></path>
+            </g>
+            <g filter="url(#filter0_d_427_34)">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.8671 20.3327C14.8098 20.2537 16.4674 18.0538 16.368 15.5257C15.9553 11.8147 11.5502 10.6201 13.3135 5.666C9.7712 8.7188 7.228 12.6272 7.3363 15.408C7.3847 18.1053 8.9455 20.3327 11.8671 20.3327ZM14.5512 16.5696C15.0045 16.5696 15.3306 16.2001 15.3719 15.7489C15.4799 15.431 15.3719 13.9738 14.2947 13.0395C14.4695 14.2529 13.6329 15.261 13.7305 15.7489C13.7305 16.2022 14.0979 16.5696 14.5512 16.5696Z"
+                fill="#1DA1F2"></path>
+            </g>
+            <defs>
+              <filter id="filter0_d_427_34" x="2.47583" y="0.80886" width="18.7535" height="24.381"
+                filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feflood flood-opacity="0" result="BackgroundImageFix"></feflood>
+                <fecolormatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"></fecolormatrix>
+                <feoffset></feoffset>
+                <fegaussianblur stdDeviation="2.42857"></fegaussianblur>
+                <fecolormatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0"></fecolormatrix>
+                <feblend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_427_34"></feblend>
+                <feblend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_427_34" result="shape"></feblend>
+              </filter>
+              <lineargradient id="paint0_linear_427_34" x1="20.0012" y1="3.20309" x2="20.0012" y2="10.8031"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#1DA1F2"></stop>
+                <stop offset="1" stop-color="#6CD2FF"></stop>
+              </lineargradient>
+              <lineargradient id="paint1_linear_427_34" x1="2.9994" y1="10.1523" x2="2.9994" y2="15.8523"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#1DA1F2"></stop>
+                <stop offset="1" stop-color="#6CD2FF"></stop>
+              </lineargradient>
+              <lineargradient id="paint2_linear_427_34" x1="17.9996" y1="20.1016" x2="17.9996" y2="23.9016"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#1DA1F2"></stop>
+                <stop offset="1" stop-color="#6CD2FF"></stop>
+              </lineargradient>
+            </defs>
+          </svg></div>
+        <div class="moveIconEjoyAi"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+            fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M5.45139 0.667969C4.64931 0.667969 4 1.31727 4 2.11936C4 2.92144 4.64931 3.57075 5.45139 3.57075C6.25347 3.57075 6.90278 2.92144 6.90278 2.11936C6.90278 1.31727 6.25347 0.667969 5.45139 0.667969ZM4 8.00868C4 7.2066 4.64931 6.55729 5.45139 6.55729C6.25347 6.55729 6.90278 7.2066 6.90278 8.00868C6.90278 8.81076 6.25347 9.46007 5.45139 9.46007C4.64931 9.46007 4 8.81076 4 8.00868ZM4 13.8837C4 13.0816 4.64931 12.4323 5.45139 12.4323C6.25347 12.4323 6.90278 13.0816 6.90278 13.8837C6.90278 14.6858 6.25347 15.3351 5.45139 15.3351C4.64931 15.3351 4 14.6858 4 13.8837Z"
+              fill="#666666"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M10.7854 0.667969C9.98329 0.667969 9.33398 1.31727 9.33398 2.11936C9.33398 2.92144 9.98329 3.57075 10.7854 3.57075C11.5875 3.57075 12.2368 2.92144 12.2368 2.11936C12.2368 1.31727 11.5875 0.667969 10.7854 0.667969ZM9.33398 8.00868C9.33398 7.2066 9.98329 6.55729 10.7854 6.55729C11.5875 6.55729 12.2368 7.2066 12.2368 8.00868C12.2368 8.81076 11.5875 9.46007 10.7854 9.46007C9.98329 9.46007 9.33398 8.81076 9.33398 8.00868ZM9.33398 13.8837C9.33398 13.0816 9.98329 12.4323 10.7854 12.4323C11.5875 12.4323 12.2368 13.0816 12.2368 13.8837C12.2368 14.6858 11.5875 15.3351 10.7854 15.3351C9.98329 15.3351 9.33398 14.6858 9.33398 13.8837Z"
+              fill="#666666"></path>
+          </svg></div>
+      </div>
+      <div class="viewCloseIconEjoy"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"
+          fill="none">
+          <circle cx="6" cy="6" r="6" fill="black" fill-opacity="0.25"></circle>
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M8.71289 3.58672C8.87135 3.74518 8.87135 4.00209 8.71289 4.16054L6.72363 6.14981L8.71289 8.13907C8.87135 8.29752 8.87135 8.55444 8.71289 8.71289C8.55444 8.87135 8.29752 8.87135 8.13907 8.71289L6.14981 6.72363L4.16054 8.71289C4.00209 8.87135 3.74518 8.87135 3.58672 8.71289C3.42826 8.55443 3.42826 8.29752 3.58672 8.13907L5.57598 6.14981L3.58672 4.16054C3.42826 4.00209 3.42826 3.74518 3.58672 3.58672C3.74518 3.42826 4.00209 3.42826 4.16054 3.58672L6.14981 5.57598L8.13907 3.58672C8.29752 3.42826 8.55444 3.42826 8.71289 3.58672Z"
+            fill="white"></path>
+        </svg></div>
+    </div>
+    <div class="eJOY__container eJOY__container_scroll  ">
+      <div
+        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding-left: 12px;">
+        <div>
+          <div
+            style="border-radius: 3px; padding: 4px 8px; color: rgb(255, 255, 255); font-size: 12px; font-style: normal; font-weight: 400; line-height: 12px; background: rgba(29, 161, 242, 0.65);">
+            Beta</div>
+        </div>
+        <div style="display: flex; justify-content: center; padding-right: 12px; flex-direction: column;"><span
+            style="color: rgb(229, 56, 56); font-size: 10px; font-style: normal; font-weight: 600; line-height: 12px; padding-bottom: 1px;">0
+            / 0</span><span
+            style="color: rgb(140, 140, 140); font-size: 8px; font-style: normal; font-weight: 400; line-height: 10px;">used
+            queries</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="eJOY__extension_root" class="eJOY__extension_root_class" style="all: unset;"><template shadowrootmode="open">
+
+    <div id="eJOY__extension_shadow">
+      <div class="wrapperEjoy">
+        <div class="container" style="display: none;">
+          <div class="viewIcon">
+            <div class="btnHoverTooltip"><img
+                src="chrome-extension://amfojhdiedpdnlijjbhjnhokbnohfdfb/img/logo/icon@2x.png" width="24" alt=""
+                height="24" class="icon"><span>Dictionary</span></div>
+            <div class="itemArrowDropDown">
+              <div class="btnHoverTooltip"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                  viewBox="0 0 12 12" fill="none">
+                  <path d="M1 4L6 9L11 4H1Z" fill="#8C8C8C"></path>
+                </svg><img class="itemArrowDropDownImg"><span>AI features</span></div><i class="isNotifyEjoy"></i>
+            </div>
+          </div>
+        </div><span
+          style="position: absolute; top: 1px; left: 1px; opacity: 0; pointer-events: none; background-color: rgb(229, 56, 56); border: 1px solid rgb(229, 56, 56); border-radius: 16px; display: flex; justify-content: center; color: rgb(255, 255, 255); z-index: 2147483647; font-size: 8px; min-width: 12px; min-height: 12px; line-height: 11px; align-items: center;">1</span><span
+          style="position: absolute; top: 1px; opacity: 0; pointer-events: none; background-color: rgba(2, 2, 2, 0.9); border-radius: 4px; padding: 4px 10px; display: flex; min-width: 100px; justify-content: center; color: rgb(255, 255, 255); z-index: 2147483647; font-size: 12px; min-height: 12px; line-height: 16px; align-items: center;"></span>
+      </div>
+    </div>
+  </template></div>
+
+</html>
