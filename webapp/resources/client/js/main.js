@@ -45,32 +45,53 @@
                     navbarBrand.style.marginLeft = '-200px';
 
                     if (currentLeft !== '-700px' || dragon.style.transform !== 'rotateY(180deg)') {
-                        if (isAnimating) {
-                            // Nếu đang animating, ngắt và tiếp tục từ trạng thái hiện tại
+                        if (isAnimating && !isSliding) {
+                            // Nếu đang xoay nhưng chưa trượt, ngắt và tiếp tục
                             dragon.style.transition = 'none';
                             dragon.style.left = currentLeft;
                             dragon.removeEventListener('transitionend', null);
+
+                            dragon.style.transition = 'transform 0.5s ease-in-out';
+                            dragon.style.transform = 'rotateY(180deg)';
+
+                            dragon.addEventListener('transitionend', function handleRotateEnd(e) {
+                                if (e.propertyName === 'transform' && window.scrollY > 55) {
+                                    dragon.classList.add('sliding');
+                                    dragon.style.left = '-700px';
+                                    dragon.style.transition = 'left 1s ease-in-out';
+
+                                    dragon.addEventListener('transitionend', function handleSlideEnd(e) {
+                                        if (e.propertyName === 'left') {
+                                            dragon.classList.remove('animating', 'sliding');
+                                            dragon.removeEventListener('transitionend', handleSlideEnd);
+                                        }
+                                    }, { once: true });
+                                }
+                                dragon.removeEventListener('transitionend', handleRotateEnd);
+                            }, { once: true });
+                        } else if (!isAnimating) {
+                            // Nếu chưa animating, bắt đầu từ đầu
+                            dragon.classList.add('animating');
+                            dragon.style.transition = 'transform 1s ease-in-out';
+                            dragon.style.transform = 'rotateY(180deg)';
+
+                            dragon.addEventListener('transitionend', function handleRotateEnd(e) {
+                                if (e.propertyName === 'transform' && window.scrollY > 55) {
+                                    dragon.classList.add('sliding');
+                                    dragon.style.left = '-700px';
+                                    dragon.style.transition = 'left 1s ease-in-out';
+
+                                    dragon.addEventListener('transitionend', function handleSlideEnd(e) {
+                                        if (e.propertyName === 'left') {
+                                            dragon.classList.remove('animating', 'sliding');
+                                            dragon.removeEventListener('transitionend', handleSlideEnd);
+                                        }
+                                    }, { once: true });
+                                }
+                                dragon.removeEventListener('transitionend', handleRotateEnd);
+                            }, { once: true });
                         }
-
-                        dragon.classList.add('animating');
-                        dragon.style.transition = 'transform 0.5s ease-in-out';
-                        dragon.style.transform = 'rotateY(180deg)';
-
-                        dragon.addEventListener('transitionend', function handleRotateEnd(e) {
-                            if (e.propertyName === 'transform' && window.scrollY > 55) {
-                                dragon.classList.add('sliding');
-                                dragon.style.left = '-700px';
-                                dragon.style.transition = 'left 1s ease-in-out';
-
-                                dragon.addEventListener('transitionend', function handleSlideEnd(e) {
-                                    if (e.propertyName === 'left') {
-                                        dragon.classList.remove('animating', 'sliding');
-                                        dragon.removeEventListener('transitionend', handleSlideEnd);
-                                    }
-                                }, { once: true });
-                            }
-                            dragon.removeEventListener('transitionend', handleRotateEnd);
-                        }, { once: true });
+                        // Nếu đang trượt (isAnimating && isSliding), không làm gì để giữ nguyên hiệu ứng
                     }
                 } else if (scrollTop <= 55) {
                     fixedTop.style.top = '0px';
@@ -176,6 +197,12 @@
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('resize', handleResize);
     });
+
+
+
+
+
+
     // Xử lý khi thay đổi kích thước màn hình
 
     //error
