@@ -17,13 +17,15 @@
         const dragon = document.querySelector('#dragon');
         const fixedTop = document.querySelector('.fixed-top');
 
+        // Biến cờ để kiểm tra trạng thái trượt về
+        let isReturning = false;
+
         // Chỉ xóa class, để trạng thái ban đầu từ CSS
         dragon.classList.remove('animating', 'sliding');
 
         function handleScroll() {
             const scrollTop = window.scrollY || document.documentElement.scrollTop;
             const windowWidth = window.innerWidth;
-
             const isAnimating = dragon.classList.contains('animating');
             const isSliding = dragon.classList.contains('sliding');
             const currentLeft = window.getComputedStyle(dragon).left;
@@ -37,16 +39,16 @@
                 dragon.style.transform = 'rotateY(0deg)';
                 dragon.style.transition = 'transform 0.5s ease-in-out, left 0.5s ease-in-out';
                 dragon.classList.remove('animating', 'sliding');
+                isReturning = false; // Reset cờ
             } else {
                 // Màn hình lớn
-                if (scrollTop > 55) {
+                if (scrollTop > 55 && !isReturning) { // Chỉ xử lý cuộn xuống nếu không đang trượt về
                     fixedTop.style.top = '-55px';
                     fixedTop.classList.add('shadow');
                     navbarBrand.style.marginLeft = '-200px';
 
                     if (currentLeft !== '-700px' || dragon.style.transform !== 'rotateY(180deg)') {
                         if (isAnimating && !isSliding) {
-                            // Nếu đang xoay nhưng chưa trượt, ngắt và tiếp tục
                             dragon.style.transition = 'none';
                             dragon.style.left = currentLeft;
                             dragon.removeEventListener('transitionend', null);
@@ -70,7 +72,6 @@
                                 dragon.removeEventListener('transitionend', handleRotateEnd);
                             }, { once: true });
                         } else if (!isAnimating) {
-                            // Nếu chưa animating, bắt đầu từ đầu
                             dragon.classList.add('animating');
                             dragon.style.transition = 'transform 1s ease-in-out';
                             dragon.style.transform = 'rotateY(180deg)';
@@ -91,7 +92,6 @@
                                 dragon.removeEventListener('transitionend', handleRotateEnd);
                             }, { once: true });
                         }
-                        // Nếu đang trượt (isAnimating && isSliding), không làm gì để giữ nguyên hiệu ứng
                     }
                 } else if (scrollTop <= 55) {
                     fixedTop.style.top = '0px';
@@ -101,16 +101,19 @@
                     if (isAnimating) {
                         if (!isSliding) {
                             // Đang xoay: Xoay về 0deg
+                            isReturning = true; // Đánh dấu đang trở về
                             dragon.style.transform = 'rotateY(0deg)';
                             dragon.style.transition = 'transform 0.5s ease-in-out';
                             dragon.addEventListener('transitionend', function handleReverseRotate(e) {
                                 if (e.propertyName === 'transform') {
                                     dragon.classList.remove('animating', 'sliding');
+                                    isReturning = false; // Reset cờ khi hoàn thành
                                     dragon.removeEventListener('transitionend', handleReverseRotate);
                                 }
                             }, { once: true });
                         } else {
-                            // Đang trượt: Dừng trượt, xoay về 0deg tại chỗ, rồi trượt về 0px
+                            // Đang trượt: Dừng trượt, xoay về 0deg, rồi trượt về 0px
+                            isReturning = true; // Đánh dấu đang trở về
                             dragon.style.transition = 'none';
                             dragon.style.left = currentLeft;
                             dragon.removeEventListener('transitionend', null);
@@ -125,6 +128,7 @@
                                         dragon.addEventListener('transitionend', function handleSlideBack(e) {
                                             if (e.propertyName === 'left') {
                                                 dragon.classList.remove('animating', 'sliding');
+                                                isReturning = false; // Reset cờ khi hoàn thành
                                                 dragon.removeEventListener('transitionend', handleSlideBack);
                                             }
                                         }, { once: true });
@@ -135,6 +139,7 @@
                         }
                     } else if (currentLeft === '-700px') {
                         // Đã trượt xong: Xoay về 0deg trước, rồi trượt về 0px
+                        isReturning = true; // Đánh dấu đang trở về
                         dragon.classList.add('animating');
                         dragon.style.transform = 'rotateY(0deg)';
                         dragon.style.transition = 'transform 0.5s ease-in-out';
@@ -146,6 +151,7 @@
                                 dragon.addEventListener('transitionend', function handleSlideBack(e) {
                                     if (e.propertyName === 'left') {
                                         dragon.classList.remove('animating', 'sliding');
+                                        isReturning = false; // Reset cờ khi hoàn thành
                                         dragon.removeEventListener('transitionend', handleSlideBack);
                                     }
                                 }, { once: true });
@@ -170,8 +176,9 @@
                 dragon.style.transform = 'rotateY(0deg)';
                 dragon.style.transition = 'transform 0.5s ease-in-out, left 0.5s ease-in-out';
                 dragon.classList.remove('animating', 'sliding');
+                isReturning = false; // Reset cờ
             } else {
-                if (scrollTop > 55) {
+                if (scrollTop > 55 && !isReturning) {
                     fixedTop.style.top = '-55px';
                     fixedTop.classList.add('shadow');
                     navbarBrand.style.marginLeft = '-200px';
@@ -180,12 +187,14 @@
                     fixedTop.classList.remove('shadow');
                     navbarBrand.style.marginLeft = '0px';
                     if (currentLeft === '-700px' && !dragon.classList.contains('animating')) {
+                        isReturning = true; // Đánh dấu đang trở về
                         dragon.style.transform = 'rotateY(0deg)';
                         dragon.style.transition = 'transform 0.5s ease-in-out';
                         dragon.addEventListener('transitionend', function handleReverseRotate(e) {
                             if (e.propertyName === 'transform') {
                                 dragon.style.left = '0px';
                                 dragon.style.transition = 'left 0.5s ease-in-out';
+                                isReturning = false; // Reset cờ khi hoàn thành
                                 dragon.removeEventListener('transitionend', handleReverseRotate);
                             }
                         }, { once: true });
@@ -197,9 +206,6 @@
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('resize', handleResize);
     });
-
-
-
 
 
 
