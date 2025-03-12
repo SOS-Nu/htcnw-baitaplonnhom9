@@ -44,10 +44,17 @@
                     fixedTop.classList.add('shadow');
                     navbarBrand.style.marginLeft = '-200px';
 
-                    if (currentLeft !== '-700px' && dragon.style.transform !== 'rotateY(180deg)' && !isAnimating) {
+                    if (currentLeft !== '-700px' || dragon.style.transform !== 'rotateY(180deg)') {
+                        if (isAnimating) {
+                            // Nếu đang animating, ngắt và tiếp tục từ trạng thái hiện tại
+                            dragon.style.transition = 'none';
+                            dragon.style.left = currentLeft;
+                            dragon.removeEventListener('transitionend', null);
+                        }
+
                         dragon.classList.add('animating');
+                        dragon.style.transition = 'transform 0.5s ease-in-out';
                         dragon.style.transform = 'rotateY(180deg)';
-                        dragon.style.transition = 'transform 1s ease-in-out';
 
                         dragon.addEventListener('transitionend', function handleRotateEnd(e) {
                             if (e.propertyName === 'transform' && window.scrollY > 55) {
@@ -82,12 +89,28 @@
                                 }
                             }, { once: true });
                         } else {
-                            // Đang trượt: Reset ngay lập tức về trạng thái ban đầu
+                            // Đang trượt: Dừng trượt, xoay về 0deg tại chỗ, rồi trượt về 0px
                             dragon.style.transition = 'none';
-                            dragon.style.left = '0px';
-                            dragon.style.transform = 'rotateY(0deg)';
-                            dragon.classList.remove('animating', 'sliding');
+                            dragon.style.left = currentLeft;
                             dragon.removeEventListener('transitionend', null);
+
+                            requestAnimationFrame(() => {
+                                dragon.style.transition = 'transform 0.5s ease-in-out';
+                                dragon.style.transform = 'rotateY(0deg)';
+                                dragon.addEventListener('transitionend', function handleReverseRotate(e) {
+                                    if (e.propertyName === 'transform') {
+                                        dragon.style.left = '0px';
+                                        dragon.style.transition = 'left 0.5s ease-in-out';
+                                        dragon.addEventListener('transitionend', function handleSlideBack(e) {
+                                            if (e.propertyName === 'left') {
+                                                dragon.classList.remove('animating', 'sliding');
+                                                dragon.removeEventListener('transitionend', handleSlideBack);
+                                            }
+                                        }, { once: true });
+                                        dragon.removeEventListener('transitionend', handleReverseRotate);
+                                    }
+                                }, { once: true });
+                            });
                         }
                     } else if (currentLeft === '-700px') {
                         // Đã trượt xong: Xoay về 0deg trước, rồi trượt về 0px
