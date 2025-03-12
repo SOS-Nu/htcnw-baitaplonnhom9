@@ -576,8 +576,10 @@ h5#searchModalLabel {
 }
 
 #dragon {
-    transition: top 1s ease-in-out;
+    transition: left 1s ease-in-out;
+    transition: transform 0.5s ease;
     /* Mặc định khi đi xuống */
+
 }
 
 .navbar-brand {
@@ -586,7 +588,7 @@ h5#searchModalLabel {
 }
 
 /* Đảm bảo navbar không bị ẩn khi responsive */
-@media (max-width: 991.98px) {
+@media (max-width: 1196px) {
     .fixed-top {
         top: 0 !important;
         /* Ép buộc top: 0 trên màn hình nhỏ */

@@ -11,50 +11,136 @@
     };
     spinner(0);
 
+    //dragon
+    document.addEventListener('DOMContentLoaded', function () {
+        const navbarBrand = document.querySelector('.navbar-brand');
+        const dragon = document.querySelector('#dragon');
+        const fixedTop = document.querySelector('.fixed-top');
 
-    $(window).scroll(function () {
-        const $window = $(window);
-        const $navbarBrand = $('.navbar-brand');
-        const $dragon = $('#dragon');
-        const $fixedTop = $('.fixed-top');
+        // Không khởi tạo left và transform ở đây, để CSS xử lý trạng thái ban đầu
+        dragon.classList.remove('animating', 'sliding');
 
-        if ($window.width() < 992) {
-            // Màn hình nhỏ: reset tất cả về trạng thái ban đầu
-            $fixedTop.css('top', '0px').removeClass('shadow'); // Đảm bảo không bị đẩy lên
-            $navbarBrand.css('margin-left', '0px');
-            $dragon.css('top', '0px'); // Reset dragon dù bị ẩn
-        } else {
-            // Màn hình lớn
-            if ($(this).scrollTop() > 55) {
-                $dragon.css('transition', 'top 1s ease-in-out'); // Chậm khi xuống
-                $fixedTop.addClass('shadow').css('top', '-55px');
-                $dragon.css('top', '-200px');
-                $navbarBrand.css('margin-left', '-200px');
+        function handleScroll() {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const windowWidth = window.innerWidth;
+
+            const isAnimating = dragon.classList.contains('animating');
+            const isSliding = dragon.classList.contains('sliding');
+            const currentLeft = window.getComputedStyle(dragon).left;
+
+            if (windowWidth < 992) {
+                // Màn hình nhỏ: reset tất cả
+                fixedTop.style.top = '0px';
+                fixedTop.classList.remove('shadow');
+                navbarBrand.style.marginLeft = '0px';
+                dragon.style.left = '0px';
+                dragon.style.transform = 'rotateY(0deg)';
+                dragon.style.transition = 'transform 0.5s ease-in-out, left 0.5s ease-in-out';
+                dragon.classList.remove('animating', 'sliding');
             } else {
-                $dragon.css('transition', 'top 0.5s ease-in-out'); // Nhanh khi lên
-                $fixedTop.removeClass('shadow').css('top', '0px');
-                $dragon.css('top', '0px');
-                $navbarBrand.css('margin-left', '0px');
+                // Màn hình lớn
+                if (scrollTop > 55) {
+                    fixedTop.style.top = '-55px';
+                    fixedTop.classList.add('shadow');
+                    navbarBrand.style.marginLeft = '-200px';
+
+                    if (currentLeft !== '-700px' && dragon.style.transform !== 'rotateY(180deg)' && !isAnimating) {
+                        dragon.classList.add('animating');
+                        dragon.style.transform = 'rotateY(180deg)';
+                        dragon.style.transition = 'transform 1s ease-in-out';
+
+                        dragon.addEventListener('transitionend', function handleRotateEnd(e) {
+                            if (e.propertyName === 'transform' && window.scrollY > 55) {
+                                dragon.classList.add('sliding');
+                                dragon.style.left = '-700px';
+                                dragon.style.transition = 'left 1s ease-in-out';
+
+                                dragon.addEventListener('transitionend', function handleSlideEnd(e) {
+                                    if (e.propertyName === 'left') {
+                                        dragon.classList.remove('animating', 'sliding');
+                                        dragon.removeEventListener('transitionend', handleSlideEnd);
+                                    }
+                                }, { once: true });
+                            }
+                            dragon.removeEventListener('transitionend', handleRotateEnd);
+                        }, { once: true });
+                    }
+                } else if (scrollTop <= 55) {
+                    fixedTop.style.top = '0px';
+                    fixedTop.classList.remove('shadow');
+                    navbarBrand.style.marginLeft = '0px';
+
+                    if (isAnimating) {
+                        if (!isSliding) {
+                            // Đang xoay: Xoay về 0deg
+                            dragon.style.transform = 'rotateY(0deg)';
+                            dragon.style.transition = 'transform 0.5s ease-in-out';
+                            dragon.addEventListener('transitionend', function handleReverseRotate(e) {
+                                if (e.propertyName === 'transform') {
+                                    dragon.classList.remove('animating', 'sliding');
+                                    dragon.removeEventListener('transitionend', handleReverseRotate);
+                                }
+                            }, { once: true });
+                        } else {
+                            // Đang trượt: Reset ngay lập tức về trạng thái ban đầu
+                            dragon.style.transition = 'none';
+                            dragon.style.left = '0px';
+                            dragon.style.transform = 'rotateY(0deg)';
+                            dragon.classList.remove('animating', 'sliding');
+                            dragon.removeEventListener('transitionend', null);
+                        }
+                    } else if (currentLeft === '-700px') {
+                        // Đã trượt xong: Trượt về 0px
+                        dragon.classList.add('animating');
+                        dragon.style.left = '0px';
+                        dragon.style.transition = 'left 0.5s ease-in-out';
+                        dragon.addEventListener('transitionend', function handleSlideBack(e) {
+                            if (e.propertyName === 'left') {
+                                dragon.classList.remove('animating', 'sliding');
+                                dragon.removeEventListener('transitionend', handleSlideBack);
+                            }
+                        }, { once: true });
+                    }
+                }
             }
         }
-    });
 
-    // Xử lý resize để tránh navbar biến mất
-    $(window).resize(function () {
-        const $fixedTop = $('.fixed-top');
-        const $navbarBrand = $('.navbar-brand');
-        const $dragon = $('#dragon');
+        function handleResize() {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const windowWidth = window.innerWidth;
+            const currentLeft = window.getComputedStyle(dragon).left;
 
-        if ($(window).width() < 992) {
-            $fixedTop.css('top', '0px').removeClass('shadow'); // Reset khi màn hình nhỏ
-            $navbarBrand.css('margin-left', '0px');
-            $dragon.css('top', '0px');
+            if (windowWidth < 992) {
+                fixedTop.style.top = '0px';
+                fixedTop.classList.remove('shadow');
+                navbarBrand.style.marginLeft = '0px';
+                dragon.style.left = '0px';
+                dragon.style.transform = 'rotateY(0deg)';
+                dragon.style.transition = 'transform 0.5s ease-in-out, left 0.5s ease-in-out';
+                dragon.classList.remove('animating', 'sliding');
+            } else {
+                if (scrollTop > 55) {
+                    fixedTop.style.top = '-55px';
+                    fixedTop.classList.add('shadow');
+                    navbarBrand.style.marginLeft = '-200px';
+                } else {
+                    fixedTop.style.top = '0px';
+                    fixedTop.classList.remove('shadow');
+                    navbarBrand.style.marginLeft = '0px';
+                    if (currentLeft === '-700px' && !dragon.classList.contains('animating')) {
+                        dragon.style.left = '0px';
+                        dragon.style.transition = 'left 0.5s ease-in-out';
+                    }
+                }
+            }
         }
-    });
 
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleResize);
+    });
     // Xử lý khi thay đổi kích thước màn hình
 
-
+    //error
     // $(window).scroll(function () {
     //     // Thêm transition cho các phần tử
     //     const $window = $(window);
@@ -85,21 +171,6 @@
     //     }
     // });
 
-    // Xử lý resize window để đảm bảo responsive
-    $(window).resize(function () {
-        if ($(window).width() < 992) {
-            $('#navbarBrand h1').css('margin-left', '0px');
-        }
-    });
-
-    $(window).resize(function () {
-        const $navbarBrand = $('.navbar-brand');
-        if ($(window).width() < 992) {
-            $navbarBrand.css('margin-left', 0); // Màn hình nhỏ: margin-left về 0
-        } else {
-            $navbarBrand.css('margin-left', '-100px'); // Màn hình lớn: giữ -100px
-        }
-    });
 
     // Back to top button
     $(window).scroll(function () {
