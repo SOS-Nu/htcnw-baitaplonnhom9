@@ -119,7 +119,7 @@
                             dragon.removeEventListener('transitionend', null);
 
                             requestAnimationFrame(() => {
-                                dragon.style.transition = 'transform 0.5s ease-in-out';
+                                dragon.style.transition = 'transform 0.02s ease-in-out';
                                 dragon.style.transform = 'rotateY(0deg)';
                                 dragon.addEventListener('transitionend', function handleReverseRotate(e) {
                                     if (e.propertyName === 'transform') {
