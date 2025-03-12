@@ -17,7 +17,7 @@
         const dragon = document.querySelector('#dragon');
         const fixedTop = document.querySelector('.fixed-top');
 
-        // Không khởi tạo left và transform ở đây, để CSS xử lý trạng thái ban đầu
+        // Chỉ xóa class, để trạng thái ban đầu từ CSS
         dragon.classList.remove('animating', 'sliding');
 
         function handleScroll() {
@@ -90,14 +90,22 @@
                             dragon.removeEventListener('transitionend', null);
                         }
                     } else if (currentLeft === '-700px') {
-                        // Đã trượt xong: Trượt về 0px
+                        // Đã trượt xong: Xoay về 0deg trước, rồi trượt về 0px
                         dragon.classList.add('animating');
-                        dragon.style.left = '0px';
-                        dragon.style.transition = 'left 0.5s ease-in-out';
-                        dragon.addEventListener('transitionend', function handleSlideBack(e) {
-                            if (e.propertyName === 'left') {
-                                dragon.classList.remove('animating', 'sliding');
-                                dragon.removeEventListener('transitionend', handleSlideBack);
+                        dragon.style.transform = 'rotateY(0deg)';
+                        dragon.style.transition = 'transform 0.5s ease-in-out';
+
+                        dragon.addEventListener('transitionend', function handleReverseRotate(e) {
+                            if (e.propertyName === 'transform') {
+                                dragon.style.left = '0px';
+                                dragon.style.transition = 'left 0.5s ease-in-out';
+                                dragon.addEventListener('transitionend', function handleSlideBack(e) {
+                                    if (e.propertyName === 'left') {
+                                        dragon.classList.remove('animating', 'sliding');
+                                        dragon.removeEventListener('transitionend', handleSlideBack);
+                                    }
+                                }, { once: true });
+                                dragon.removeEventListener('transitionend', handleReverseRotate);
                             }
                         }, { once: true });
                     }
@@ -128,8 +136,15 @@
                     fixedTop.classList.remove('shadow');
                     navbarBrand.style.marginLeft = '0px';
                     if (currentLeft === '-700px' && !dragon.classList.contains('animating')) {
-                        dragon.style.left = '0px';
-                        dragon.style.transition = 'left 0.5s ease-in-out';
+                        dragon.style.transform = 'rotateY(0deg)';
+                        dragon.style.transition = 'transform 0.5s ease-in-out';
+                        dragon.addEventListener('transitionend', function handleReverseRotate(e) {
+                            if (e.propertyName === 'transform') {
+                                dragon.style.left = '0px';
+                                dragon.style.transition = 'left 0.5s ease-in-out';
+                                dragon.removeEventListener('transitionend', handleReverseRotate);
+                            }
+                        }, { once: true });
                     }
                 }
             }
