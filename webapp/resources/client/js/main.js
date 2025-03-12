@@ -244,17 +244,27 @@
 
 
     // Back to top button
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 300) {
-            $('.back-to-top').fadeIn('slow');
-        } else {
-            $('.back-to-top').fadeOut('slow');
-        }
-    });
-    $('.back-to-top').click(function () {
-        $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
-        return false;
-    });
+    // Script cho Back to Top (đặt ở cuối <body> hoặc file riêng)
+    (function () {
+        const backToTopButton = document.getElementById('back-to-top');
+
+        // Hiển thị/ẩn nút khi cuộn
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 100) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        // Cuộn về đầu khi nhấn nút
+        backToTopButton.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    })();
 
 
     // Testimonial carousel

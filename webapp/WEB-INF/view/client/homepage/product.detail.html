@@ -19,21 +19,44 @@
             object-fit: cover;
 
         }
+
+        .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.881);
+        }
+
+
+        .modal-content {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+
+
+        .modal-body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+        }
+
+        .modal-header {
+            border-bottom: none;
+        }
+
+        .modal-footer {
+            border-top: none;
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- Spinner Start -->
+
     <div id="spinner"
         class="w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" role="status"></div>
     </div>
-    <!-- Spinner End -->
 
-
-
-    <!-- Navbar start -->
     <div class="container-fluid fixed-top" style="top: 0px;">
         <div class="container px-0">
             <nav class="navbar navbar-light bg-white navbar-expand-xl">
@@ -101,9 +124,7 @@
             </nav>
         </div>
     </div>
-    <!-- Navbar End -->
 
-    <!-- Single Product Start -->
     <div class="container-fluid py-5 mt-5">
         <div class="container py-5">
             <div class="row g-4 mb-5">
@@ -120,65 +141,127 @@
                     <div class="row g-4">
                         <div class="col-lg-6">
                             <div class="border rounded">
-                                <a href="http://localhost:8080/product/1#">
-                                    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                                <!-- <a href="http://localhost:8080/product/1#"> -->
 
-
-                                        <div class="carousel-indicators">
-                                            <button type="button" data-bs-target="#demo" data-bs-slide-to="0"
-                                                class="active"></button>
-                                            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-                                            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-                                        </div>
-
-
-                                        <div class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                <img src="../../../../resources/images/product/1711078092373-asus-01.png"
-                                                    alt="Sản phẩm" class="img-fluid">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="../../../../resources/images/product/1711078452562-dell-01.png"
-                                                    alt="Sản phẩm" class="img-fluid">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="../../../../resources/images/product/1711079496409-asus-02.png"
-                                                    alt="Sản phẩm" class="img-fluid">
-                                            </div>
-
-
-                                            <button class="carousel-control-prev" type="button" data-bs-target="#demo"
-                                                data-bs-slide="prev">
-                                                <span class="carousel-control-prev-icon"></span>
-                                            </button>
-                                            <button class="carousel-control-next" type="button" data-bs-target="#demo"
-                                                data-bs-slide="next">
-                                                <span class="carousel-control-next-icon"></span>
-                                            </button>
-                                        </div>
-
-
-
+                                <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-indicators">
+                                        <button type="button" data-bs-target="#demo" data-bs-slide-to="0"
+                                            class="active"></button>
+                                        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                                        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
                                     </div>
-                                    <div class="d-flex justify-content-start mt-3">
-                                        <img src="../../../../resources/images/product/1711078092373-asus-01.png"
-                                            class="thumbnail-img" data-bs-target="#demo" data-bs-slide-to="0"
-                                            alt="Thumbnail 1">
-                                        <img src="../../../../resources/images/product/1711078452562-dell-01.png"
-                                            class="thumbnail-img mx-2" data-bs-target="#demo" data-bs-slide-to="1"
-                                            alt="Thumbnail 2">
-                                        <img src="../../../../resources/images/product/1711079496409-asus-02.png"
-                                            class="thumbnail-img" data-bs-target="#demo" data-bs-slide-to="2"
-                                            alt="Thumbnail 3">
+
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active" data-bs-interval="2000">
+                                            <img src="../../../../resources/images/product/1711078092373-asus-01.png"
+                                                alt="Sản phẩm" class="img-fluid carousel-img" data-bs-toggle="modal"
+                                                data-bs-target="#imageModal" data-index="0">
+                                        </div>
+                                        <div class="carousel-item" data-bs-interval="2000">
+                                            <img src="../../../../resources/images/product/1711078452562-dell-01.png"
+                                                alt="Sản phẩm" class="img-fluid carousel-img" data-bs-toggle="modal"
+                                                data-bs-target="#imageModal" data-index="1">
+                                        </div>
+                                        <div class="carousel-item" data-bs-interval="2000">
+                                            <img src="../../../../resources/images/product/1711079496409-asus-02.png"
+                                                alt="Sản phẩm" class="img-fluid carousel-img" data-bs-toggle="modal"
+                                                data-bs-target="#imageModal" data-index="2">
+                                        </div>
                                     </div>
-                                </a>
+
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#demo"
+                                        data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#demo"
+                                        data-bs-slide="next">
+                                        <span class="carousel-control-next-icon"></span>
+                                    </button>
+                                </div>
+
+
+                                <div class="d-flex justify-content-start mt-3">
+                                    <img src="../../../../resources/images/product/1711078092373-asus-01.png"
+                                        class="thumbnail-img" data-bs-target="#demo" data-bs-slide-to="0"
+                                        alt="Thumbnail 1">
+                                    <img src="../../../../resources/images/product/1711078452562-dell-01.png"
+                                        class="thumbnail-img mx-2" data-bs-target="#demo" data-bs-slide-to="1"
+                                        alt="Thumbnail 2">
+                                    <img src="../../../../resources/images/product/1711079496409-asus-02.png"
+                                        class="thumbnail-img" data-bs-target="#demo" data-bs-slide-to="2"
+                                        alt="Thumbnail 3">
+                                </div>
+
+
+                                <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog modal-fullscreen">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <img id="modalImage" class="img-fluid h-100 w-auto" src=""
+                                                    alt="Ảnh lớn">
+                                            </div>
+                                            <div class="modal-footer d-flex justify-content-between">
+                                                <button class="carousel-control-prev" type="button" id="prevBtn">
+                                                    <span class="carousel-control-prev-icon"></span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button" id="nextBtn">
+                                                    <span class="carousel-control-next-icon"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function () {
+                                        let images = document.querySelectorAll(".carousel-img");
+                                        let modalImage = document.getElementById("modalImage");
+                                        let currentIndex = 0;
+                                        let imageArray = [...images];
+
+                                        function showImage(index) {
+                                            if (index >= 0 && index < imageArray.length) {
+                                                modalImage.src = imageArray[index].src;
+                                                currentIndex = index;
+                                            }
+                                        }
+
+
+                                        images.forEach((img, index) => {
+                                            img.addEventListener("click", function () {
+                                                showImage(index);
+                                            });
+                                        });
+
+
+                                        document.getElementById("nextBtn").addEventListener("click", function () {
+                                            if (currentIndex < imageArray.length - 1) {
+                                                showImage(currentIndex + 1);
+                                            }
+                                        });
+
+
+                                        document.getElementById("prevBtn").addEventListener("click", function () {
+                                            if (currentIndex > 0) {
+                                                showImage(currentIndex - 1);
+                                            }
+                                        });
+                                    });
+                                </script>
+
+
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <h4 class="fw-bold mb-3"> Laptop Asus TUF Gaming</h4>
                             <p class="mb-3">ASUS</p>
-                            <h5 class="fw-bold mb-3">
-                                17,490,000 đ
+                            <h5 class="fw-bold mb-3" id="price">
+                                17.490.000
 
                             </h5>
                             <div class="d-flex mb-4">
@@ -192,22 +275,81 @@
                                 Intel, Core i5, 11400H
                             </p>
 
-                            <div class="input-group quantity mb-5" style="width: 100px;">
+                            <div class="input-group quantity mb-3" style="width: 100px;">
                                 <div class="input-group-btn">
                                     <button class="btn btn-sm btn-minus rounded-circle bg-light border">
                                         <i class="fa fa-minus"></i>
                                     </button>
                                 </div>
                                 <input type="text" class="form-control form-control-sm text-center border-0" value="1"
-                                    data-cart-detail-index="0">
+                                    data-cart-detail-index="0" id="quantity" min="1">
                                 <div class="input-group-btn">
                                     <button class="btn btn-sm btn-plus rounded-circle bg-light border">
                                         <i class="fa fa-plus"></i>
                                     </button>
                                 </div>
                             </div>
-                            <!-- <form action="/add-product-from-view-detail" method="post"
-                                modelAttribute="product"> -->
+                            <div class="mb-3">
+                                <button class="btn btn-dark border border-1" style="width: 30px; height: 30px;"
+                                    onclick="changeColor(1)"></button>
+                                <button class="btn btn-light border border-1 mx-3" style="width: 30px; height: 30px;"
+                                    onclick="changeColor(-1)"></button>
+                            </div>
+                            <h5 class="fw-bold mb-3">Total: <span id="total">17,490,000</span> đ</h5>
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function () {
+                                    const quantityInput = document.getElementById("quantity");
+                                    const priceElement = document.getElementById("price");
+                                    const totalElement = document.getElementById("total");
+
+                                    const minusBtn = document.querySelector(".btn-minus");
+                                    const plusBtn = document.querySelector(".btn-plus");
+
+                                    let basePrice = 17490000;
+                                    let currentPrice = basePrice;
+
+                                    function getTotal() {
+                                        let quantity = Number(quantityInput.value);
+                                        if (quantity < 1 || isNaN(quantity)) {
+                                            quantity = 1;
+                                            quantityInput.value = 1;
+                                        }
+
+                                        let totalPrice = currentPrice * quantity;
+                                        totalElement.innerText = totalPrice.toLocaleString("vi-VN");
+                                    }
+
+                                    quantityInput.addEventListener("input", getTotal);
+
+                                    minusBtn.addEventListener("click", function () {
+                                        let quantity = Number(quantityInput.value);
+                                        if (quantity >= 1) {
+                                            getTotal();
+                                        }
+                                    });
+
+                                    plusBtn.addEventListener("click", function () {
+                                        getTotal();
+                                    });
+
+                                    function changeColor(colorType) {
+                                        if (colorType === 1) {
+                                            currentPrice = 18490000;
+                                        } else {
+                                            currentPrice = basePrice;
+                                        }
+                                        priceElement.innerText = currentPrice.toLocaleString("vi-VN");
+                                        getTotal();
+                                    }
+
+                                    getTotal();
+
+                                    window.changeColor = changeColor;
+                                });
+                            </script>
+
+
+
                             <input type="hidden" name="_csrf"
                                 value="22bmfloa8FBjVsQ989gaiZrEexKxVf8b72gLelEDsD3nfXMUvgeFHG8tlTROM_EIl_Uu6K7wVirSY5s22Vg9SzI60wrUSkBy">
                             <input class="form-control d-none" type="text" value="1" name="id">
@@ -219,7 +361,6 @@
                                     class="fa fa-shopping-bag me-2 text-primary"></i>
                                 Add to cart
                             </button>
-                            <!-- </form> -->
 
                         </div>
                         <div class="col-lg-12">
@@ -298,11 +439,9 @@
 
         </div>
     </div>
-    <!-- Single Product End -->
 
 
 
-    <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
         <div class="container py-5">
             <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
@@ -345,9 +484,7 @@
             </div>
         </div>
     </div>
-    <!-- Footer End -->
 
-    <!-- Copyright Start -->
     <div class="container-fluid copyright bg-dark py-4">
         <div class="container">
             <div class="row">
@@ -357,25 +494,22 @@
                         reserved.</span>
                 </div>
                 <div class="col-md-6 my-auto text-center text-md-end text-white">
-                    <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                    <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                    <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+
                     Designed By <a class="border-bottom" href="https://htmlcodex.com/">HTML Codex</a> Distributed
                     By <a class="border-bottom" href="https://themewagon.com/">ThemeWagon</a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Copyright End -->
 
 
-    <!-- Back to Top -->
+
     <a href="http://localhost:8080/product/1#"
         class="btn btn-primary border-3 border-primary rounded-circle back-to-top" style="display: none;"><i
             class="fa fa-arrow-up"></i></a>
 
 
-    <!-- JavaScript Libraries -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../../../resources/client/lib/easing/easing.min.js"></script>
@@ -384,31 +518,8 @@
     <script src="../../../../resources/client/lib/owlcarousel/owl.carousel.min.js"></script>
 
 
-    <!-- Template Javascript -->
+
     <script src="../../../../resources/client/js/main.js"></script>
-
-
-    <!-- Template Javascript -->
-
-
-    <!-- <div id="lightboxOverlay" tabindex="-1" class="lightboxOverlay" style="display: none;"></div> -->
-    <!-- <div id="lightbox" tabindex="-1" class="lightbox" style="display: none;">
-        <div class="lb-outerContainer">
-            <div class="lb-container"><img class="lb-image"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="">
-                <div class="lb-nav"><a class="lb-prev" role="button" tabindex="0" aria-label="Previous image"
-                        href="http://localhost:8080/product/1"></a><a class="lb-next" role="button" tabindex="0"
-                        aria-label="Next image" href="http://localhost:8080/product/1"></a></div>
-                <div class="lb-loader"><a class="lb-cancel" role="button" tabindex="0"></a></div>
-            </div>
-        </div>
-        <div class="lb-dataContainer">
-            <div class="lb-data">
-                <div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div>
-                <div class="lb-closeContainer"><a class="lb-close" role="button" tabindex="0"></a></div>
-            </div>
-        </div>
-    </div> -->
 </body>
 
 </html>

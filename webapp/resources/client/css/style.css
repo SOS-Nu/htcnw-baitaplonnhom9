@@ -517,27 +517,38 @@ h5#searchModalLabel {
     text-shadow: 3px 3px 8px rgba(34, 139, 34, 0.5);
 }
 
-
-/* back top top */
+/* back to top */
 #back-to-top {
-    display: none;
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99;
-    border: none;
-    outline: none;
-    color: white;
+    bottom: 30px;
+    /* Cách đáy trang 30px */
+    right: 30px;
+    /* Cách bên phải 30px */
+    display: none;
+    /* Ẩn mặc định */
+    z-index: 1000;
+    /* Đảm bảo nút nằm trên các phần tử khác */
+    width: 50px;
+    /* Kích thước nút */
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    /* Căn giữa biểu tượng */
+    font-size: 20px;
+    /* Kích thước biểu tượng */
     cursor: pointer;
-    padding: 15px;
-    border-radius: 50%;
-    font-size: 18px;
-    transition: opacity 0.3s;
+    opacity: 0.8;
+    /* Độ mờ nhẹ */
+    transition: opacity 0.3s ease-in-out;
+    /* Hiệu ứng mờ khi hover */
 }
 
 #back-to-top:hover {
-    background-color: #17cd1d;
+    opacity: 1;
+    /* Đậm hơn khi hover */
 }
+
+/* Nếu bạn dùng Bootstrap, các class như btn, btn-primary, border-3, rounded-circle đã định dạng sẵn màu sắc và hình dạng */
 
 
 /* css banner */

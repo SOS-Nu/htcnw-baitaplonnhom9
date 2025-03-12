@@ -1,0 +1,978 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ - Laptopshop</title>
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../../../../resources/client/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="../../../../resources/client/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../../../../resources/client/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Template Stylesheet -->
+    <link href="../../../../resources/client/css/style.css" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+    <!--  Navbar start -->
+    <div class="container-fluid fixed-top shadow">
+        <div class="container topbar bg-primary d-none d-lg-block">
+            <div class="d-flex justify-content-between">
+                <div class="top-info ps-2">
+                    <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#"
+                            class="text-white">IUH Nguyễn Văn Bảo,TP.Hồ Chí Minh</a></small>
+                    <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#"
+                            class="text-white">nhokanhanh@gmail.com</a></small>
+                    <small class="me-3">
+                        <i class="fa fa-phone me-2 text-secondary"></i>
+                        <a href="" class="text-white">
+                            0385382597
+                        </a>
+                    </small>
+
+                </div>
+                <div class="top-link pe-2">
+                    <a href="#" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
+                    <a href="#" class="text-white"><small class="text-white mx-2">Terms of Use</small>/</a>
+                    <a href="#" class="text-white"><small class="text-white ms-2">Sales and Refunds</small></a>
+                </div>
+            </div>
+        </div>
+        <div class="container px-0">
+            <nav class="navbar navbar-light bg-white navbar-expand-xl">
+                <img src="../../../../resources/images/dragon/dragonnguyenmew.gif" class="d-none d-lg-block"
+                    style="margin-top: 50px !important; left: -100 !important;position: relative;" alt="" id="dragon">
+                <a href="show.html" class="navbar-brand">
+                    <h1 class="text-primary display-6">Laptopshop</h1>
+                </a>
+                <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars text-primary"></span>
+                </button>
+                <div class="collapse navbar-collapse bg-white justify-content-between mx-5" id="navbarCollapse">
+                    <div class="navbar-nav">
+                        <a href="show.html" class="nav-item nav-link active">Trang Chủ</a>
+                        <a href="product.show.html" class="nav-item nav-link">Sản Phẩm</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                            <div class="dropdown-menu m-0 bg-secondary rounded-0">
+                                <a href="cart.html" class="dropdown-item">Cart</a>
+                                <a href="chackout.html" class="dropdown-item">Chackout</a>
+                                <a href="testimonial.html" class="dropdown-item">Thông Tin Cá Nhân</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="d-flex m-3 me-0" id="authSection">
+                        <a href="http://localhost:8080/" class="navbar-brand" style="margin-top: 10px !important;">
+                            <h4 class="text-primary display-10"> HotLine: 0385382597</h4>
+
+                        </a>
+                        <a href="" class="position-relative me-4 my-auto">
+                            <i class="fa fa-phone fa-2x"></i>
+
+                        </a>
+
+
+                        <a href="http://localhost:8080/cart" class="position-relative me-4 my-auto">
+                            <i class="fa fa-shopping-bag fa-2x"></i>
+                            <span
+                                class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+                                style="top: -5px; left: 15px; height: 20px; min-width: 20px;" id="sunCart">
+                                2
+                            </span>
+                        </a>
+                        <div class="dropdown my-auto">
+                            <a href="http://localhost:8080/#" class="dropdown" role="button" id="dropdownMenuLink"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user fa-2x"></i>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-end p-4" aria-labelledby="dropdownMenuLink">
+                                <li class="d-flex align-items-center flex-column" style="min-width: 300px;">
+                                    <img style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden;">
+                                    <div class="text-center my-3">
+                                        SOS Nu
+                                    </div>
+                                </li>
+
+                                <li><a class="dropdown-item" href="http://localhost:8080/#">Quản lý tài khoản</a></li>
+
+                                <li><a class="dropdown-item" href="http://localhost:8080/order-history">Lịch sử mua
+                                        hàng</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <form method="post" action="http://localhost:8080/logout">
+                                        <input type="hidden" name="_csrf"
+                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp">
+                                        <button class="dropdown-item">Đăng xuất</button>
+
+                                    </form>
+                                </li>
+                            </ul>
+
+
+                        </div>
+
+                    </div> -->
+
+
+                    <!-- dang nhap logic -->
+                    <div class="d-flex m-3 me-0" id="authSection">
+                        <button
+                            class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
+                            data-bs-toggle="modal" data-bs-target="#searchModal">
+                            <i class="fas fa-search text-primary"></i>
+                        </button>
+                        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal"
+                            data-bs-target="#login" id="loginBtn">
+                            Đăng nhập
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Navbar End -->
+    <!-- chua dang nhap  -->
+
+    <!-- Modal Đăng nhập -->
+    <div class="modal fade" id="login" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="text-center font-weight-light my-4">Login</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" id="loginForm" action="">
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="email" placeholder="name@example.com" name="userEmail"
+                                id="userEmail">
+                            <label>Email address</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="password" placeholder="Password" name="password"
+                                id="password">
+                            <label>Password</label>
+                        </div>
+                        <div>
+                            <input type="hidden" name="_csrf"
+                                value="JxEnFuF6sIGYxVFdeLXTjzAVx54Y1IFY1eO36p-fTDbF1dyVQ3VBJ4dL1ee18TdtS5jnuVR26qcpteN15tXU36qmelCks76j">
+                        </div>
+                        <div class="mt-4 mb-0">
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    Login
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div>
+                        <div style="text-align: center"><span>Hoặc sử dụng</span></div>
+                        <div class="d-flex justify-content-center align-items-center my-3" style="gap: 20px">
+                            <a href="http://localhost:8080/oauth2/authorization/google" title="Đăng nhập với Google">
+                                <img height="40" width="40"
+                                    src="../../../../resources/client/img/provider/default-google.png">
+                            </a>
+                            <a href="http://localhost:8080/oauth2/authorization/github" title="Đăng nhập với Github">
+                                <img height="40" width="40"
+                                    src="../../../../resources/client/img/provider/default-github.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer py-3">
+                    <div class="small"><a href="" data-bs-target="#signUp" data-bs-toggle="modal">Need an account? Sign
+                            up!</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- model register -->
+    <div class="modal fade" id="signUp" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header ">
+
+                    <h3 class="text-center font-weight-light my-4">Create Account</h3>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="registerUser" action="http://localhost:8080/register" method="post">
+
+
+
+
+                        <div class="row mb-3">
+                            <div class="col-12 col-md-6">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input id="firstName" name="firstName" placeholder="Enter your first name"
+                                        type="text" class="form-control " value="">
+                                    <label for="inputFirstName">First name</label>
+
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-floating">
+                                    <input id="lastName" name="lastName" placeholder="Enter your last name" type="text"
+                                        class="form-control" value="">
+                                    <label for="inputLastName">Last name</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input id="email" name="email" placeholder="name@example.com" type="email"
+                                class="form-control " value="">
+                            <label>Email address</label>
+
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12 col-md-6 ">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input id="password" name="password" placeholder="Create a password" type="password"
+                                        class="form-control " value="">
+                                    <label>Password</label>
+
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input id="confirmPassword" name="confirmPassword" placeholder="Confirm password"
+                                        type="password" class="form-control" value="">
+                                    <label>Confirm Password</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 mb-0">
+                            <div class="d-grid">
+                                <button class="btn btn-primary btn-block">
+                                    Create Account
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="hidden" name="_csrf"
+                                value="AZnFsa4bNDjhf6Tfwu8eP_MQEnKyz1p3608G5SyP_d8QWSmnZf2jgMgqUV7MS8Lv8cIqCZdzP0uDrjha2Hll0Bm2y7lxP0uR">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="small"><a href="" data-bs-target="#login" data-bs-toggle="modal">Have an account? Go to
+                            login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- model register End -->
+
+    <!-- Single Product Start -->
+    <div class="container-fluid py-5 mt-5">
+        <div class="container py-5">
+            <div class="row g-4 mb-5">
+                <div>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="http://localhost:8080/">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Danh Sách Sản Phẩm
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <div class="row g-4 fruite">
+                    <div class="col-12 col-md-4">
+                        <div class="row g-4">
+                            <div class="col-12" id="factoryFilter">
+                                <div class="mb-2"><b>Hãng sản xuất</b></div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="factory-1" value="APPLE">
+                                    <label class="form-check-label" for="factory-1">Apple</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="factory-2" value="ASUS">
+                                    <label class="form-check-label" for="factory-2">Asus</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="factory-3" value="LENOVO">
+                                    <label class="form-check-label" for="factory-3">Lenovo</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="factory-4" value="DELL">
+                                    <label class="form-check-label" for="factory-4">Dell</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="factory-5" value="LG">
+                                    <label class="form-check-label" for="factory-5">LG</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="factory-6" value="ACER">
+                                    <label class="form-check-label" for="factory-6">Acer</label>
+                                </div>
+
+                            </div>
+                            <div class="col-12" id="targetFilter">
+                                <div class="mb-2"><b>Mục đích sử
+                                        dụng</b></div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="target-1" value="GAMING">
+                                    <label class="form-check-label" for="target-1">Gaming</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="target-2"
+                                        value="SINHVIEN-VANPHONG">
+                                    <label class="form-check-label" for="target-2">Sinh viên - văn
+                                        phòng</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="target-3"
+                                        value="THIET-KE-DO-HOA">
+                                    <label class="form-check-label" for="target-3">Thiết kế đồ
+                                        họa</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="target-4" value="MONG-NHE">
+                                    <label class="form-check-label" for="target-4">Mỏng nhẹ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="target-5" value="DOANH-NHAN">
+                                    <label class="form-check-label" for="target-5">Doanh nhân</label>
+                                </div>
+
+                            </div>
+                            <div class="col-12" id="priceFilter">
+                                <div class="mb-2"><b>Mức giá</b></div>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="price-2" value="duoi-10-trieu">
+                                    <label class="form-check-label" for="price-2">Dưới 10 triệu</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="price-3" value="10-15-trieu">
+                                    <label class="form-check-label" for="price-3">Từ 10 - 15
+                                        triệu</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="price-4" value="15-20-trieu">
+                                    <label class="form-check-label" for="price-4">Từ 15 - 20
+                                        triệu</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="price-5" value="tren-20-trieu">
+                                    <label class="form-check-label" for="price-5">Trên 20 triệu</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-2"><b>Sắp xếp</b></div>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="sort-1" value="gia-tang-dan"
+                                        name="radio-sort">
+                                    <label class="form-check-label" for="sort-1">Giá tăng dần</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="sort-2" value="gia-giam-dan"
+                                        name="radio-sort">
+                                    <label class="form-check-label" for="sort-2">Giá giảm dần</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="sort-3" checkedl
+                                        value="gia-nothing" name="radio-sort">
+                                    <label class="form-check-label" for="sort-3">Không sắp xếp</label>
+                                </div>
+
+                            </div>
+                            <div class="col-12">
+                                <button
+                                    class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4"
+                                    id="btnFilter">
+                                    Lọc Sản Phẩm
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-8 text-center">
+                        <div class="row g-4">
+
+                            <div class="col-md-6 col-lg-4">
+                                <div class="rounded position-relative fruite-item">
+                                    <div class="fruite-img">
+                                        <img src="../../../../../convert/Trang chủ - Laptopshop_files/1711078092373-asus-01.png"
+                                            class="img-fluid w-100 rounded-top" alt>
+                                    </div>
+                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                        style="top: 10px; left: 10px;">Laptop
+                                    </div>
+                                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                        <h4 style="font-size: 15px;">
+                                            <a href="http://localhost:8080/product/1">
+                                                Laptop Asus TUF Gaming
+                                            </a>
+
+                                        </h4>
+                                        <p style="font-size: 13px;">
+                                            Intel, Core i5, 11400H</p>
+                                        <div class="d-flex  flex-lg-wrap justify-content-center flex-column">
+                                            <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                class="text-dark  fw-bold mb-3">
+                                                17,490,000
+                                                đ
+                                            </p>
+                                            <form action="http://localhost:8080/add-product-to-cart/1" method="post">
+                                                <input type="hidden" name="_csrf"
+                                                    value="y1SsFF3D_g4UpJj2CglKLn3t8YqWEET62KF-Jp_l0r14HrwTrjXPdmj0m2o5wa3DbiR-T0nZ3LL1JiDX7pFIF_zcsYpLKY91">
+
+                                                <button
+                                                    class="mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
+                                                    Add to cart
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-4">
+                                <div class="rounded position-relative fruite-item">
+                                    <div class="fruite-img">
+                                        <img src="../../../../../convert/Trang chủ - Laptopshop_files/1711078452562-dell-01.png"
+                                            class="img-fluid w-100 rounded-top" alt>
+                                    </div>
+                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                        style="top: 10px; left: 10px;">Laptop
+                                    </div>
+                                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                        <h4 style="font-size: 15px;">
+                                            <a href="http://localhost:8080/product/2">
+                                                Laptop Dell Inspiron 15
+                                            </a>
+
+                                        </h4>
+                                        <p style="font-size: 13px;">
+                                            i5 1235U/16GB/512GB/15.6"FHD</p>
+                                        <div class="d-flex  flex-lg-wrap justify-content-center flex-column">
+                                            <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                class="text-dark  fw-bold mb-3">
+                                                15,490,000
+                                                đ
+                                            </p>
+                                            <form action="http://localhost:8080/add-product-to-cart/2" method="post">
+                                                <input type="hidden" name="_csrf"
+                                                    value="y1SsFF3D_g4UpJj2CglKLn3t8YqWEET62KF-Jp_l0r14HrwTrjXPdmj0m2o5wa3DbiR-T0nZ3LL1JiDX7pFIF_zcsYpLKY91">
+
+                                                <button
+                                                    class="mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
+                                                    Add to cart
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-4">
+                                <div class="rounded position-relative fruite-item">
+                                    <div class="fruite-img">
+                                        <img src="../../../../../convert/Trang chủ - Laptopshop_files/1711081278418-dell-02.png"
+                                            class="img-fluid w-100 rounded-top" alt>
+                                    </div>
+                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                        style="top: 10px; left: 10px;">Laptop
+                                    </div>
+                                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                        <h4 style="font-size: 15px;">
+                                            <a href="http://localhost:8080/product/2">
+                                                Dell Vostro 3150
+                                            </a>
+
+                                        </h4>
+                                        <p style="font-size: 13px;">
+                                            i5 1235u (5M2TT2)</p>
+                                        <div class="d-flex  flex-lg-wrap justify-content-center flex-column">
+                                            <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                class="text-dark  fw-bold mb-3">
+                                                14,490,000
+                                                đ
+                                            </p>
+                                            <form action="http://localhost:8080/add-product-to-cart/2" method="post">
+                                                <input type="hidden" name="_csrf"
+                                                    value="y1SsFF3D_g4UpJj2CglKLn3t8YqWEET62KF-Jp_l0r14HrwTrjXPdmj0m2o5wa3DbiR-T0nZ3LL1JiDX7pFIF_zcsYpLKY91">
+
+                                                <button
+                                                    class="mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
+                                                    Add to cart
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-4">
+                                <div class="rounded position-relative fruite-item">
+                                    <div class="fruite-img">
+                                        <img src="../../../../../convert/Trang chủ - Laptopshop_files/1711079073759-lenovo-01.png"
+                                            class="img-fluid w-100 rounded-top" alt>
+                                    </div>
+                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                        style="top: 10px; left: 10px;">Laptop
+                                    </div>
+                                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                        <h4 style="font-size: 15px;">
+                                            <a href="http://localhost:8080/product/3">
+                                                Lenovo IdeaPad Gaming 3
+                                            </a>
+
+                                        </h4>
+                                        <p style="font-size: 13px;">
+                                            i5-10300H, RAM 8G</p>
+                                        <div class="d-flex  flex-lg-wrap justify-content-center flex-column">
+                                            <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                class="text-dark  fw-bold mb-3">
+                                                19,500,000
+                                                đ
+                                            </p>
+                                            <form action="http://localhost:8080/add-product-to-cart/3" method="post">
+                                                <input type="hidden" name="_csrf"
+                                                    value="y1SsFF3D_g4UpJj2CglKLn3t8YqWEET62KF-Jp_l0r14HrwTrjXPdmj0m2o5wa3DbiR-T0nZ3LL1JiDX7pFIF_zcsYpLKY91">
+
+                                                <button
+                                                    class="mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
+                                                    Add to cart
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-4">
+                                <div class="rounded position-relative fruite-item">
+                                    <div class="fruite-img">
+                                        <img src="../../../../../convert/Trang chủ - Laptopshop_files/1711079954090-apple-01.png"
+                                            class="img-fluid w-100 rounded-top" alt>
+                                    </div>
+                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                        style="top: 10px; left: 10px;">Laptop
+                                    </div>
+                                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                        <h4 style="font-size: 15px;">
+                                            <a href="http://localhost:8080/product/3">
+                                                Apple MacBook Air M2 2024
+                                            </a>
+
+                                        </h4>
+                                        <p style="font-size: 13px;">
+                                            8CPU 10GPU 16GB 512GB Sạc 70W
+                                        </p>
+                                        <div class="d-flex  flex-lg-wrap justify-content-center flex-column">
+                                            <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                class="text-dark  fw-bold mb-3">
+                                                28,590,000
+                                                đ
+                                            </p>
+                                            <form action="http://localhost:8080/add-product-to-cart/3" method="post">
+                                                <input type="hidden" name="_csrf"
+                                                    value="y1SsFF3D_g4UpJj2CglKLn3t8YqWEET62KF-Jp_l0r14HrwTrjXPdmj0m2o5wa3DbiR-T0nZ3LL1JiDX7pFIF_zcsYpLKY91">
+
+                                                <button
+                                                    class="mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
+                                                    Add to cart
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-4">
+                                <div class="rounded position-relative fruite-item">
+                                    <div class="fruite-img">
+                                        <img src="../../../../../convert/Trang chủ - Laptopshop_files/1711080787179-apple-02.png"
+                                            class="img-fluid w-100 rounded-top" alt>
+                                    </div>
+                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                        style="top: 10px; left: 10px;">Laptop
+                                    </div>
+                                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                        <h4 style="font-size: 15px;">
+                                            <a href="http://localhost:8080/product/3">
+                                                Laptop ASUS Vivobook GO 15
+                                                E1504FA-NJ454W
+                                            </a>
+
+                                        </h4>
+                                        <p style="font-size: 13px;">
+                                            R5-705U, 16GB/512GB/15.6"FHD</p>
+                                        <div class="d-flex  flex-lg-wrap justify-content-center flex-column">
+                                            <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                class="text-dark  fw-bold mb-3">
+                                                12,290,000
+                                                đ
+                                            </p>
+                                            <form action="http://localhost:8080/add-product-to-cart/3" method="post">
+                                                <input type="hidden" name="_csrf"
+                                                    value="y1SsFF3D_g4UpJj2CglKLn3t8YqWEET62KF-Jp_l0r14HrwTrjXPdmj0m2o5wa3DbiR-T0nZ3LL1JiDX7pFIF_zcsYpLKY91">
+
+                                                <button
+                                                    class="mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
+                                                    Add to cart
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pagination d-flex justify-content-center mt-5">
+                                <li class="page-item">
+                                    <a class="disabled page-link" href="http://localhost:8080/products?page=0"
+                                        aria-label="Previous">
+                                        <span aria-hidden="true">«</span>
+                                    </a>
+                                </li>
+
+                                <li class="page-item">
+                                    <a class="active page-link" href="http://localhost:8080/products?page=1">
+                                        1
+                                    </a>
+                                </li>
+
+                                <li class="page-item">
+                                    <a class="page-link" href="http://localhost:8080/products?page=2">
+                                        2
+                                    </a>
+                                </li>
+
+                                <li class="page-item">
+                                    <a class="page-link" href="http://localhost:8080/products?page=3">
+                                        3
+                                    </a>
+                                </li>
+
+                                <li class="page-item">
+                                    <a class="page-link" href="http://localhost:8080/products?page=4">
+                                        4
+                                    </a>
+                                </li>
+
+                                <li class="page-item">
+                                    <a class="page-link" href="http://localhost:8080/products?page=2" aria-label="Next">
+                                        <span aria-hidden="true">»</span>
+                                    </a>
+                                </li>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Single Product End -->
+
+    <!-- ------------------------------------------------------------- -->
+
+    <!-- Featurs Section Start -->
+    <div class="container-fluid featurs py-5">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="featurs-item text-center rounded bg-light p-4">
+                        <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                            <i class="fas fa-car-side fa-3x text-white"></i>
+                        </div>
+                        <div class="featurs-content text-center">
+                            <h5>Free Shipping</h5>
+                            <p class="mb-0">Hỏa tốc trong 2h</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="featurs-item text-center rounded bg-light p-4">
+                        <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                            <i class="fas fa-user-shield fa-3x text-white"></i>
+                        </div>
+                        <div class="featurs-content text-center">
+                            <h5>Security Payment</h5>
+                            <p class="mb-0">Giao dịch an toàn</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="featurs-item text-center rounded bg-light p-4">
+                        <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                            <i class="fas fa-exchange-alt fa-3x text-white"></i>
+                        </div>
+                        <div class="featurs-content text-center">
+                            <h5>30 Day Return</h5>
+                            <p class="mb-0">Đổi trả miễn phí</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="featurs-item text-center rounded bg-light p-4">
+                        <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                            <i class="fa fa-phone-alt fa-3x text-white"></i>
+                        </div>
+                        <div class="featurs-content text-center">
+                            <h5>24/7 Support</h5>
+                            <p class="mb-0">
+                                HotLine: 0385382597
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Featurs Section End -->
+
+    <!-- Testimonial Section Start -->
+    <div class="container py-5">
+        <div class="text-center">
+            <h4 class="text-primary">Key People</h4>
+            <h1 class="display-5 mb-5 text-dark">Sound Of Silent</h1>
+        </div>
+
+        <div class="testimonial-container">
+            <div class="testimonial-wrapper">
+                <!-- Lê Văn Nguyên -->
+                <div class="testimonial-item bg-light rounded p-4">
+                    <i class="fa fa-quote-right fa-2x text-secondary"></i>
+                    <p class="mt-3">Sound Of Silent</p>
+                    <img src="img/../../../../../resources/images/president/levannguyen.jpg" alt="">
+                    <h4 class="mt-2 text-dark">Lê Văn Nguyên (SOS Nu)</h4>
+                    <p class="text-muted">President</p>
+                </div>
+
+                <!-- Ngan & John Smith-->
+                <div class="testimonial-item bg-light rounded p-4 d-flex flex-column align-items-center">
+                    <div class="d-flex gap-3 justify-content-between w-50">
+                        <!-- Jane Doe -->
+                        <div class="text-center">
+                            <i class="fa fa-quote-right fa-2x text-secondary"></i>
+                            <p class="mt-3">Member Of Sound Of Silent</p>
+                            <img src="../../../../resources/images/president/ngan.jpg" alt="">
+                            <h4 class="mt-2 text-dark">Kim Ngân</h4>
+                            <p class="text-muted">Designer</p>
+                        </div>
+                        <!--Lê Văn Nguyên Member-->
+                        <div class="text-center ">
+                            <i class="fa fa-quote-right fa-2x text-secondary"></i>
+                            <p class="mt-3">Member Of Sound Of Silent</p>
+                            <img src="../../../../resources/images/president/nguyennho.png" alt="">
+                            <h4 class="mt-2 text-dark">Lê Văn Nguyên</h4>
+                            <p class="text-muted">Employee</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alice Brown & Bob Martin -->
+                <div class="testimonial-item bg-light rounded p-4 d-flex flex-column align-items-center">
+                    <div class="d-flex gap-3  justify-content-between w-50">
+                        <!-- Alice Brown -->
+                        <div class="text-center">
+                            <i class="fa fa-quote-right fa-2x text-secondary"></i>
+                            <p class="mt-3">Member Of Sound Of Silent</p>
+                            <img src="../../../../resources/images/president/nhon.jpg" alt="">
+                            <h4 class="mt-2 text-dark">Hồ Thanh Nhơn</h4>
+                            <p class="text-muted">Marketing</p>
+                        </div>
+                        <!-- Bob Martin -->
+                        <div class="text-center">
+                            <i class="fa fa-quote-right fa-2x text-secondary"></i>
+                            <p class="mt-3">Member Of Sound Of Silent</p>
+                            <img src="../../../../resources/images/president/nhu.png" alt="">
+                            <h4 class="mt-2 text-dark">Huỳnh Như</h4>
+                            <p class="text-muted">CEO</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="text-center mt-4 d-flex justify-content-center gap-3">
+            <button class="btn btn-primary btn-lg d-flex align-items-center justify-content-center w-25" id="prev"
+                style="min-width: 150px; max-width: 200px;">
+                <i class="bi bi-arrow-left-circle-fill me-2"></i> Previous
+            </button>
+            <button class="btn btn-primary btn-lg d-flex align-items-center justify-content-center w-25" id="next"
+                style="min-width: 150px; max-width: 200px;">
+                Next <i class="bi bi-arrow-right-circle-fill ms-2"></i>
+            </button>
+        </div>
+
+
+
+    </div>
+    <!-- Testimonial Section End -->
+    <!-- Tastimonial End -->
+
+
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+        <div class="container py-5">
+            <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
+                <div class="row g-4">
+                    <div class="col-lg-3">
+                        <a target="_blank">
+                            <h1 class="text-primary mb-0">Laptopshop</h1>
+                            <p class="text-secondary mb-0">@SOSNu</p>
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="position-relative mx-auto">
+                            <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="number"
+                                placeholder="Your Email or PhoneNumber">
+                            <button type="submit"
+                                class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white"
+                                style="top: 0; right: 0;">Subscribe Now</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="d-flex justify-content-end pt-3">
+                            <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle"
+                                href="https://www.facebook.com/SOS.Nuu/"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle"
+                                href="https://www.youtube.com/@SOSNu"><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-secondary btn-md-square rounded-circle" href=""><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-item">
+                        <h4 class="text-light mb-3">Chất lượng là ưu tiên hàng đầu</h4>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="d-flex flex-column text-start footer-item">
+                        <h4 class="text-light mb-3">Shop Info</h4>
+                        <a class="btn-link" href="http://localhost:8080/#">About Us</a>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="d-flex flex-column text-start footer-item">
+                        <h4 class="text-light mb-3">Account</h4>
+                        <a class="btn-link" href="http://localhost:8080/#">My Account</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-item">
+                        <h4 class="text-light mb-3">Contact</h4>
+                        <p>Author:SOS Nu</p>
+                        <p>Website: <a target="_blank"> SOS Nu</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright bg-dark py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <span class="text-light"><a target="_blank"><i class="fas fa-copyright text-light me-2"></i>Lê
+                            Văn Nguyên</a>, All right reserved.</span>
+                </div>
+                <div class="col-md-6 my-auto text-center text-md-end text-white">
+                    <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                    <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                    <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+                    Designed By <a class="border-bottom">Lê Văn Nguyên</a> Distributed
+                    By <a class="border-bottom">SOS Nu</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- 
+jsp -->
+
+
+    <!-- Back to Top -->
+    <!-- <a class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a> -->
+    <button id="back-to-top" title="Back to Top" class="btn btn-primary border-3 border-primary rounded-circle">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../../resources/client/lib/easing/easing.min.js"></script>
+    <script src="../../../../resources/client/lib/waypoints/waypoints.min.js"></script>
+    <script src="../../../../resources/client/lib/lightbox/js/lightbox.min.js"></script>
+    <script src="../../../../resources/client/lib/owlcarousel/owl.carousel.min.js"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="../../../../resources/client/js/main.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js">
+    </script>
+
+
+</body>
+
+</html>
