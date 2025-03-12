@@ -521,31 +521,21 @@ h5#searchModalLabel {
 #back-to-top {
     position: fixed;
     bottom: 30px;
-    /* Cách đáy trang 30px */
     right: 30px;
-    /* Cách bên phải 30px */
     display: none;
-    /* Ẩn mặc định */
     z-index: 1000;
-    /* Đảm bảo nút nằm trên các phần tử khác */
     width: 50px;
-    /* Kích thước nút */
     height: 50px;
     text-align: center;
     line-height: 50px;
-    /* Căn giữa biểu tượng */
     font-size: 20px;
-    /* Kích thước biểu tượng */
     cursor: pointer;
-    opacity: 0.8;
-    /* Độ mờ nhẹ */
+    opacity: 0.7;
     transition: opacity 0.3s ease-in-out;
-    /* Hiệu ứng mờ khi hover */
 }
 
 #back-to-top:hover {
     opacity: 1;
-    /* Đậm hơn khi hover */
 }
 
 /* Nếu bạn dùng Bootstrap, các class như btn, btn-primary, border-3, rounded-circle đã định dạng sẵn màu sắc và hình dạng */

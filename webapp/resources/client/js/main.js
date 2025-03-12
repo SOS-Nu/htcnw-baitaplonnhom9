@@ -242,9 +242,7 @@
     //     }
     // });
 
-
     // Back to top button
-    // Script cho Back to Top (đặt ở cuối <body> hoặc file riêng)
     (function () {
         const backToTopButton = document.getElementById('back-to-top');
 
@@ -301,70 +299,70 @@
     });
 
 
-    // vegetable carousel
-    $(".vegetable-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1500,
-        center: false,
-        dots: true,
-        loop: true,
-        margin: 25,
-        nav: true,
-        navText: [
-            '<i class="bi bi-arrow-left"></i>',
-            '<i class="bi bi-arrow-right"></i>'
-        ],
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1
-            },
-            576: {
-                items: 1
-            },
-            768: {
-                items: 2
-            },
-            992: {
-                items: 3
-            },
-            1200: {
-                items: 4
-            }
-        }
-    });
+    // // vegetable carousel
+    // $(".vegetable-carousel").owlCarousel({
+    //     autoplay: true,
+    //     smartSpeed: 1500,
+    //     center: false,
+    //     dots: true,
+    //     loop: true,
+    //     margin: 25,
+    //     nav: true,
+    //     navText: [
+    //         '<i class="bi bi-arrow-left"></i>',
+    //         '<i class="bi bi-arrow-right"></i>'
+    //     ],
+    //     responsiveClass: true,
+    //     responsive: {
+    //         0: {
+    //             items: 1
+    //         },
+    //         576: {
+    //             items: 1
+    //         },
+    //         768: {
+    //             items: 2
+    //         },
+    //         992: {
+    //             items: 3
+    //         },
+    //         1200: {
+    //             items: 4
+    //         }
+    //     }
+    // });
 
 
-    // Modal Video
-    $(document).ready(function () {
-        var $videoSrc;
-        $('.btn-play').click(function () {
-            $videoSrc = $(this).data("src");
-        });
-        console.log($videoSrc);
+    // // Modal Video
+    // $(document).ready(function () {
+    //     var $videoSrc;
+    //     $('.btn-play').click(function () {
+    //         $videoSrc = $(this).data("src");
+    //     });
+    //     console.log($videoSrc);
 
-        $('#videoModal').on('shown.bs.modal', function (e) {
-            $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
-        })
+    //     $('#videoModal').on('shown.bs.modal', function (e) {
+    //         $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
+    //     })
 
-        $('#videoModal').on('hide.bs.modal', function (e) {
-            $("#video").attr('src', $videoSrc);
-        })
+    //     $('#videoModal').on('hide.bs.modal', function (e) {
+    //         $("#video").attr('src', $videoSrc);
+    //     })
 
-        //add active class to header
-        const navElement = $("#navbarCollapse");
-        const currentUrl = window.location.pathname;
-        navElement.find('a.nav-link').each(function () {
-            const link = $(this); // Get the current link in the loop
-            const href = link.attr('href'); // Get the href attribute of the link
+    //     //add active class to header
+    //     const navElement = $("#navbarCollapse");
+    //     const currentUrl = window.location.pathname;
+    //     navElement.find('a.nav-link').each(function () {
+    //         const link = $(this); // Get the current link in the loop
+    //         const href = link.attr('href'); // Get the href attribute of the link
 
-            if (href === currentUrl) {
-                link.addClass('active'); // Add 'active' class if the href matches the current URL
-            } else {
-                link.removeClass('active'); // Remove 'active' class if the href does not match
-            }
-        });
-    });
+    //         if (href === currentUrl) {
+    //             link.addClass('active'); // Add 'active' class if the href matches the current URL
+    //         } else {
+    //             link.removeClass('active'); // Remove 'active' class if the href does not match
+    //         }
+    //     });
+    // });
 
 
 
@@ -717,7 +715,6 @@ function getAvatarSrc(email) {
 function getDisplayName(email) {
     return email === 'nu1412sos@gmail.com' ? 'Lê Văn Nguyên' : email.split('@')[0];
 }
-
 function renderContent() {
     document.getElementById('authSection').innerHTML = isLoggedIn ? loggedInContent : loginContent;
 
@@ -888,26 +885,6 @@ $(document).ready(function () {
     });
 });
 
-
-// JavaScript để xử lý nút Back to Top
-const backToTopButton = document.getElementById("back-to-top");
-
-// Hiển thị/ẩn nút khi cuộn
-window.onscroll = function () {
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        backToTopButton.style.display = "block";
-    } else {
-        backToTopButton.style.display = "none";
-    }
-};
-
-// Cuộn về đầu trang khi nhấp vào nút
-backToTopButton.addEventListener("click", function () {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth" // Cuộn mượt mà
-    });
-});
 
 
 //banner
