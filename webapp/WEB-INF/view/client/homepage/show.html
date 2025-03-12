@@ -26,7 +26,9 @@
     <link href="../../../../resources/client/css/style.css" rel="stylesheet">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css" rel="stylesheet">
+    <style>
 
+    </style>
 </head>
 
 <body>
@@ -72,6 +74,8 @@
         </div>
         <div class="container px-0">
             <nav class="navbar navbar-light bg-white navbar-expand-xl">
+                <img src="../../../../resources/images/dragon/dragonnguyenmew.gif" class="d-none d-lg-block"
+                    style="margin-top: 50px !important; left: -100 !important;position: relative;" alt="" id="dragon">
                 <a href="show.html" class="navbar-brand">
                     <h1 class="text-primary display-6">Laptopshop</h1>
                 </a>
@@ -83,6 +87,14 @@
                     <div class="navbar-nav">
                         <a href="show.html" class="nav-item nav-link active">Trang Chủ</a>
                         <a href="../product/show.html" class="nav-item nav-link">Sản Phẩm</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                            <div class="dropdown-menu m-0 bg-secondary rounded-0">
+                                <a href="cart.html" class="dropdown-item">Cart</a>
+                                <a href="chackout.html" class="dropdown-item">Chackout</a>
+                                <a href="testimonial.html" class="dropdown-item">Thông Tin Cá Nhân</a>
+                            </div>
+                        </div>
                     </div>
                     <!-- <div class="d-flex m-3 me-0" id="authSection">
                         <a href="http://localhost:8080/" class="navbar-brand" style="margin-top: 10px !important;">
@@ -140,7 +152,7 @@
                     </div> -->
 
 
-
+                    <!-- dang nhap logic -->
                     <div class="d-flex m-3 me-0" id="authSection">
                         <button
                             class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
@@ -172,10 +184,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" id="loginForm" action="http://localhost:8080/login">
+                    <form method="post" id="loginForm" action="">
                         <div class="form-floating mb-3">
-                            <input class="form-control" type="email" placeholder="name@example.com" name="username"
-                                id="username">
+                            <input class="form-control" type="email" placeholder="name@example.com" name="userEmail"
+                                id="userEmail">
                             <label>Email address</label>
                         </div>
                         <div class="form-floating mb-3">
@@ -357,9 +369,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="text-primary" id="searchModalLabel">Tìm
-                        kiếm
-                        sản phẩm</h5>
+                    <h5 class="text-primary" id="searchModalLabel">Tìm kiếm sản phẩm</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -678,6 +688,259 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- 11.acer nitro 55 -->
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/acer nitro v 510.jpg"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/9">Acer Nitro V Gaming
+                                                        ANV15-51-73UU</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">NVIDIA GeForce RTX 3050</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">22,999,000 đ</p>
+                                                    <button data-product-id="9"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 12. acer aspire -->
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/acer aspire 2.jpg"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/9">Acer Aspire 2</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">NVIDIA GeForce RTX 3060</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">25,999,000 đ</p>
+                                                    <button data-product-id="9"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 13. acer aspire go 15 -->
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/acer aspire go 15.jpg"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/9">Acer Aspire Go 15</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">NVIDIA GeForce RTX 4050</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">30,999,000 đ</p>
+                                                    <button data-product-id="9"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 14. asus vivobook -->
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/asus vivobook.jpg"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/9">Asus Vivobook Oled</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">Intek Graphics</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">19,999,000 đ</p>
+                                                    <button data-product-id="9"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 15. asus zenbook -->
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/asus zenbook.jpg"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/9">Asus ZenBook Oled</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">Intek Graphics</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">39,999,000 đ</p>
+                                                    <button data-product-id="9"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 16.MacBook -->
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/mavbook.jpg"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/9">MacBook Pro 15</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">Apple M2</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">39,999,000 đ</p>
+                                                    <button data-product-id="9"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 17. Asus vivobook-->
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/vivobook1.jpg"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/9">Asus Vivobook K3405
+                                                        Oled</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">Intel Graphics</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">39,999,000 đ</p>
+                                                    <button data-product-id="9"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 18. Asus vivobook2-->
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/vivobook1.jpg"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/9">Asus Vivobook K3905
+                                                        Oled</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">RTX 5060</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">49,999,000 đ</p>
+                                                    <button data-product-id="9"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 19. MacBook Air 14 (M2) -->
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/1711079954090-apple-01.png"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/5">MacBook Air 14 (M2)</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">Apple M2 GPU 9-core</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">27,690,000 đ</p>
+                                                    <button data-product-id="5"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 20. acer Gram Style -->
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/1711080386941-lg-01.png"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/6">Laptop acer Gram</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">Intel Iris Plus Graphics</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">28,490,000 đ</p>
+                                                    <button data-product-id="6"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -704,6 +967,108 @@
                                                     <p style="font-size: 15px; text-align: center; width: 100%;"
                                                         class="text-dark fw-bold mb-3">17,490,000 đ</p>
                                                     <button data-product-id="1"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 14. asus vivobook -->
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/asus vivobook.jpg"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/9">Asus Vivobook Oled</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">Intek Graphics</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">19,999,000 đ</p>
+                                                    <button data-product-id="9"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 15. asus zenbook -->
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/asus zenbook.jpg"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/9">Asus ZenBook Oled</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">Intek Graphics</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">39,999,000 đ</p>
+                                                    <button data-product-id="9"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 17. Asus vivobook-->
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/vivobook1.jpg"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/9">Asus Vivobook K3405
+                                                        Oled</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">Intel Graphics</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">39,999,000 đ</p>
+                                                    <button data-product-id="9"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 18. Asus vivobook2-->
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/vivobook1.jpg"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/9">Asus Vivobook K3905
+                                                        Oled</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">RTX 5060</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">49,999,000 đ</p>
+                                                    <button data-product-id="9"
                                                         class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
                                                         <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
                                                     </button>
@@ -792,6 +1157,55 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- 16.MacBook -->
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/mavbook.jpg"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/9">MacBook Pro 15</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">Apple M2</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">39,999,000 đ</p>
+                                                    <button data-product-id="9"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/1711079954090-apple-01.png"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/5">MacBook Air 14 (M2)</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">Apple M2 GPU 9-core</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">27,690,000 đ</p>
+                                                    <button data-product-id="5"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -819,7 +1233,8 @@
                                                         class="text-dark fw-bold mb-3">23,490,000 đ</p>
                                                     <button data-product-id="8"
                                                         class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
-                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                                                        cart
                                                     </button>
                                                 </div>
                                             </div>
@@ -843,11 +1258,94 @@
                                                         class="text-dark fw-bold mb-3">26,999,000 đ</p>
                                                     <button data-product-id="9"
                                                         class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
-                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                                                        cart
                                                     </button>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <!-- 11.acer nitro 55 -->
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/acer nitro v 510.jpg"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/9">Acer Nitro V Gaming
+                                                        ANV15-51-73UU</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">NVIDIA GeForce RTX 3050</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">22,999,000 đ</p>
+                                                    <button data-product-id="9"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                                                        cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 12. acer aspire -->
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/acer aspire 2.jpg"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/9">Acer Aspire 2</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">NVIDIA GeForce RTX 3060</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">25,999,000 đ</p>
+                                                    <button data-product-id="9"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                                                        cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 13. acer aspire go 15 -->
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="../../../../resources/images/product/acer aspire go 15.jpg"
+                                                    class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">Laptop</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4 style="font-size: 15px;">
+                                                    <a href="http://localhost:8080/product/9">Acer Aspire Go 15</a>
+                                                </h4>
+                                                <p style="font-size: 13px;">NVIDIA GeForce RTX 4050</p>
+                                                <div class="d-flex flex-lg-wrap justify-content-center flex-columns">
+                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
+                                                        class="text-dark fw-bold mb-3">30,999,000 đ</p>
+                                                    <button data-product-id="9"
+                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                                                        cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 20. acer Gram Style -->
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
                                     </div>
                                 </div>
                             </div>
@@ -904,8 +1402,7 @@
                         </div>
                         <div class="featurs-content text-center">
                             <h5>24/7 Support</h5>
-                            <p class="mb-0">Hỗ trợ nhiệt tình
-                                <br>
+                            <p class="mb-0">
                                 HotLine: 0385382597
                             </p>
                         </div>
@@ -915,6 +1412,90 @@
         </div>
     </div>
     <!-- Featurs Section End -->
+
+
+    <!-- Testimonial Section Start -->
+    <div class="container py-5">
+        <div class="text-center">
+            <h4 class="text-primary">Key People</h4>
+            <h1 class="display-5 mb-5 text-dark">Sound Of Silent</h1>
+        </div>
+
+        <div class="testimonial-container">
+            <div class="testimonial-wrapper">
+                <!-- Lê Văn Nguyên -->
+                <div class="testimonial-item bg-light rounded p-4">
+                    <i class="fa fa-quote-right fa-2x text-secondary"></i>
+                    <p class="mt-3">Sound Of Silent</p>
+                    <img src="img/../../../../../resources/images/president/levannguyen.jpg" alt="">
+                    <h4 class="mt-2 text-dark">Lê Văn Nguyên (SOS Nu)</h4>
+                    <p class="text-muted">President</p>
+                </div>
+
+                <!-- Ngan & John Smith-->
+                <div class="testimonial-item bg-light rounded p-4 d-flex flex-column align-items-center">
+                    <div class="d-flex gap-3 justify-content-between w-50">
+                        <!-- Jane Doe -->
+                        <div class="text-center">
+                            <i class="fa fa-quote-right fa-2x text-secondary"></i>
+                            <p class="mt-3">Member Of Sound Of Silent</p>
+                            <img src="../../../../resources/images/president/ngan.jpg" alt="">
+                            <h4 class="mt-2 text-dark">Kim Ngân</h4>
+                            <p class="text-muted">Designer</p>
+                        </div>
+                        <!--Lê Văn Nguyên Member-->
+                        <div class="text-center ">
+                            <i class="fa fa-quote-right fa-2x text-secondary"></i>
+                            <p class="mt-3">Member Of Sound Of Silent</p>
+                            <img src="../../../../resources/images/president/nguyennho.png" alt="">
+                            <h4 class="mt-2 text-dark">Lê Văn Nguyên</h4>
+                            <p class="text-muted">Employee</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alice Brown & Bob Martin -->
+                <div class="testimonial-item bg-light rounded p-4 d-flex flex-column align-items-center">
+                    <div class="d-flex gap-3  justify-content-between w-50">
+                        <!-- Alice Brown -->
+                        <div class="text-center">
+                            <i class="fa fa-quote-right fa-2x text-secondary"></i>
+                            <p class="mt-3">Member Of Sound Of Silent</p>
+                            <img src="../../../../resources/images/president/nhon.jpg" alt="">
+                            <h4 class="mt-2 text-dark">Hồ Thanh Nhơn</h4>
+                            <p class="text-muted">Marketing</p>
+                        </div>
+                        <!-- Bob Martin -->
+                        <div class="text-center">
+                            <i class="fa fa-quote-right fa-2x text-secondary"></i>
+                            <p class="mt-3">Member Of Sound Of Silent</p>
+                            <img src="../../../../resources/images/president/nhu.png" alt="">
+                            <h4 class="mt-2 text-dark">Huỳnh Như</h4>
+                            <p class="text-muted">CEO</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="text-center mt-4 d-flex justify-content-center gap-3">
+            <button class="btn btn-primary btn-lg d-flex align-items-center justify-content-center w-25" id="prev"
+                style="min-width: 150px; max-width: 200px;">
+                <i class="bi bi-arrow-left-circle-fill me-2"></i> Previous
+            </button>
+            <button class="btn btn-primary btn-lg d-flex align-items-center justify-content-center w-25" id="next"
+                style="min-width: 150px; max-width: 200px;">
+                Next <i class="bi bi-arrow-right-circle-fill ms-2"></i>
+            </button>
+        </div>
+
+
+
+    </div>
+    <!-- Testimonial Section End -->
+    <!-- Tastimonial End -->
+
 
 
 
@@ -929,7 +1510,28 @@
                             <p class="text-secondary mb-0">@SOSNu</p>
                         </a>
                     </div>
+                    <div class="col-lg-6">
+                        <div class="position-relative mx-auto">
+                            <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="number"
+                                placeholder="Your Email or PhoneNumber">
+                            <button type="submit"
+                                class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white"
+                                style="top: 0; right: 0;">Subscribe Now</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="d-flex justify-content-end pt-3">
+                            <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle"
+                                href="https://www.facebook.com/SOS.Nuu/"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle"
+                                href="https://www.youtube.com/@SOSNu"><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-secondary btn-md-square rounded-circle" href=""><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
@@ -968,9 +1570,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    <span class="text-light"><a target="_blank"><i class="fas fa-copyright text-light me-2"></i>Lê Văn
-                            Nguyên</a>, All right
-                        reserved.</span>
+                    <span class="text-light"><a target="_blank"><i class="fas fa-copyright text-light me-2"></i>Lê
+                            Văn Nguyên</a>, All right reserved.</span>
                 </div>
                 <div class="col-md-6 my-auto text-center text-md-end text-white">
                     <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
@@ -989,12 +1590,14 @@ jsp -->
 
 
     <!-- Back to Top -->
-    <a class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
-
+    <!-- <a class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a> -->
+    <button id="back-to-top" title="Back to Top" class="btn btn-primary border-3 border-primary rounded-circle">
+        <i class="fa fa-arrow-up"></i>
+    </button>
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../../../resources/client/lib/easing/easing.min.js"></script>
     <script src="../../../../resources/client/lib/waypoints/waypoints.min.js"></script>
     <script src="../../../../resources/client/lib/lightbox/js/lightbox.min.js"></script>
@@ -1004,9 +1607,9 @@ jsp -->
     <!-- Template Javascript -->
     <script src="../../../../resources/client/js/main.js"></script>
 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js">
     </script>
-
 
 
 </body>

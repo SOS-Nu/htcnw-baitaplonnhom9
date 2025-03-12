@@ -12,23 +12,94 @@
     spinner(0);
 
 
-    // Fixed Navbar
     $(window).scroll(function () {
-        if ($(window).width() < 992) {
-            if ($(this).scrollTop() > 55) {
-                $('.fixed-top').addClass('shadow');
-            } else {
-                $('.fixed-top').removeClass('shadow');
-            }
+        const $window = $(window);
+        const $navbarBrand = $('.navbar-brand');
+        const $dragon = $('#dragon');
+        const $fixedTop = $('.fixed-top');
+
+        if ($window.width() < 992) {
+            // Màn hình nhỏ: reset tất cả về trạng thái ban đầu
+            $fixedTop.css('top', '0px').removeClass('shadow'); // Đảm bảo không bị đẩy lên
+            $navbarBrand.css('margin-left', '0px');
+            $dragon.css('top', '0px'); // Reset dragon dù bị ẩn
         } else {
+            // Màn hình lớn
             if ($(this).scrollTop() > 55) {
-                $('.fixed-top').addClass('shadow').css('top', -55);
+                $dragon.css('transition', 'top 1s ease-in-out'); // Chậm khi xuống
+                $fixedTop.addClass('shadow').css('top', '-55px');
+                $dragon.css('top', '-200px');
+                $navbarBrand.css('margin-left', '-200px');
             } else {
-                $('.fixed-top').removeClass('shadow').css('top', 0);
+                $dragon.css('transition', 'top 0.5s ease-in-out'); // Nhanh khi lên
+                $fixedTop.removeClass('shadow').css('top', '0px');
+                $dragon.css('top', '0px');
+                $navbarBrand.css('margin-left', '0px');
             }
         }
     });
 
+    // Xử lý resize để tránh navbar biến mất
+    $(window).resize(function () {
+        const $fixedTop = $('.fixed-top');
+        const $navbarBrand = $('.navbar-brand');
+        const $dragon = $('#dragon');
+
+        if ($(window).width() < 992) {
+            $fixedTop.css('top', '0px').removeClass('shadow'); // Reset khi màn hình nhỏ
+            $navbarBrand.css('margin-left', '0px');
+            $dragon.css('top', '0px');
+        }
+    });
+
+    // Xử lý khi thay đổi kích thước màn hình
+
+
+    // $(window).scroll(function () {
+    //     // Thêm transition cho các phần tử
+    //     const $window = $(window);
+    //     const $navbarBrand = $('.navbar-brand');
+    //     const $dragon = $('#dragon');
+    //     const $fixedTop = $('.fixed-top');
+
+    //     if ($(window).width() < 992) {
+    //         // Màn hình nhỏ
+    //         if ($(this).scrollTop() > 55) {
+    //             $('.fixed-top').addClass('shadow');
+    //             $('#navbarBrand h1').css('margin-left', '0px'); // Reset margin-left về 0
+    //         } else {
+    //             $('.fixed-top').removeClass('shadow');
+    //             $('#navbarBrand h1').css('margin-left', '0px');
+    //         }
+    //     } else {
+    //         // Màn hình lớn
+    //         if ($(this).scrollTop() > 55) {
+    //             $('.fixed-top').addClass('shadow').css('top', '-55px');
+    //             $('#dragon').css('top', '-200px');
+    //             $('#navbarBrand h1').css('margin-left', '-200px');
+    //         } else {
+    //             $('.fixed-top').removeClass('shadow').css('top', '0');
+    //             $('#dragon').css('top', '0');
+    //             $('#navbarBrand h1').css('margin-left', '0px');
+    //         }
+    //     }
+    // });
+
+    // Xử lý resize window để đảm bảo responsive
+    $(window).resize(function () {
+        if ($(window).width() < 992) {
+            $('#navbarBrand h1').css('margin-left', '0px');
+        }
+    });
+
+    $(window).resize(function () {
+        const $navbarBrand = $('.navbar-brand');
+        if ($(window).width() < 992) {
+            $navbarBrand.css('margin-left', 0); // Màn hình nhỏ: margin-left về 0
+        } else {
+            $navbarBrand.css('margin-left', '-100px'); // Màn hình lớn: giữ -100px
+        }
+    });
 
     // Back to top button
     $(window).scroll(function () {
@@ -430,16 +501,12 @@
 })(jQuery);
 
 
-
-document.querySelector(".back-to-top").addEventListener("click", function (event) {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-
 // Kiểm tra trạng thái đăng nhập từ localStorage
 let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+let currentEmail = localStorage.getItem('userEmail') || ''; //them bien luu email
 
-// Nội dung khi chưa đăng nhập
+
+// content is not loggin
 const loginContent = `
         <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
                     data-bs-toggle="modal" data-bs-target="#searchModal">
@@ -452,69 +519,78 @@ const loginContent = `
 
 // Nội dung khi đã đăng nhập (tạm thời để đơn giản, bạn có thể thay bằng nội dung khác)
 const loggedInContent = `
-                 
-
-                    <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
+        <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
                         data-bs-toggle="modal" data-bs-target="#searchModal">
                         <i class="fas fa-search text-primary"></i>
-                    </button>
-                  <a href="http://localhost:8080/cart" class="position-relative me-4 my-auto">
+        </button>
+         <a href="http://localhost:8080/cart" class="position-relative me-4 my-auto">
                       <i class="fa fa-shopping-bag fa-2x"></i>
                       <span
                           class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
                           style="top: -5px; left: 15px; height: 20px; min-width: 20px;" id="sunCart">
                           2
                       </span>
-                  </a>
-                  <div class="dropdown my-auto">
-                      <a href="http://localhost:8080/#" class="dropdown" role="button" id="dropdownMenuLink"
-                          data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="fas fa-user fa-2x"></i>
-                      </a>
+        </a>
+    <div class="dropdown my-auto">
+    <a href="#" class="dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-user fa-2x"></i>
+    </a>
 
-                      <ul class="dropdown-menu dropdown-menu-end p-4" aria-labelledby="dropdownMenuLink">
-                          <li class="d-flex align-items-center flex-column" style="min-width: 300px;">
-                              <img style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden;">
-                              <div class="text-center my-3">
-                                  SOS Nu
-                              </div>
-                          </li>
+    <ul class="dropdown-menu dropdown-menu-end p-4" aria-labelledby="dropdownMenuLink">
+        <li class="d-flex align-items-center flex-column" style="min-width: 300px;">
+            <img id="userAvatar" style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden;" src="../../../../resources/images/president/anonymousavatar.jpg" alt="User Avatar">
+            <div id="userName" class="text-center my-3">User</div>
+        </li>
 
-                          <li><a class="dropdown-item" href="http://localhost:8080/#">Quản lý tài khoản</a></li>
-
-                          <li><a class="dropdown-item" href="http://localhost:8080/order-history">Lịch sử mua
-                                  hàng</a></li>
-                          <li>
-                              <hr class="dropdown-divider">
-                          </li>
-                          <li>
-                              <form method="post" action="">
-                                  <input method="post" type="hidden" >
-                                  <button class="btn btn-danger" onclick="logout()">Đăng xuất</button>
-                              </form>
-                          </li>
-                      </ul>
-                  </div>
+        <li><a class="dropdown-item" href="#">Quản lý tài khoản</a></li>
+        <li><a class="dropdown-item" href="order-history">Lịch sử mua hàng</a></li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li>
+            <form method="post" action="">
+                <input type="hidden" name="_method" value="post">
+                <button type="button" class="btn btn-danger" onclick="logout()">Đăng xuất</button>
+            </form>
+        </li>
+    </ul>
+    </div>
   `;
+
+// Hàm render avatar dựa trên email
+function getAvatarSrc(email) {
+    return email === 'nu1412sos@gmail.com' ? '../../../../resources/images/president/levannguyen.jpg' : '../../../../resources/images/president/anonymousavatar.jpg';
+}
+// Hàm lấy tên hiển thị dựa trên email
+function getDisplayName(email) {
+    return email === 'nu1412sos@gmail.com' ? 'Lê Văn Nguyên' : email.split('@')[0];
+}
 
 function renderContent() {
     document.getElementById('authSection').innerHTML = isLoggedIn ? loggedInContent : loginContent;
+
+    if (isLoggedIn) {
+        const avatarSrc = getAvatarSrc(currentEmail);
+        document.getElementById('userAvatar').src = avatarSrc;
+        document.getElementById('userName').textContent = getDisplayName(currentEmail);
+    }
 }
 
 // Xử lý sự kiện submit form đăng nhập
 document.getElementById('loginForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Ngăn form gửi thật (vì không có server)
+    event.preventDefault();
 
-    // Giả lập kiểm tra đăng nhập thành công (thay bằng logic thực nếu có)
-    const username = document.getElementById('username').value;
+    const email = document.getElementById('userEmail').value;
     const password = document.getElementById('password').value;
 
-    if (username && password) { // Kiểm tra đơn giản
+    if (email && password) {
         isLoggedIn = true;
+        currentEmail = email;
         localStorage.setItem('isLoggedIn', 'true');
-        localStorage.setItem('username', username); // Lưu username nếu cần
-        renderContent(); // Cập nhật giao diện
-        bootstrap.Modal.getInstance(document.getElementById('login')).hide(); // Đóng modal
+        localStorage.setItem('userEmail', email);
+
+        renderContent();
+        bootstrap.Modal.getInstance(document.getElementById('login')).hide();
     } else {
         alert('Vui lòng nhập email và mật khẩu!');
     }
@@ -523,14 +599,14 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
 // Hàm đăng xuất
 function logout() {
     isLoggedIn = false;
+    currentEmail = '';
     localStorage.setItem('isLoggedIn', 'false');
-    localStorage.removeItem('username');
+    localStorage.removeItem('userEmail');
     renderContent();
 }
 
 // Hiển thị nội dung ban đầu khi tải trang
 renderContent();
-
 
 //search
 document.getElementById('searchButton').addEventListener('click', function () {
@@ -659,3 +735,51 @@ $(document).ready(function () {
         $('#no-results-message').hide();
     });
 });
+
+
+// JavaScript để xử lý nút Back to Top
+const backToTopButton = document.getElementById("back-to-top");
+
+// Hiển thị/ẩn nút khi cuộn
+window.onscroll = function () {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        backToTopButton.style.display = "block";
+    } else {
+        backToTopButton.style.display = "none";
+    }
+};
+
+// Cuộn về đầu trang khi nhấp vào nút
+backToTopButton.addEventListener("click", function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth" // Cuộn mượt mà
+    });
+});
+
+
+//banner
+let index = 0;
+const wrapper = document.querySelector('.testimonial-wrapper');
+const items = document.querySelectorAll('.testimonial-item');
+const totalItems = items.length;
+
+function updateSlide() {
+    wrapper.style.transform = `translateX(-${index * 100}%)`;
+}
+
+document.getElementById('next').addEventListener('click', () => {
+    index = (index + 1) % totalItems;
+    updateSlide();
+});
+
+document.getElementById('prev').addEventListener('click', () => {
+    index = (index - 1 + totalItems) % totalItems;
+    updateSlide();
+});
+
+// Auto slide every 5 seconds
+setInterval(() => {
+    index = (index + 1) % totalItems;
+    updateSlide();
+}, 5000);
