@@ -119,12 +119,12 @@
                             dragon.removeEventListener('transitionend', null);
 
                             requestAnimationFrame(() => {
-                                dragon.style.transition = 'transform 0.02s ease-in-out';
+                                dragon.style.transition = 'transform 0.5s ease-in-out';
                                 dragon.style.transform = 'rotateY(0deg)';
                                 dragon.addEventListener('transitionend', function handleReverseRotate(e) {
                                     if (e.propertyName === 'transform') {
                                         dragon.style.left = '0px';
-                                        dragon.style.transition = 'left 0.5s ease-in-out';
+                                        dragon.style.transition = 'left 0.15s ease-in-out';
                                         dragon.addEventListener('transitionend', function handleSlideBack(e) {
                                             if (e.propertyName === 'left') {
                                                 dragon.classList.remove('animating', 'sliding');
