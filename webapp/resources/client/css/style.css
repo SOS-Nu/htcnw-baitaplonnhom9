@@ -524,6 +524,26 @@ h5#searchModalLabel {
     right: 30px;
     display: none;
     z-index: 1000;
+
+    #toast {
+        display: none;
+        /* Ẩn mặc định */
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #28a745;
+        /* Xanh lá cây */
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        transition: opacity 0.5s;
+        /* Hiệu ứng mờ dần */
+    }
+
     width: 50px;
     height: 50px;
     text-align: center;
@@ -602,4 +622,91 @@ h5#searchModalLabel {
     .navbar-brand {
         margin-left: 0 !important;
     }
+}
+
+#handleAddToCart {
+    display: none;
+    /* Ẩn mặc định */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #41a109e1;
+    /* Xanh lá cây cho thành công */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 9999;
+    /* Tăng để tránh bị che */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    transition: opacity 0.5s;
+    min-width: 200px;
+    /* Đảm bảo có kích thước */
+}
+
+#handleAddToCart.error {
+    background-color: #dc3545;
+    /* Đỏ cho lỗi */
+}
+
+
+/* CSS của bạn (giả sử đã có từ trước) */
+/* CSS của bạn (giả sử đã có từ trước) */
+.btn-delete,
+.btn-increase,
+.btn-decrease {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: flex;
+
+    cursor: pointer;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2px;
+}
+
+.btn-delete:hover,
+.btn-increase:hover,
+.btn-decrease:hover {
+    background-color: #c82333;
+}
+
+.btn-increase {
+    background-color: #28a745;
+}
+
+.btn-increase:hover {
+    background-color: #218838;
+}
+
+.btn-decrease {
+    background-color: #ffc107;
+}
+
+.btn-decrease:hover {
+    background-color: #e0a800;
+}
+
+.quantity-input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 2px;
+}
+
+/* CSS để căn giữa nút Xóa */
+.action-cell {
+    display: flex;
+    align-items: center;
+    /* Căn giữa theo chiều dọc */
+    justify-content: center;
+    /* Căn giữa theo chiều ngang nếu cần */
+    height: 100%;
+    /* Đảm bảo ô cao bằng hàng */
 }
