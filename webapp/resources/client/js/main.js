@@ -299,70 +299,8 @@
     });
 
 
-    // // vegetable carousel
-    // $(".vegetable-carousel").owlCarousel({
-    //     autoplay: true,
-    //     smartSpeed: 1500,
-    //     center: false,
-    //     dots: true,
-    //     loop: true,
-    //     margin: 25,
-    //     nav: true,
-    //     navText: [
-    //         '<i class="bi bi-arrow-left"></i>',
-    //         '<i class="bi bi-arrow-right"></i>'
-    //     ],
-    //     responsiveClass: true,
-    //     responsive: {
-    //         0: {
-    //             items: 1
-    //         },
-    //         576: {
-    //             items: 1
-    //         },
-    //         768: {
-    //             items: 2
-    //         },
-    //         992: {
-    //             items: 3
-    //         },
-    //         1200: {
-    //             items: 4
-    //         }
-    //     }
-    // });
 
 
-    // // Modal Video
-    // $(document).ready(function () {
-    //     var $videoSrc;
-    //     $('.btn-play').click(function () {
-    //         $videoSrc = $(this).data("src");
-    //     });
-    //     console.log($videoSrc);
-
-    //     $('#videoModal').on('shown.bs.modal', function (e) {
-    //         $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
-    //     })
-
-    //     $('#videoModal').on('hide.bs.modal', function (e) {
-    //         $("#video").attr('src', $videoSrc);
-    //     })
-
-    //     //add active class to header
-    //     const navElement = $("#navbarCollapse");
-    //     const currentUrl = window.location.pathname;
-    //     navElement.find('a.nav-link').each(function () {
-    //         const link = $(this); // Get the current link in the loop
-    //         const href = link.attr('href'); // Get the href attribute of the link
-
-    //         if (href === currentUrl) {
-    //             link.addClass('active'); // Add 'active' class if the href matches the current URL
-    //         } else {
-    //             link.removeClass('active'); // Remove 'active' class if the href does not match
-    //         }
-    //     });
-    // });
 
 
 
@@ -693,7 +631,7 @@ const loggedInContent = `
         </li>
 
         <li><a class="dropdown-item" href="#">Quản lý tài khoản</a></li>
-        <li><a class="dropdown-item" href="order-history">Lịch sử mua hàng</a></li>
+        <li><a class="dropdown-item" href="order.history.html">Lịch sử mua hàng</a></li>
         <li>
             <hr class="dropdown-divider">
         </li>
@@ -707,11 +645,11 @@ const loggedInContent = `
     </div>
   `;
 
-// Hàm render avatar dựa trên email
+//func render avatar by email
 function getAvatarSrc(email) {
     return email === 'nu1412sos@gmail.com' ? '../../../../resources/images/president/levannguyen.jpg' : '../../../../resources/images/president/anonymousavatar.jpg';
 }
-// Hàm lấy tên hiển thị dựa trên email
+//func get email show name
 function getDisplayName(email) {
     return email === 'nu1412sos@gmail.com' ? 'Lê Văn Nguyên' : email.split('@')[0];
 }
@@ -725,7 +663,13 @@ function renderContent() {
     }
 }
 
-// Xử lý sự kiện submit form đăng nhập
+
+
+
+//
+
+
+// process event submit form login
 document.getElementById('loginForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -745,7 +689,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     }
 });
 
-// Hàm đăng xuất
+//func logout
 function logout() {
     isLoggedIn = false;
     currentEmail = '';
@@ -754,7 +698,7 @@ function logout() {
     renderContent();
 }
 
-// Hiển thị nội dung ban đầu khi tải trang
+// show content start load page
 renderContent();
 
 //search
@@ -869,48 +813,7 @@ $(document).ready(function () {
 
 
 
-//banner
-// Banner (phiên bản sửa lỗi)
-(function () {
-    function initBanner() {
-        const wrapper = document.querySelector('.testimonial-wrapper');
-        const items = document.querySelectorAll('.testimonial-item');
-        const nextBtn = document.getElementById('next');
-        const prevBtn = document.getElementById('prev');
 
-        // Kiểm tra xem tất cả phần tử cần thiết có tồn tại không
-        if (!wrapper || !items.length || !nextBtn || !prevBtn) {
-            console.error('Không tìm thấy các phần tử banner: .testimonial-wrapper, .testimonial-item, #next, hoặc #prev');
-            return;
-        }
 
-        let index = 0;
-        const totalItems = items.length;
 
-        function updateSlide() {
-            wrapper.style.transform = `translateX(-${index * 100}%)`;
-        }
-
-        nextBtn.addEventListener('click', () => {
-            index = (index + 1) % totalItems;
-            updateSlide();
-        });
-
-        prevBtn.addEventListener('click', () => {
-            index = (index - 1 + totalItems) % totalItems;
-            updateSlide();
-        });
-
-        setInterval(() => {
-            index = (index + 1) % totalItems;
-            updateSlide();
-        }, 5000);
-    }
-
-    // Chạy khi DOM sẵn sàng
-    if (document.readyState === 'complete' || document.readyState === 'interactive') {
-        initBanner();
-    } else {
-        document.addEventListener('DOMContentLoaded', initBanner);
-    }
-})();
+//

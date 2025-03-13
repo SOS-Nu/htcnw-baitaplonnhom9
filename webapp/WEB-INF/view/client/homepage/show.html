@@ -81,66 +81,12 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                <a href="cart.html" class="dropdown-item">Cart</a>
+                                <a href="cart.history.html" class="dropdown-item">Cart</a>
                                 <a href="checkout.html" class="dropdown-item">Checkout</a>
-                                <a href="cart.history.html" class="dropdown-item">Lịch Sử Mua Hàng</a>
+                                <a href="order.history.html" class="dropdown-item">Lịch Sử Mua Hàng</a>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="d-flex m-3 me-0" id="authSection">
-                        <a href="http://localhost:8080/" class="navbar-brand" style="margin-top: 10px !important;">
-                            <h4 class="text-primary display-10"> HotLine: 0385382597</h4>
-
-                        </a>
-                        <a href="" class="position-relative me-4 my-auto">
-                            <i class="fa fa-phone fa-2x"></i>
-
-                        </a>
-
-
-                        <a href="http://localhost:8080/cart" class="position-relative me-4 my-auto">
-                            <i class="fa fa-shopping-bag fa-2x"></i>
-                            <span
-                                class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
-                                style="top: -5px; left: 15px; height: 20px; min-width: 20px;" id="sunCart">
-                                2
-                            </span>
-                        </a>
-                        <div class="dropdown my-auto">
-                            <a href="http://localhost:8080/#" class="dropdown" role="button" id="dropdownMenuLink"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user fa-2x"></i>
-                            </a>
-
-                            <ul class="dropdown-menu dropdown-menu-end p-4" aria-labelledby="dropdownMenuLink">
-                                <li class="d-flex align-items-center flex-column" style="min-width: 300px;">
-                                    <img style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden;">
-                                    <div class="text-center my-3">
-                                        SOS Nu
-                                    </div>
-                                </li>
-
-                                <li><a class="dropdown-item" href="http://localhost:8080/#">Quản lý tài khoản</a></li>
-
-                                <li><a class="dropdown-item" href="http://localhost:8080/order-history">Lịch sử mua
-                                        hàng</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <form method="post" action="http://localhost:8080/logout">
-                                        <input type="hidden" name="_csrf"
-                                            value="U_JEbj360T-8JftIJS1pyJLKKH-lQ-ilDWbHVRCKKQx7SlOcZJZ1X17OswaRRst_FABd-6X_BUeXd4mIaFShZXa-TG8efTCp">
-                                        <button class="dropdown-item">Đăng xuất</button>
-
-                                    </form>
-                                </li>
-                            </ul>
-
-
-                        </div>
-
-                    </div> -->
 
 
                     <!-- dang nhap logic -->
@@ -314,7 +260,7 @@
                             style="top: 0; right: 25%;" id="searchButton">Submit Now</button>
                     </div>
                 </div>
-                <div class="col-md-12 col-lg-5 ">
+                <div class="col-md-12 col-lg-5">
                     <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
                         <div class="carousel-inner" role="listbox">
                             <div class="carousel-item rounded active">
@@ -1413,81 +1359,86 @@
             <h1 class="display-5 mb-5 text-dark">Sound Of Silent</h1>
         </div>
 
-        <div class="testimonial-container">
-            <div class="testimonial-wrapper">
-                <!-- Lê Văn Nguyên -->
-                <div class="testimonial-item bg-light rounded p-4">
-                    <i class="fa fa-quote-right fa-2x text-secondary"></i>
-                    <p class="mt-3">Sound Of Silent</p>
-                    <img src="img/../../../../../resources/images/president/levannguyen.jpg" alt="">
-                    <h4 class="mt-2 text-dark">Lê Văn Nguyên (SOS Nu)</h4>
-                    <p class="text-muted">President</p>
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Slide 1: Lê Văn Nguyên -->
+                <div class="carousel-item active">
+                    <div class="testimonial-item bg-light rounded p-4 mx-auto d-flex justify-content-center"
+                        style="max-width: 600px;">
+                        <div class="text-center flex-fill" style="max-width: 300px;">
+                            <i class="fa fa-quote-right fa-2x text-secondary"></i>
+                            <p class="mt-3">Sound Of Silent</p>
+                            <img src="img/../../../../../resources/images/president/levannguyen.jpg" alt=""
+                                class="img-fluid rounded-circle" style="width: 100px; height: 100px;">
+                            <h4 class="mt-2 text-dark">Lê Văn Nguyên (SOS Nu)</h4>
+                            <p class="text-muted">President</p>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- Ngan & John Smith-->
-                <div class="testimonial-item bg-light rounded p-4 d-flex flex-column align-items-center">
-                    <div class="d-flex gap-3 justify-content-between w-50">
-                        <!-- Jane Doe -->
-                        <div class="text-center">
+                <!-- Slide 2: Ngan & John Smith -->
+                <div class="carousel-item">
+                    <div class="testimonial-item bg-light rounded p-4 mx-auto d-flex justify-content-around gap-3"
+                        style="max-width: 600px;" style="max-width: 600px;">
+                        <!-- Kim Ngân -->
+                        <div class="text-center flex-fill" style="max-width: 300px;">
                             <i class="fa fa-quote-right fa-2x text-secondary"></i>
                             <p class="mt-3">Member Of Sound Of Silent</p>
-                            <img src="../../../../resources/images/president/ngan.jpg" alt="">
+                            <img src="../../../../resources/images/president/ngan.jpg" alt=""
+                                class="img-fluid rounded-circle" style="width: 100px; height: 100px;">
                             <h4 class="mt-2 text-dark">Kim Ngân</h4>
                             <p class="text-muted">Designer</p>
                         </div>
-                        <!--Lê Văn Nguyên Member-->
-                        <div class="text-center ">
+                        <!-- Lê Văn Nguyên -->
+                        <div class="text-center flex-fill" style="max-width: 300px;">
                             <i class="fa fa-quote-right fa-2x text-secondary"></i>
                             <p class="mt-3">Member Of Sound Of Silent</p>
-                            <img src="../../../../resources/images/president/nguyennho.png" alt="">
+                            <img src="../../../../resources/images/president/nguyennho.png" alt=""
+                                class="img-fluid rounded-circle" style="width: 100px; height: 100px;">
                             <h4 class="mt-2 text-dark">Lê Văn Nguyên</h4>
                             <p class="text-muted">Employee</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Alice Brown & Bob Martin -->
-                <div class="testimonial-item bg-light rounded p-4 d-flex flex-column align-items-center">
-                    <div class="d-flex gap-3  justify-content-between w-50">
-                        <!-- Alice Brown -->
-                        <div class="text-center">
+                <!-- Slide 3: Alice Brown & Bob Martin -->
+                <div class="carousel-item">
+                    <div class="testimonial-item bg-light rounded p-4 mx-auto d-flex justify-content-around gap-3"
+                        style="max-width: 600px;" style="max-width: 600px;">
+                        <!-- Hồ Thanh Nhơn -->
+                        <div class="text-center flex-fill" style="max-width: 300px;">
                             <i class="fa fa-quote-right fa-2x text-secondary"></i>
                             <p class="mt-3">Member Of Sound Of Silent</p>
-                            <img src="../../../../resources/images/president/nhon.jpg" alt="">
+                            <img src="../../../../resources/images/president/nhon.jpg" alt=""
+                                class="img-fluid rounded-circle" style="width: 100px; height: 100px;">
                             <h4 class="mt-2 text-dark">Hồ Thanh Nhơn</h4>
                             <p class="text-muted">Marketing</p>
                         </div>
-                        <!-- Bob Martin -->
-                        <div class="text-center">
+                        <!-- Huỳnh Như -->
+                        <div class="text-center flex-fill" style="max-width: 300px;">
                             <i class="fa fa-quote-right fa-2x text-secondary"></i>
                             <p class="mt-3">Member Of Sound Of Silent</p>
-                            <img src="../../../../resources/images/president/nhu.png" alt="">
+                            <img src="../../../../resources/images/president/nhu.png" alt=""
+                                class="img-fluid rounded-circle" style="width: 100px; height: 100px;">
                             <h4 class="mt-2 text-dark">Huỳnh Như</h4>
                             <p class="text-muted">CEO</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-
-        <div class="text-center mt-4 d-flex justify-content-center gap-3">
-            <button class="btn btn-primary btn-lg d-flex align-items-center justify-content-center w-25" id="prev"
-                style="min-width: 150px; max-width: 200px;">
-                <i class="bi bi-arrow-left-circle-fill me-2"></i> Previous
+            <!-- Nút điều khiển -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
             </button>
-            <button class="btn btn-primary btn-lg d-flex align-items-center justify-content-center w-25" id="next"
-                style="min-width: 150px; max-width: 200px;">
-                Next <i class="bi bi-arrow-right-circle-fill ms-2"></i>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
             </button>
         </div>
-
-
-
     </div>
     <!-- Testimonial Section End -->
-    <!-- Tastimonial End -->
-
 
 
 
@@ -1590,10 +1541,12 @@ jsp -->
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../../../resources/client/lib/easing/easing.min.js"></script>
-    <script src="../../../../resources/client/lib/waypoints/waypoints.min.js"></script>
+    <!--   <script src="../../../../resources/client/lib/easing/easing.min.js"></script>
     <script src="../../../../resources/client/lib/lightbox/js/lightbox.min.js"></script>
+   <script src="../../../../resources/client/lib/waypoints/waypoints.min.js"></script> -->
+
     <script src="../../../../resources/client/lib/owlcarousel/owl.carousel.min.js"></script>
+
 
 
     <!-- Template Javascript -->
@@ -1602,6 +1555,35 @@ jsp -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js">
     </script>
+
+    <!-- Thêm đoạn script này trước thẻ </body> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const carousel = document.querySelector('#carouselId');
+
+            // Khởi tạo carousel với các tùy chọn (tuỳ chọn)
+            const bootstrapCarousel = new bootstrap.Carousel(carousel, {
+                interval: 3000, // Thời gian chuyển slide (3000ms = 3 giây)
+                pause: 'hover', // Tạm dừng khi hover
+                wrap: true // Quay vòng lại từ slide cuối về slide đầu
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const testimonialCarousel = document.querySelector('#testimonialCarousel');
+            const carousel = new bootstrap.Carousel(testimonialCarousel, {
+                interval: 4000, // Chuyển slide sau 5 giây
+                ride: 'carousel', // Tự động chạy
+                pause: 'hover', // Tạm dừng khi hover (tuỳ chọn)
+                wrap: true // Quay vòng lại khi đến slide cuối
+            });
+        });
+    </script>
+
+    <script>
+
+    </script>
+
 
 
 </body>
