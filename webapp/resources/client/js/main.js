@@ -1016,3 +1016,146 @@ document.addEventListener('DOMContentLoaded', function () {
     // Render giỏ hàng lần đầu
     renderCart();
 });
+
+
+
+
+
+
+//detail product
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.product-link').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const product = {
+                id: this.getAttribute('data-product-id'),
+                name: this.getAttribute('data-name'),
+                image: this.getAttribute('data-image'),
+                price: this.getAttribute('data-price'),
+                specs: this.getAttribute('data-specs')
+            };
+            // Mã hóa dữ liệu thành query string
+            const queryString = new URLSearchParams(product).toString();
+            window.location.href = `product.detail.html?${queryString}`;
+        });
+    });
+});
+
+
+//logic get detail product
+document.addEventListener('DOMContentLoaded', function () {
+    // Lấy thông tin từ URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const product = {
+        id: urlParams.get('id'),
+        name: urlParams.get('name'),
+        image: urlParams.get('image'),
+        price: parseInt(urlParams.get('price')),
+        specs: urlParams.get('specs')
+    };
+
+    // Nếu không có dữ liệu, hiển thị mặc định
+    if (!product.id) {
+        product.id = "unknown";
+        product.name = "Sản phẩm không xác định";
+        product.image = "../../../../resources/images/product/default.png";
+        product.price = 0;
+        product.specs = "Không có thông tin";
+    }
+
+    // Cập nhật giao diện
+    document.getElementById('productImage').src = product.image;
+    document.getElementById('productName').textContent = product.name;
+    document.getElementById('productBrand').textContent = "Dell"; // Giả lập, có thể lấy từ dữ liệu nếu có
+    document.getElementById('productPrice').textContent = `${product.price.toLocaleString('vi-VN')} đ`;
+    document.getElementById('productSpecs').textContent = product.specs;
+    document.getElementById('quantity').value = 1;
+    document.getElementById('totalPrice').textContent = (product.price * 1).toLocaleString('vi-VN');
+    document.getElementById('productId').value = product.id;
+    document.getElementById('productDescription').textContent = `Thông tin sản phẩm ${product.name}. Thiết kế tinh tế, hiệu năng mạnh mẽ.`; // Giả lập mô tả
+
+    // Xử lý nút tăng/giảm số lượng
+    const quantityInput = document.getElementById('quantity');
+    const totalPriceElement = document.getElementById('totalPrice');
+    document.querySelector('.btn-minus').addEventListener('click', () => {
+        if (quantityInput.value > 1) {
+            quantityInput.value--;
+            totalPriceElement.textContent = (product.price * quantityInput.value).toLocaleString('vi-VN');
+        }
+    });
+    document.querySelector('.btn-plus').addEventListener('click', () => {
+        quantityInput.value++;
+        totalPriceElement.textContent = (product.price * quantityInput.value).toLocaleString('vi-VN');
+    });
+
+    // Xử lý nút "Thêm vào giỏ hàng"
+    document.querySelector('.btnAddToCartDetail').addEventListener('click', () => {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const updatedProduct = {
+            id: product.id,
+            name: product.name,
+            image: product.image,
+            price: product.price,
+            quantity: parseInt(quantityInput.value)
+        };
+        const existingProduct = cart.find(item => item.id === product.id);
+        if (existingProduct) {
+            existingProduct.quantity += updatedProduct.quantity;
+        } else {
+            cart.push(updatedProduct);
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`Đã thêm ${product.name} vào giỏ hàng với số lượng ${quantityInput.value}!`);
+    });
+});
+
+
+//logic color
+// Xử lý lựa chọn màu sắc và cập nhật giá
+const colorButtons = document.querySelectorAll('.color-btn');
+let basePrice = 0; // Giá cơ bản sẽ được set từ #productPrice
+let selectedPriceIncrease = 0;
+
+colorButtons.forEach(button => {
+    button.addEventListener('click', function () {
+        colorButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        selectedPriceIncrease = parseInt(this.dataset.priceIncrease);
+        updateTotalPrice();
+    });
+});
+
+// Xử lý số lượng
+const quantityInput = document.getElementById('quantity');
+const minusBtn = document.querySelector('.btn-minus');
+const plusBtn = document.querySelector('.btn-plus');
+
+minusBtn.addEventListener('click', () => {
+    if (quantityInput.value > 1) {
+        quantityInput.value--;
+        updateTotalPrice();
+    }
+});
+
+plusBtn.addEventListener('click', () => {
+    quantityInput.value++;
+    updateTotalPrice();
+});
+
+quantityInput.addEventListener('change', () => {
+    if (quantityInput.value < 1) quantityInput.value = 1;
+    updateTotalPrice();
+});
+
+// Cập nhật tổng giá
+function updateTotalPrice() {
+    const quantity = parseInt(quantityInput.value);
+    const total = (basePrice + selectedPriceIncrease) * quantity;
+    document.getElementById('totalPrice').textContent = total.toLocaleString('vi-VN');
+}
+
+// Khởi tạo giá ban đầu (giả sử lấy từ #productPrice)
+window.onload = function () {
+    basePrice = parseInt(document.getElementById('productPrice').textContent.replace(/[^0-9]/g, '')) || 0;
+    updateTotalPrice();
+}

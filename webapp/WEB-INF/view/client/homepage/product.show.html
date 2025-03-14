@@ -17,8 +17,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="../../../../resources/client/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-    <link href="../../../../resources/client/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <!-- <link href="../../../../resources/client/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="../../../../resources/client/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet"> -->
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="../../../../resources/client/css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +30,6 @@
 
     </style>
 </head>
-
 
 <body>
 
@@ -77,7 +76,7 @@
                 </button>
                 <div class="collapse navbar-collapse bg-white justify-content-between mx-5" id="navbarCollapse">
                     <div class="navbar-nav">
-                        <a href="show.html" class="nav-item nav-link">Trang Chủ</a>
+                        <a href="show.html" class="nav-item nav-link ">Trang Chủ</a>
                         <a href="product.show.html" class="nav-item nav-link active">Sản Phẩm</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -109,7 +108,7 @@
 
     <!-- Navbar End -->
     <!-- chua dang nhap  -->
-
+    <div id="handleAddToCart"></div>
     <!-- Modal Đăng nhập -->
     <div class="modal fade" id="login" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -244,7 +243,7 @@
         </div>
     </div>
     <!-- model register End -->
-    <!-- ------------------------------------------------------------ -->
+    <!-- ================================= -->
     <!-- Single Product Start -->
     <div class="container-fluid py-5 mt-5">
         <div class="container py-5">
@@ -665,7 +664,9 @@
     </div>
     <!-- Single Product End -->
 
-    <!-- ------------------------------------------------------------- -->
+    <!-- =================================== -->
+
+
     <!-- Featurs Section Start -->
     <div class="container-fluid featurs py-5">
         <div class="container py-5">
@@ -721,82 +722,92 @@
     </div>
     <!-- Featurs Section End -->
 
-    <!-- conseil admin Section Start -->
+    <!-- Admin  Start -->
+    <!-- Admin Start -->
     <div class="container py-5">
         <div class="text-center">
             <h4 class="text-primary">Key People</h4>
             <h1 class="display-5 mb-5 text-dark">Sound Of Silent</h1>
         </div>
-        <div class="testimonial-container">
-            <div class="testimonial-wrapper">
-                <!-- Lê Văn Nguyên -->
-                <div class="testimonial-item bg-light rounded p-4">
-                    <i class="fa fa-quote-right fa-2x text-secondary"></i>
-                    <p class="mt-3">Sound Of Silent</p>
-                    <img src="img/../../../../../resources/images/president/levannguyen.jpg" alt="">
-                    <h4 class="mt-2 text-dark">Lê Văn Nguyên (SOS Nu)</h4>
-                    <p class="text-muted">President</p>
-                </div>
 
-                <!-- Ngan & John Smith-->
-                <div class="testimonial-item bg-light rounded p-4 d-flex flex-column align-items-center">
-                    <div class="d-flex gap-3 justify-content-between w-50">
-                        <!-- Jane Doe -->
-                        <div class="text-center">
+        <div id="adminCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Slide 1: Lê Văn Nguyên -->
+                <div class="carousel-item active">
+                    <div class="bg-light rounded p-4 mx-auto d-flex justify-content-center " style="max-width: 1500px;">
+                        <div class="text-center flex-fill" style="max-width: 300px;">
+                            <i class="fa fa-quote-right fa-2x text-secondary"></i>
+                            <p class="mt-3">Sound Of Silent</p>
+                            <img src="../../../../resources/images/president/levannguyen.jpg" alt=""
+                                class="img-fluid rounded-circle" style="width: 100px; height: 100px;">
+                            <h4 class="mt-2 text-dark">Lê Văn Nguyên (SOS Nu)</h4>
+                            <p class="text-muted">President</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2: Ngan & John Smith -->
+                <div class="carousel-item">
+                    <div class="bg-light rounded p-4 mx-auto d-flex justify-content-around gap-3"
+                        style="max-width: 1500px;">
+                        <!-- Kim Ngân -->
+                        <div class="text-center flex-fill" style="max-width: 300px;">
                             <i class="fa fa-quote-right fa-2x text-secondary"></i>
                             <p class="mt-3">Member Of Sound Of Silent</p>
-                            <img src="../../../../resources/images/president/ngan.jpg" alt="">
+                            <img src="../../../../resources/images/president/ngan.jpg" alt=""
+                                class="img-fluid rounded-circle" style="width: 100px; height: 100px;">
                             <h4 class="mt-2 text-dark">Kim Ngân</h4>
                             <p class="text-muted">Designer</p>
                         </div>
-                        <!--Lê Văn Nguyên Member-->
-                        <div class="text-center ">
+                        <!-- Lê Văn Nguyên -->
+                        <div class="text-center flex-fill" style="max-width: 300px;">
                             <i class="fa fa-quote-right fa-2x text-secondary"></i>
                             <p class="mt-3">Member Of Sound Of Silent</p>
-                            <img src="../../../../resources/images/president/nguyennho.png" alt="">
+                            <img src="../../../../resources/images/president/nguyennho.png" alt=""
+                                class="img-fluid rounded-circle" style="width: 100px; height: 100px;">
                             <h4 class="mt-2 text-dark">Lê Văn Nguyên</h4>
                             <p class="text-muted">Employee</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Alice Brown & Bob Martin -->
-                <div class="testimonial-item bg-light rounded p-4 d-flex flex-column align-items-center">
-                    <div class="d-flex gap-3  justify-content-between w-50">
-                        <!-- Alice Brown -->
-                        <div class="text-center">
+                <!-- Slide 3: Hồ Thanh Nhơn & Huỳnh Như -->
+                <div class="carousel-item">
+                    <div class="bg-light rounded p-4 mx-auto d-flex justify-content-around gap-3"
+                        style="max-width: 1500px;">
+                        <!-- Hồ Thanh Nhơn -->
+                        <div class="text-center flex-fill" style="max-width: 300px;">
                             <i class="fa fa-quote-right fa-2x text-secondary"></i>
                             <p class="mt-3">Member Of Sound Of Silent</p>
-                            <img src="../../../../resources/images/president/nhon.jpg" alt="">
+                            <img src="../../../../resources/images/president/nhon.jpg" alt=""
+                                class="img-fluid rounded-circle" style="width: 100px; height: 100px;">
                             <h4 class="mt-2 text-dark">Hồ Thanh Nhơn</h4>
                             <p class="text-muted">Marketing</p>
                         </div>
-                        <!-- Bob Martin -->
-                        <div class="text-center">
+                        <!-- Huỳnh Như -->
+                        <div class="text-center flex-fill" style="max-width: 300px;">
                             <i class="fa fa-quote-right fa-2x text-secondary"></i>
                             <p class="mt-3">Member Of Sound Of Silent</p>
-                            <img src="../../../../resources/images/president/nhu.png" alt="">
+                            <img src="../../../../resources/images/president/nhu.png" alt=""
+                                class="img-fluid rounded-circle" style="width: 100px; height: 100px;">
                             <h4 class="mt-2 text-dark">Huỳnh Như</h4>
                             <p class="text-muted">CEO</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="text-center mt-4 d-flex justify-content-center gap-3">
-            <button class="btn btn-primary btn-lg d-flex align-items-center justify-content-center w-25" id="prev"
-                style="min-width: 150px; max-width: 200px;">
-                <i class="bi bi-arrow-left-circle-fill me-2"></i> Previous
+
+            <!-- Nút điều khiển -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#adminCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
             </button>
-            <button class="btn btn-primary btn-lg d-flex align-items-center justify-content-center w-25" id="next"
-                style="min-width: 150px; max-width: 200px;">
-                Next <i class="bi bi-arrow-right-circle-fill ms-2"></i>
+            <button class="carousel-control-next" type="button" data-bs-target="#adminCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
             </button>
         </div>
     </div>
-    <!-- conseil admin Section End -->
-    <!-- conseil admin End -->
-
+    <!-- Admin End -->
+    <!-- Admin  End -->
 
 
 
@@ -875,6 +886,9 @@
                             Văn Nguyên</a>, All right reserved.</span>
                 </div>
                 <div class="col-md-6 my-auto text-center text-md-end text-white">
+                    <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                    <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                    <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
                     Designed By <a class="border-bottom">Lê Văn Nguyên</a> Distributed
                     By <a class="border-bottom">SOS Nu</a>
                 </div>
@@ -883,23 +897,21 @@
     </div>
     <!-- Copyright End -->
 
-    <!--  Back to Top -->
+    <!-- Back to Top -->
+    <!-- <a class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a> -->
     <button id="back-to-top" title="Back to Top" class="btn btn-primary border-3 border-primary rounded-circle">
         <i class="fa fa-arrow-up"></i>
     </button>
 
     <!-- JavaScript Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../../../resources/client/lib/easing/easing.min.js"></script>
-    <script src="../../../../resources/client/lib/waypoints/waypoints.min.js"></script>
-    <script src="../../../../resources/client/lib/lightbox/js/lightbox.min.js"></script>
-    <script src="../../../../resources/client/lib/owlcarousel/owl.carousel.min.js"></script>
+
+
 
 
     <!-- Template Javascript -->
     <script src="../../../../resources/client/js/main.js"></script>
-
 
 
 

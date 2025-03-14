@@ -663,6 +663,7 @@ h5#searchModalLabel {
     border-radius: 5px;
     display: flex;
 
+
     cursor: pointer;
     font-size: 14px;
     align-items: center;
@@ -709,4 +710,36 @@ h5#searchModalLabel {
     /* Căn giữa theo chiều ngang nếu cần */
     height: 100%;
     /* Đảm bảo ô cao bằng hàng */
+}
+
+
+.color-btn {
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s;
+}
+
+.color-btn.active {
+    border-width: 3px !important;
+    transform: scale(1.1);
+}
+
+.quantity-group .btn {
+    padding: 8px 12px;
+}
+
+.quantity-group .form-control {
+    padding: 8px;
+    height: auto;
+}
+
+.btn-add-to-cart {
+    background-color: #007bff;
+    border: none;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #0056b3;
 }
