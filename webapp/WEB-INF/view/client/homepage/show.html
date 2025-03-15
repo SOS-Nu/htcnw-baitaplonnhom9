@@ -78,6 +78,11 @@
                     <div class="navbar-nav">
                         <a href="show.html" class="nav-item nav-link active">Trang Chủ</a>
                         <a href="product.show.html" class="nav-item nav-link">Sản Phẩm</a>
+                        <button id="theme-toggle"
+                            class="btn border border-secondary btn-md-square rounded-circle bg-white me-4"
+                            aria-label="Chuyển đổi giữa chế độ sáng và tối">
+                            <i class="fas fa-sun text-primary" id="theme-icon"></i>
+                        </button>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu m-0 bg-secondary rounded-0">
@@ -91,6 +96,8 @@
 
                     <!-- dang nhap logic -->
                     <div class="d-flex m-3 me-0" id="authSection">
+                        <!-- Nút chuyển đổi Dark Mode -->
+
                         <button
                             class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
                             data-bs-toggle="modal" data-bs-target="#searchModal">
