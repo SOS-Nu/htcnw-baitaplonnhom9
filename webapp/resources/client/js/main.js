@@ -1074,19 +1074,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('productId').value = product.id;
     document.getElementById('productDescription').textContent = `Thông tin sản phẩm ${product.name}. Thiết kế tinh tế, hiệu năng mạnh mẽ.`; // Giả lập mô tả
 
-    // Xử lý nút tăng/giảm số lượng
-    const quantityInput = document.getElementById('quantity');
-    const totalPriceElement = document.getElementById('totalPrice');
-    document.querySelector('.btn-minus').addEventListener('click', () => {
-        if (quantityInput.value > 1) {
-            quantityInput.value--;
-            totalPriceElement.textContent = (product.price * quantityInput.value).toLocaleString('vi-VN');
-        }
-    });
-    document.querySelector('.btn-plus').addEventListener('click', () => {
-        quantityInput.value++;
-        totalPriceElement.textContent = (product.price * quantityInput.value).toLocaleString('vi-VN');
-    });
 
     // Xử lý nút "Thêm vào giỏ hàng"
     document.querySelector('.btnAddToCartDetail').addEventListener('click', () => {
