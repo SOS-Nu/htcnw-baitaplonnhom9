@@ -1074,10 +1074,13 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('productId').value = product.id;
     document.getElementById('productDescription').textContent = `Thông tin sản phẩm ${product.name}. Thiết kế tinh tế, hiệu năng mạnh mẽ.`; // Giả lập mô tả
 
+<<<<<<< HEAD
     // Xử lý nút tăng/giảm số lượng
     const quantityInput = document.getElementById('quantity');
     const totalPriceElement = document.getElementById('totalPrice');
 
+=======
+>>>>>>> fixbug
 
     // Xử lý nút "Thêm vào giỏ hàng"
     document.querySelector('.btnAddToCartDetail').addEventListener('click', () => {

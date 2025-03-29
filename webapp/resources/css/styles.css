@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @charset "UTF-8";
 
 /*!
@@ -13028,6 +13029,8 @@ darkmode .sb-nav-fixed .sb-topnav {
     margin: 7px 0;
 }
 
+=======
+>>>>>>> fixbug
 /* PAGER */
 .datatable-pagination a:hover {
     background-color: #e9ecef;
