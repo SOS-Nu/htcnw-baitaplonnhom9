@@ -38,6 +38,27 @@
         .pagination li {
             list-style: none;
         }
+
+        #handleAddToCart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            z-index: 9999;
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        #handleAddToCart.success {
+            background-color: #28a745;
+        }
+
+        #handleAddToCart.error {
+            background-color: #dc3545;
+        }
     </style>
 </head>
 
@@ -50,6 +71,7 @@
     </div>
     <!-- Spinner End -->
     <!--  Navbar start -->
+    <div id="handleAddToCart"></div>
     <div class="container-fluid fixed-top shadow">
         <div class="container topbar bg-primary d-none d-lg-block">
             <div class="d-flex justify-content-between">
@@ -912,8 +934,12 @@
                                     <div class="d-flex flex-lg-wrap justify-content-center flex-column">
                                         <p style="font-size: 15px; text-align: center; width: 100%;"
                                             class="text-dark fw-bold mb-3">${product.price.toLocaleString()} đ</p>
-                                        <button data-product-id="${product.id}"
-                                            class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                        <button class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary"
+                                            data-product-id="${product.id}"
+                                            data-name="${product.name}"
+                                            data-image="${product.image}"
+                                            data-price="${product.price}"
+                                            data-specs="${product.specs}">
                                             <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
                                         </button>
                                     </div>
