@@ -53,7 +53,7 @@
         }
 
         #handleAddToCart.success {
-            background-color: #28a745;
+            background-color: #32a11ccb;
         }
 
         #handleAddToCart.error {
@@ -261,8 +261,7 @@
                             </div>
                         </div>
                         <div>
-                            <input type="hidden" name="_csrf"
-                                value="AZnFsa4bNDjhf6Tfwu8eP_MQEnKyz1p3608G5SyP_d8QWSmnZf2jgMgqUV7MS8Lv8cIqCZdzP0uDrjha2Hll0Bm2y7lxP0uR">
+                            <input type="hidden" name="_csrf" value="">
                         </div>
                     </form>
                 </div>
@@ -709,9 +708,6 @@
                             Văn Nguyên</a>, All right reserved.</span>
                 </div>
                 <div class="col-md-6 my-auto text-center text-md-end text-white">
-                    <!--/*** This template is free as long as you keep the below author's credit link/attribution link/backlink. ***/-->
-                    <!--/*** If you'd like to use the template without the below author's credit link/attribution link/backlink, ***/-->
-                    <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
                     Designed By <a class="border-bottom">Lê Văn Nguyên</a> Distributed
                     By <a class="border-bottom">SOS Nu</a>
                 </div>
@@ -949,6 +945,67 @@
                     `;
                     container.append(productHtml);
                 });
+
+                // Thêm lại sự kiện click cho các nút Add to cart sau khi render
+                $('.btnAddToCartHomepage').off('click').on('click', function (event) {
+                    event.preventDefault();
+                    const productElement = $(this).closest('.fruite-item');
+                    if (!productElement.length) return;
+
+                    const productId = $(this).attr('data-product-id');
+                    const productName = productElement.find('h4 a').text();
+                    const productPrice = productElement.find('.text-dark.fw-bold')
+                        .text().replace(' đ', '').replace(/,/g, '');
+                    const productImage = productElement.find('.fruite-img img').attr('src');
+
+                    const product = {
+                        id: productId,
+                        name: productName,
+                        price: parseInt(productPrice),
+                        image: productImage,
+                        quantity: 1
+                    };
+
+                    const userEmail = localStorage.getItem('userEmail');
+                    if (!userEmail) {
+                        showToast('Lỗi thao tác', 'Bạn cần đăng nhập tài khoản', 'error');
+                        return;
+                    }
+
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const existingProduct = cart.find(item => item.id === productId);
+                    if (existingProduct) {
+                        existingProduct.quantity += 1;
+                    } else {
+                        cart.push(product);
+                    }
+                    localStorage.setItem('cart', JSON.stringify(cart));
+
+                    showToast('Giỏ hàng', 'Thêm sản phẩm vào giỏ hàng thành công', 'success');
+                    updateCartCount();
+                });
+            }
+
+            // Hàm hiển thị thông báo
+            function showToast(heading, text, type = 'success') {
+                const toast = $('#handleAddToCart');
+                toast.removeClass('error success').addClass(type);
+                toast.html(`<strong>${heading}</strong><br>${text}`);
+                toast.show().css('opacity', '1');
+
+                setTimeout(() => {
+                    toast.css('opacity', '0');
+                    setTimeout(() => {
+                        toast.hide().css('opacity', '1');
+                    }, 500);
+                }, 5000);
+            }
+
+            // Hàm cập nhật số lượng sản phẩm trong giỏ hàng
+            function updateCartCount() {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                $('#cartCount').text(totalItems);
             }
 
             // Cập nhật phân trang
