@@ -1,0 +1,8 @@
+{
+    "routes": [
+      { "src": "/", "dest": "/webapp/WEB-INF/view/client/homepage/show.html" },
+      { "src": "/product", "dest": "/webapp/WEB-INF/view/client/homepage/product.show.html" },
+      { "src": "/detail", "dest": "/webapp/WEB-INF/view/client/homepage/product.detail.html" },
+      { "src": "/(.*)", "status": 404, "dest": "/webapp/WEB-INF/view/client/404.html" }
+    ]
+  }
