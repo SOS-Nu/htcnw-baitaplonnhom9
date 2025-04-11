@@ -1,0 +1,8 @@
+{
+    "routes": [
+      { "src": "/", "dest": "/homepage/show.html" },
+      { "src": "/product", "dest": "/homepage/product.show.html" },
+      { "src": "/detail", "dest": "/homepage/product.detail.html" },
+      { "src": "/(.*)", "status": 404, "dest": "/thu-muc-3/404.html" }
+    ]
+  }
