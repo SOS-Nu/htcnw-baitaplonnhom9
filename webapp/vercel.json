@@ -1,8 +1,16 @@
 {
-    "routes": [
-      { "src": "/", "dest": "/webapp/WEB-INF/view/client/homepage/show.html" },
-      { "src": "/product", "dest": "/webapp/WEB-INF/view/client/homepage/product.show.html" },
-      { "src": "/detail", "dest": "/webapp/WEB-INF/view/client/homepage/product.detail.html" },
-      { "src": "/(.*)", "status": 404, "dest": "/webapp/WEB-INF/view/client/404.html" }
-    ]
-  }
+  "version": 2,
+  "public": true,
+  "builds": [
+    {
+      "src": "webapp/WEB-INF/view/client/homepage/**/*.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/", "dest": "/show.html" },
+    { "src": "/product", "dest": "/product.show.html" },
+    { "src": "/product/detail", "dest": "/product.detail.html" },
+    { "src": "/cart/history", "dest": "/cart.history.html" }
+  ]
+}
