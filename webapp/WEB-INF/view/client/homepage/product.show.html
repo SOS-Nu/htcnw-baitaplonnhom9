@@ -841,24 +841,25 @@
 
             // lọc sản phẩm
             function filterProducts() {
-                // Lọc theo hãng sản xuất
+                //filter factory
                 const selectedFactories = [];
                 document.querySelectorAll('#factoryFilter input:checked').forEach(checkbox => {
                     selectedFactories.push(checkbox.value);
+                    // console.log('check >> checkbox', checkbox, 'check >> checkboxvalue', checkbox.value, 'check >> selectedFactories', selectedFactories)
                 });
 
-                // Lọc theo mức giá
+                //filter price
                 const selectedPrices = [];
                 document.querySelectorAll('#priceFilter input:checked').forEach(checkbox => {
                     selectedPrices.push(checkbox.value);
                 });
 
-                // Lọc sản phẩm
+                // filter product
                 filteredProducts = products.filter(product => {
-                    // Lọc theo hãng sản xuất
+                    // lọc factory
                     const factoryMatch = selectedFactories.length === 0 || selectedFactories.includes(product.factory);
 
-                    // Lọc theo mức giá
+                    // Lọc price
                     let priceMatch = true;
                     if (selectedPrices.length > 0) {
                         priceMatch = selectedPrices.some(priceRange => {
@@ -878,6 +879,7 @@
 
                 // Sắp xếp sản phẩm
                 const sortValue = document.querySelector('input[name="radio-sort"]:checked').value;
+                console.log("check >>", filteredProducts)
                 switch (sortValue) {
                     case 'gia-tang-dan':
                         filteredProducts.sort((a, b) => a.price - b.price);
@@ -886,11 +888,10 @@
                         filteredProducts.sort((a, b) => b.price - a.price);
                         break;
                     default:
-                        // Không sắp xếp
                         break;
                 }
 
-                // Reset về trang 1 và hiển thị sản phẩm đã lọc
+                // Reset ve page 1
                 currentPage = 1;
                 displayProducts(currentPage);
                 updatePagination();
@@ -1028,7 +1029,7 @@
                     </li>
                 `);
 
-                // Các nút số trang
+                // nut số trang
                 for (let i = 1; i <= totalPages; i++) {
                     pagination.insertAdjacentHTML('beforeend', `
                         <li class="page-item ${i === currentPage ? 'active' : ''}">

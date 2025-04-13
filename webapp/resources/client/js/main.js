@@ -226,7 +226,7 @@
             }
         });
 
-        // Cuộn về đầu khi nhấn nút
+        // scroll top event click 
         backToTopButton.addEventListener('click', function () {
             window.scrollTo({
                 top: 0,
@@ -235,7 +235,8 @@
         });
     })();
 
-// Kiểm tra trạng thái đăng nhập từ localStorage
+//check login localstorage
+//login
 let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 let currentEmail = localStorage.getItem('userEmail') || '';
 
@@ -298,6 +299,7 @@ function getAvatarSrc(email) {
 //func get email show name
 function getDisplayName(email) {
     return email === 'nu1412sos@gmail.com' ? 'Lê Văn Nguyên' : email.split('@')[0];
+    //slit chia chuoi
 }
 
 function renderContent() {
@@ -315,6 +317,7 @@ function renderContent() {
 }
 
 // process event submit form login
+//submit form login
 const loginForm = document.getElementById('loginForm');
 if (loginForm) {
     loginForm.addEventListener('submit', function (event) {
@@ -348,9 +351,10 @@ function logout() {
     localStorage.removeItem('userEmail');
     renderContent();
 }
-
-// show content start load page
+//run func reload
 renderContent();
+
+
 
 //search
 (function () {
@@ -366,9 +370,11 @@ renderContent();
         searchButton.addEventListener('click', function () {
             const searchValue = searchInput.value.toLowerCase();
             const activeTab = document.querySelector('.tab-pane.active');
+            // console.log("activeTab >>", activeTab);
             if (!activeTab) return;
 
             const products = Array.from(activeTab.querySelectorAll('.fruite-item'));
+            // console.log("checkk >>", products);
             const productContainer = activeTab.querySelector('.row');
             if (!productContainer) return;
 
@@ -377,6 +383,7 @@ renderContent();
             });
 
             if (searchValue.trim() === '') {
+                //bo khoang trang
                 products.sort((a, b) => {
                     return parseInt(a.querySelector('button').getAttribute('data-product-id')) -
                         parseInt(b.querySelector('button').getAttribute('data-product-id'));
@@ -386,6 +393,7 @@ renderContent();
                     const productName = product.querySelector('h4').textContent.toLowerCase();
                     const productSpecs = product.querySelector('p').textContent.toLowerCase();
                     return productName.includes(searchValue) || productSpecs.includes(searchValue);
+                    //check value in the name or properties
                 });
 
                 const unmatchedProducts = products.filter(function (product) {
@@ -421,7 +429,7 @@ renderContent();
 
 // search vs model
 $(document).ready(function () {
-    // Tìm kiếm thời gian thực trong modal
+    // search realtime
     $('#modalSearchInput').on('input', function () {
         const searchValue = $(this).val().toLowerCase();
         const searchResultsContainer = $('#searchResults');
@@ -432,7 +440,7 @@ $(document).ready(function () {
 
         const products = activeTab.find('.fruite-item').clone();
 
-        // Xóa kết quả cũ
+        // delete ressulte old
         searchResultsContainer.empty();
 
         if (searchValue.trim() === '') {
@@ -440,25 +448,25 @@ $(document).ready(function () {
             return;
         }
 
-        // Lọc sản phẩm
+        // filter product
         const matchedProducts = products.filter(function () {
             const productName = $(this).find('h4').text().toLowerCase();
             const productSpecs = $(this).find('p').text().toLowerCase();
             return productName.includes(searchValue) || productSpecs.includes(searchValue);
         });
 
-        // Hiển thị kết quả
+        //show result
         matchedProducts.each(function () {
             const productClone = $(this).clone().removeClass('hidden visible').addClass('visible');
             const col = $('<div class="col-md-6 col-lg-4 col-xl-3"></div>').append(productClone);
             searchResultsContainer.append(col);
         });
 
-        // Hiển thị thông báo nếu không có kết quả
+        // Hiển thị thông bao neu khong co ket qua
         noResultsMessage.css('display', matchedProducts.length === 0 ? 'block' : 'none');
     });
 
-    // Xóa ô tìm kiếm khi đóng modal
+    //
     $('#searchModal').on('hidden.bs.modal', function () {
         $('#modalSearchInput').val('');
         $('#searchResults').empty();
@@ -486,25 +494,29 @@ $(document).ready(function () {
     }
 });
 
-//adtocart
+//adtocart show
 document.addEventListener('DOMContentLoaded', function () {
-    // Lấy tất cả các nút "Add to Cart"
+    // Lấy tất cả các nút add to cartt
     const addToCartButtons = document.querySelectorAll('.btnAddToCartHomepage');
     const toast = document.getElementById('handleAddToCart');
 
-    // Kiểm tra xem toast có tồn tại không
+    // check toas co parsent khong
     if (!toast) {
-        console.log('Không tìm thấy phần tử #handleAddToCart trong DOM');
+        console.log('không tìm thấy handleaddtorcart');
         return;
     }
 
-    // Thêm sự kiện click cho từng nút
+    //add event click cho tung nut
+    //format tien,  thay d va replace lai dau phay global
+
     addToCartButtons.forEach(button => {
         button.addEventListener('click', function (event) {
             event.preventDefault();
 
-            // Lấy thông tin sản phẩm
+            // Lấy thông tin sản phẩm ,lay class gan nhat btnAddToCartHomepage
             const productElement = this.closest('.fruite-item');
+
+            // console.log("check product element >>",productElement)
             if (!productElement) return;
 
             const productId = this.getAttribute('data-product-id');
@@ -513,7 +525,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 .textContent.replace(' đ', '').replace(/,/g, '');
             const productImage = productElement.querySelector('.fruite-img img').getAttribute('src');
 
-            // Tạo object sản phẩm
+            // Tạo object sản phẩm Int
             const product = {
                 id: productId,
                 name: productName,
@@ -521,8 +533,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 image: productImage,
                 quantity: 1
             };
+            // console.log("check parseInt >>", product )
 
-            // Kiểm tra đăng nhập bằng localStorage
+            // check login localStorage
             const userEmail = localStorage.getItem('userEmail');
             if (!userEmail) {
                 showToast('Lỗi thao tác', 'Bạn cần đăng nhập tài khoản', 'error');
@@ -539,31 +552,27 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             localStorage.setItem('cart', JSON.stringify(cart));
 
-            // Hiển thị thông báo thành công
+            // show notifi successs
             showToast('Giỏ hàng', 'Thêm sản phẩm vào giỏ hàng thành công', 'success');
 
-            // Cập nhật số lượng trên giao diện
+            // update quantity icon
             updateCartCount();
         });
     });
 
-    // Hàm hiển thị thông báo
+    // func hien thi thong bao
     function showToast(heading, text, type = 'success') {
         console.log('showToast called:', { heading, text, type });
 
-        // Xóa class cũ
+        // Xóa class cũ sau đó thêm class vào thẻ div
+        //hàm classlist để thêm class vào thẻ html
         toast.classList.remove('error', 'success');
-        // Thêm class theo loại thông báo
         toast.classList.add(type);
-
-        // Cập nhật nội dung
         toast.innerHTML = `<strong>${heading}</strong><br>${text}`;
 
-        // Hiển thị thông báo
+// logic an hien thong bao
         toast.style.display = 'block';
         toast.style.opacity = '1';
-
-        // Ẩn sau 5 giây
         setTimeout(() => {
             toast.style.opacity = '0';
             setTimeout(() => {
@@ -573,17 +582,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 5000);
     }
 
-    // Hàm cập nhật số lượng sản phẩm trong giỏ hàng trên giao diện
+    // func update product giao dien
     function updateCartCount() {
+        // console.log("check get item cart >>", localStorage.getItem('cart'), typeof(localStorage.getItem('cart')));
+
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
         const cartCountElement = document.getElementById('cartCount');
+        console.log("check cartcountelement >>", cartCountElement)
         if (cartCountElement) {
             cartCountElement.textContent = totalItems;
         }
     }
-
-    // Cập nhật số lượng khi trang được tải
     updateCartCount();
 });
 
